@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TGether — oprogramowanie dla firm ze stałym wsparciem</title>
+<meta name="description" content="Wdrażamy systemy dla firm i zostajemy przy nich. Jeden opiekun: autor i administrator w jednym. Wsparcie w cenie. Umów rozmowę.">
+<link rel="canonical" href="https://tgether.pl/">
+<meta name="theme-color" content="#14161A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TGether">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="TGether — wdrażamy. I zostajemy.">
+<meta property="og:description" content="Oprogramowanie dla firm ze stałym opiekunem. Nie kupujesz licencji — kupujesz pewność, że ktoś tego pilnuje.">
+<meta property="og:url" content="https://tgether.pl/">
+<meta property="og:image" content="https://tgether.pl/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tgether.pl/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","@id":"https://tgether.pl/#organization","name":"TGether","url":"https://tgether.pl","logo":"https://tgether.pl/og-image.png","slogan":"Wdrażamy. I zostajemy.","description":"Oprogramowanie dla firm ze stałym, wbudowanym wsparciem. Jeden opiekun: autor i administrator systemu w jednej osobie.","email":"tomasz@tgether.pl","founder":{"@type":"Person","name":"Tomasz Gubała"},"areaServed":{"@type":"Country","name":"Polska"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Uzależnię się od jednej osoby?","acceptedAnswer":{"@type":"Answer","text":"Tak — i to jest zaleta. Zamiast łańcucha dostawców masz jeden numer i jedną odpowiedzialność. Cała wiedza o systemie jest w jednym miejscu, więc problem zamyka się w sekundy."}},{"@type":"Question","name":"Co, jeśli znikniesz lub zachorujesz?","acceptedAnswer":{"@type":"Answer","text":"Każdy system ma pełną dokumentację, dostępy i automatyczne kopie zapasowe po stronie klienta, plus plan ciągłości z zaufanymi partnerami. Nie zostajesz z czarną skrzynką."}},{"@type":"Question","name":"Ile to kosztuje?","acceptedAnswer":{"@type":"Answer","text":"Model abonamentowy — płacisz za spokój, nie za godziny. Wsparcie jest w cenie. Dokładną wycenę ustalamy po krótkiej rozmowie."}},{"@type":"Question","name":"Czy przejmiesz mój istniejący system?","acceptedAnswer":{"@type":"Answer","text":"Tak, jeśli da się go bezpiecznie przejąć i utrzymać. Zaczynamy od audytu i mówię wprost, co ma sens, a co lepiej zbudować od nowa."}},{"@type":"Question","name":"Jak szybko reagujesz na problemy?","acceptedAnswer":{"@type":"Answer","text":"Zwykle w sekundy do minut w sprawach pilnych, bo administrator i autor to ta sama osoba. Bez kolejki zgłoszeń."}}]}
+</script>
+<style>
+:root{
+  --ink:#14161A;--graphite:#21242A;--slate:#3B4048;--steel:#6B7178;--titanium:#A9ADB2;
+  --mist:#D8D5CD;--bone:#E9E5DC;--ivory:#F3EFE6;--paper:#FAF8F2;
+  --copper:#A96540;--copper-lo:#915434;--copper-hi:#C7855E;--copper-tint:#E8DACC;--forest:#2C4A3E;
+  --sans:"Hanken Grotesk",-apple-system,system-ui,sans-serif;
+  --serif:"Newsreader",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+  --maxw:1240px;--gut:clamp(20px,5vw,80px);--r-lg:12px;--r-xl:16px;--r-pill:999px;
+  --e2:0 4px 14px -3px rgba(20,22,26,.10),0 2px 4px -2px rgba(20,22,26,.06);
+  --e3:0 16px 38px -10px rgba(20,22,26,.18),0 4px 10px -4px rgba(20,22,26,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--slate);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.section{padding:clamp(72px,11vh,150px) 0}
+.on-dark{background:var(--ink);color:var(--mist)}
+.on-ivory{background:var(--ivory)}
+h1,h2,h3{font-weight:600;line-height:1.04;letter-spacing:-.02em;color:var(--ink)}
+.on-dark h1,.on-dark h2,.on-dark h3{color:var(--ivory)}
+.display{font-size:clamp(44px,8vw,104px);letter-spacing:-.035em;line-height:.94}
+.h2{font-size:clamp(30px,4.4vw,58px);letter-spacing:-.03em}
+.h3{font-size:clamp(22px,2.6vw,30px)}
+.serif-i{font-family:var(--serif);font-style:italic;font-weight:380;color:var(--copper)}
+.lede{font-family:var(--serif);font-weight:380;font-size:clamp(20px,2.4vw,29px);line-height:1.4;color:var(--slate)}
+.on-dark .lede{color:var(--mist)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--steel);margin-bottom:18px;display:block}
+.eyebrow .idx{color:var(--copper)}
+p{max-width:62ch}
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb,var(--paper) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--bone);transition:.3s}
+.nav.dark{background:color-mix(in srgb,var(--ink) 72%,transparent);border-color:rgba(255,255,255,.08)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-weight:600;font-size:21px;letter-spacing:-.02em}
+.nav.dark .brand{color:var(--ivory)}
+.brand svg{width:40px;height:20px;display:block}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{text-decoration:none;color:var(--slate);font-size:15px;font-weight:500}
+.nav.dark .nav-links a{color:var(--mist)}
+.nav-links a:hover{color:var(--copper)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:15px;border:none;border-radius:var(--r-pill);padding:12px 22px;cursor:pointer;text-decoration:none;transition:.2s;white-space:nowrap}
+.btn-copper{background:var(--copper);color:#1B130E}
+.btn-copper:hover{background:var(--copper-hi)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--bone)}
+.nav.dark .btn-ghost{color:var(--ivory);border-color:rgba(255,255,255,.2)}
+.btn-ghost:hover{border-color:var(--copper)}
+.btn-lg{padding:16px 30px;font-size:17px}
+.hamb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hamb span{width:24px;height:2px;background:var(--ink);transition:.3s}
+.nav.dark .hamb span{background:var(--ivory)}
+.mobile-menu{position:fixed;inset:68px 0 auto 0;background:var(--paper);border-bottom:1px solid var(--bone);transform:translateY(-130%);transition:.35s;z-index:49;padding:24px var(--gut) 32px;display:flex;flex-direction:column;gap:4px}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{text-decoration:none;color:var(--ink);font-size:19px;font-weight:500;padding:14px 0;border-bottom:1px solid var(--bone)}
+.mobile-menu .btn{margin-top:18px;justify-content:center}
+/* hero */
+.hero{padding:clamp(120px,18vh,190px) 0 clamp(60px,9vh,110px)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,70px);align-items:center}
+.eyebrow-pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper-lo);background:var(--copper-tint);border:1px solid #dcc6b3;border-radius:var(--r-pill);padding:7px 15px;margin-bottom:26px}
+.hero h1{margin-bottom:24px}
+.hero .lede{margin-bottom:34px;max-width:30ch}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.trust{display:flex;gap:14px;flex-wrap:wrap}
+.trust-item{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--steel);background:#fff;border:1px solid var(--bone);border-radius:var(--r-pill);padding:9px 15px}
+.trust-item b{color:var(--copper-lo)}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:var(--r-xl);background:linear-gradient(160deg,var(--graphite),var(--ink));box-shadow:var(--e3);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.portrait .sign{width:62%;opacity:.9}
+.portrait .ptag{position:absolute;bottom:16px;left:16px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--titanium)}
+/* grids */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--bone);border-radius:var(--r-lg);padding:30px;box-shadow:var(--e2)}
+.on-dark .card{background:var(--graphite);border-color:rgba(255,255,255,.07)}
+.card h3{margin-bottom:10px}
+.card p{font-size:16px;color:var(--steel)}
+.on-dark .card p{color:var(--titanium)}
+.kicker-num{font-family:var(--mono);font-size:13px;color:var(--copper);margin-bottom:14px;display:block}
+/* loop / steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+.step{position:relative;padding-top:26px}
+.step::before{content:attr(data-n);position:absolute;top:-6px;left:0;font-family:var(--mono);font-size:13px;color:var(--copper);border-top:2px solid var(--copper);padding-top:10px}
+.step h3{font-size:21px;margin-bottom:8px}
+.step p{font-size:16px;color:var(--steel)}
+/* proof numbers */
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px}
+.proof .pn{font-size:clamp(30px,4vw,46px);font-weight:600;letter-spacing:-.03em;color:var(--ivory);font-variant-numeric:tabular-nums}
+.proof .pl{font-size:14px;color:var(--titanium);margin-top:6px}
+/* faq */
+.faq{max-width:820px;margin:40px auto 0}
+.faq details{border-bottom:1px solid var(--bone);padding:6px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-size:19px;font-weight:600;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{font-family:var(--mono);color:var(--copper);font-size:24px;transition:.2s}
+.faq details[open] .pm{transform:rotate(45deg)}
+.faq .ans{padding:0 0 24px;color:var(--slate);font-size:17px;max-width:70ch}
+/* cta band */
+.cta-band{text-align:center}
+.cta-band h2{margin-bottom:18px}
+.cta-band .lede{margin:0 auto 32px;max-width:46ch}
+.contact-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.mail-big{font-family:var(--serif);font-style:italic;font-size:clamp(24px,3.4vw,38px);color:var(--copper-hi);text-decoration:none;display:inline-block;margin-top:10px}
+.mail-big:hover{color:var(--ivory)}
+/* footer */
+.footer{background:var(--ink);color:var(--titanium);padding:60px 0 34px;border-top:1px solid rgba(255,255,255,.07)}
+.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.footer .brand{color:var(--ivory)}
+.footer-links{display:flex;gap:26px;flex-wrap:wrap;font-size:14px}
+.footer-links a{color:var(--titanium);text-decoration:none}
+.footer-links a:hover{color:var(--copper-hi)}
+.footer-tag{font-family:var(--serif);font-style:italic;color:var(--copper-hi);font-size:18px;margin-top:14px}
+.footer-base{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);font-size:13px;color:var(--steel);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:380px;margin:0 auto;order:-1;aspect-ratio:16/10}.portrait .sign{width:46%}}
+@media(max-width:760px){
+  .nav-links{display:none}.hamb{display:flex}
+  .grid-3,.grid-2,.steps,.proof{grid-template-columns:1fr}
+  .proof{gap:24px;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<g id="syg"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g>
+</defs></svg>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand"><svg viewBox="0 0 120 60" style="color:var(--copper)"><use href="#syg"/></svg>TGether</a>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#jak">Jak działam</a>
+      <a href="#korzysci">Korzyści</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt" class="btn btn-copper">Umów rozmowę</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mmenu">
+  <a href="#problem">Problem</a>
+  <a href="#jak">Jak działam</a>
+  <a href="#korzysci">Korzyści</a>
+  <a href="#faq">FAQ</a>
+  <a href="#kontakt" class="btn btn-copper">Umów rozmowę</a>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<header class="section hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow-pill">Oprogramowanie ze stałym opiekunem</span>
+      <h1 class="display">Wdrażamy.<br>I <span class="serif-i">zostajemy</span>.</h1>
+      <p class="lede">Tworzymy systemy dla firm — i zostajemy przy nich. Ty prowadzisz firmę, ja pilnuję technologii.</p>
+      <div class="hero-cta">
+        <a href="#kontakt" class="btn btn-copper btn-lg">Umów rozmowę →</a>
+        <a href="#jak" class="btn btn-ghost btn-lg">Zobacz, jak to działa</a>
+      </div>
+      <div class="trust">
+        <span class="trust-item"><b>Autor i administrator</b> w jednym</span>
+        <span class="trust-item">Reakcja <b>w sekundy</b>, nie tygodnie</span>
+        <span class="trust-item"><b>Wsparcie w cenie</b></span>
+      </div>
+    </div>
+    <div class="portrait" aria-hidden="true">
+      <svg class="sign" viewBox="0 0 120 60" style="color:var(--copper-hi)"><use href="#syg"/></svg>
+      <span class="ptag">TGether · Tomasz Gubała</span>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="section on-ivory" id="problem">
+  <div class="wrap">
+    <span class="eyebrow"><span class="idx">01</span> &nbsp; Wróg</span>
+    <h2 class="h2">Większość firm IT znika po wdrożeniu.</h2>
+    <p class="lede reveal" style="margin-top:18px">Pojawia się świetne rozwiązanie. Zewnętrzna firma je wdraża — i rozpływa się w powietrzu. A Ty, który za to zapłaciłeś, zostajesz sam z systemem, którego nie znasz.</p>
+    <div class="grid-3" style="margin-top:46px">
+      <div class="card reveal"><span class="kicker-num">→ łańcuch</span><h3 class="h3">Nikt nie odpowiada</h3><p>Producent → integrator → support → nikt. Każdy wskazuje na innego, a problem zostaje przy Tobie.</p></div>
+      <div class="card reveal"><span class="kicker-num">→ kolejka</span><h3 class="h3">Każda zmiana to „zgłoszenie"</h3><p>Drobna poprawka? Kolejka, termin i osobna faktura. Tak nie musi być.</p></div>
+      <div class="card reveal"><span class="kicker-num">→ gnicie</span><h3 class="h3">System się starzeje</h3><p>Panel, którego boisz się dotknąć. Oprogramowanie powoli gnije zamiast rosnąć z firmą.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- JAK / ROZWIĄZANIE -->
+<section class="section" id="jak">
+  <div class="wrap">
+    <span class="eyebrow"><span class="idx">02</span> &nbsp; Jak działam</span>
+    <h2 class="h2">Buduję system — i <span class="serif-i">zostaję</span>, żeby żył.</h2>
+    <p class="lede" style="margin-top:18px;max-width:60ch">Wybierając program, wybierasz człowieka, który nim żyje. Autor i administrator to jedna osoba — dlatego problem zamyka się w sekundy, nie w tygodniach.</p>
+    <div class="steps">
+      <div class="step reveal" data-n="01"><h3>Buduję pod firmę</h3><p>System skrojony pod Twój proces — to, czego naprawdę używasz. Zero pudełka z półki.</p></div>
+      <div class="step reveal" data-n="02"><h3>Wdrażam i uruchamiam</h3><p>Biorę na siebie techniczne szczegóły. Ty prowadzisz firmę.</p></div>
+      <div class="step reveal" data-n="03"><h3>Zostaję i rozwijam</h3><p>Administracja, zmiany na bieżąco, integracje, kopie i monitoring — wsparcie wbudowane w model.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- KORZYŚCI on dark -->
+<section class="section on-dark" id="korzysci">
+  <div class="wrap">
+    <span class="eyebrow"><span class="idx">03</span> &nbsp; Korzyści</span>
+    <h2 class="h2">Nie kupujesz licencji. Kupujesz pewność, że ktoś tego pilnuje.</h2>
+    <div class="grid-2" style="margin-top:46px">
+      <div class="card reveal"><span class="kicker-num">Przewaga 01</span><h3 class="h3">Support wbudowany w model</h3><p>Wsparcie nie jest dodatkiem, który się dokupuje. Jest częścią produktu — pętlą, która się nie zamyka.</p></div>
+      <div class="card reveal"><span class="kicker-num">Przewaga 02</span><h3 class="h3">Administrator = autor</h3><p>Problem trafia od razu do osoby, która zna system na pamięć — i zamyka go w sekundy.</p></div>
+      <div class="card reveal"><span class="kicker-num">Przewaga 03</span><h3 class="h3">System, który się odradza</h3><p>Oprogramowanie nie zamarza w dniu wdrożenia. Rośnie razem z firmą zamiast się starzeć.</p></div>
+      <div class="card reveal"><span class="kicker-num">Przewaga 04</span><h3 class="h3">Jeden partner zamiast łańcucha</h3><p>Jedna osoba, jeden numer, jedna odpowiedzialność. Koniec ze wskazywaniem palcem.</p></div>
+    </div>
+    <div class="proof">
+      <div class="reveal"><div class="pn">1</div><div class="pl">opiekun — autor i administrator w jednej osobie</div></div>
+      <div class="reveal"><div class="pn">∞</div><div class="pl">pętla wdrożenie → opieka, która się nie zamyka</div></div>
+      <div class="reveal"><div class="pn">0</div><div class="pl">porzuconych wdrożeń — nie znikam</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section on-ivory" id="faq">
+  <div class="wrap">
+    <span class="eyebrow"><span class="idx">04</span> &nbsp; FAQ</span>
+    <h2 class="h2" style="text-align:center">Pytania, które słyszę najczęściej</h2>
+    <div class="faq">
+      <details><summary>Uzależnię się od jednej osoby?<span class="pm">+</span></summary><div class="ans">Tak — i to jest zaleta, nie wada. Zamiast łańcucha dostawców masz jeden numer i jedną odpowiedzialność. Cała wiedza o systemie jest w jednym miejscu, więc problem zamyka się w sekundy.</div></details>
+      <details><summary>Co, jeśli znikniesz albo zachorujesz?<span class="pm">+</span></summary><div class="ans">Każdy system ma pełną dokumentację, dostępy i automatyczne kopie zapasowe po Twojej stronie. Mam też plan ciągłości z zaufanymi partnerami. Nie zostajesz z czarną skrzynką — to przeciwieństwo modelu „wdróż i zniknij".</div></details>
+      <details><summary>Ile to kosztuje?<span class="pm">+</span></summary><div class="ans">Model abonamentowy — płacisz za spokój, nie za godziny. Wsparcie jest w cenie. Dokładną wycenę ustalamy po krótkiej rozmowie o Twojej firmie.</div></details>
+      <details><summary>Czy przejmiesz mój istniejący system?<span class="pm">+</span></summary><div class="ans">Tak, jeśli da się go bezpiecznie przejąć i utrzymać. Zaczynamy od audytu i mówię wprost, co ma sens, a co lepiej zbudować od nowa.</div></details>
+      <details><summary>Jak szybko reagujesz na problemy?<span class="pm">+</span></summary><div class="ans">Zwykle w sekundy do minut w sprawach pilnych — bo administrator i autor to ta sama osoba. Bez kolejki „zgłoszeń".</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / KONTAKT -->
+<section class="section on-dark cta-band" id="kontakt">
+  <div class="wrap">
+    <span class="eyebrow"><span class="idx">05</span> &nbsp; Kontakt</span>
+    <h2 class="h2">Napisz. Odpiszę osobiście.</h2>
+    <p class="lede">Bez formularzy do nikąd i infolinii. Piszesz do człowieka, który zbuduje i utrzyma Twój system. Odpowiedź w 24 h.</p>
+    <a href="mailto:tomasz@tgether.pl" class="mail-big">tomasz@tgether.pl</a>
+    <div class="contact-row" style="margin-top:30px">
+      <a href="mailto:tomasz@tgether.pl?subject=Rozmowa%20o%20systemie%20dla%20mojej%20firmy" class="btn btn-copper btn-lg">Umów rozmowę →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="brand"><svg viewBox="0 0 120 60" style="color:var(--copper-hi)"><use href="#syg"/></svg>TGether</a>
+        <div class="footer-tag">Wdrażamy. I zostajemy.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#problem">Problem</a>
+        <a href="#jak">Jak działam</a>
+        <a href="#korzysci">Korzyści</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:tomasz@tgether.pl">Kontakt</a>
+        <a href="/polityka-prywatnosci.html">Polityka prywatności</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© <span id="yr"></span> TGether · Tomasz Gubała · tomasz@tgether.pl</span>
+      <span>Oprogramowanie dla firm ze stałym opiekunem</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+document.getElementById('yr').textContent=new Date().getFullYear();
+// mobile menu
+var hamb=document.getElementById('hamb'),mmenu=document.getElementById('mmenu');
+hamb.addEventListener('click',function(){var o=mmenu.classList.toggle('open');hamb.setAttribute('aria-expanded',o);});
+mmenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mmenu.classList.remove('open');hamb.setAttribute('aria-expanded',false);});});
+// nav theme on dark sections
+var nav=document.getElementById('nav');var darks=document.querySelectorAll('.on-dark');
+function navTheme(){var d=false;var y=72;darks.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>=y)d=true;});nav.classList.toggle('dark',d);}
+window.addEventListener('scroll',navTheme,{passive:true});navTheme();
+// reveal
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  setTimeout(function(){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});},2200);
+}
+</script>
+</body>
+</html>
