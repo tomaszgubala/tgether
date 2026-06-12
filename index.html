@@ -94,16 +94,8 @@ p{max-width:62ch}
 .trust{display:flex;gap:14px;flex-wrap:wrap}
 .trust-item{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--steel);background:#fff;border:1px solid var(--bone);border-radius:var(--r-pill);padding:9px 15px}
 .trust-item b{color:var(--copper-lo)}
-.hero-card{position:relative;overflow:hidden;border-radius:var(--r-xl);background:linear-gradient(155deg,#FFFFFF 0%,var(--ivory) 100%);border:1px solid var(--copper-tint);box-shadow:var(--e3);padding:clamp(30px,3.6vw,52px);display:flex;flex-direction:column;justify-content:center;min-height:clamp(330px,44vh,500px)}
-.hero-card .hc-mark{position:absolute;top:-30px;right:-26px;width:230px;height:115px;color:var(--copper);opacity:.07;transform:rotate(-8deg)}
-.hc-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--copper);margin-bottom:22px;position:relative}
-.hc-quote{font-family:var(--serif);font-size:clamp(27px,3.2vw,42px);line-height:1.12;color:var(--ink);letter-spacing:-.01em;max-width:none;position:relative}
-.hc-quote em{color:var(--copper);font-style:italic}
-.hc-rule{height:1px;background:var(--copper-tint);margin:28px 0 22px;position:relative}
-.hc-foot{display:flex;align-items:center;gap:15px;position:relative}
-.hc-sign{width:50px;height:25px;color:var(--copper);flex:none}
-.hc-cap{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--steel);line-height:1.55}
-.hc-cap b{color:var(--ink);font-weight:600}
+.hero-mark{display:flex;align-items:center;justify-content:center;min-height:clamp(260px,38vh,440px)}
+.hero-mark svg{width:min(80%,440px);height:auto;color:var(--copper)}
 /* grids */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
@@ -149,7 +141,7 @@ p{max-width:62ch}
 .footer-base{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);font-size:13px;color:var(--steel);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-card{order:2;min-height:auto}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-mark{order:-1;min-height:auto}.hero-mark svg{width:200px}}
 @media(max-width:760px){
   .nav-links{display:none}.hamb{display:flex}
   .grid-3,.grid-2,.steps,.proof{grid-template-columns:1fr}
@@ -203,16 +195,9 @@ p{max-width:62ch}
         <span class="trust-item"><b>Wsparcie w cenie</b></span>
       </div>
     </div>
-    <aside class="hero-card">
-      <svg class="hc-mark" viewBox="0 0 120 60" aria-hidden="true"><use href="#syg"/></svg>
-      <span class="hc-eyebrow">Manifest</span>
-      <p class="hc-quote">Większość firm IT znika.<br><em>My zostajemy.</em></p>
-      <div class="hc-rule"></div>
-      <div class="hc-foot">
-        <svg class="hc-sign" viewBox="0 0 120 60" aria-hidden="true"><use href="#syg"/></svg>
-        <span class="hc-cap">Tomasz Gubała<br><b>opiekun systemu</b></span>
-      </div>
-    </aside>
+    <div class="hero-mark" aria-hidden="true">
+      <svg viewBox="0 0 120 60"><use href="#syg"/></svg>
+    </div>
   </div>
 </header>
 
