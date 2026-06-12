@@ -1,183 +1,61 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Polityka prywatności | TGether</title>
-<meta name="description" content="Jak TGether przetwarza dane osobowe zgodnie z RODO.">
-<link rel="canonical" href="https://tgether.pl/polityka-prywatnosci.html">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Polityka prywatności | TGether">
-<meta property="og:description" content="Jak TGether przetwarza dane osobowe zgodnie z RODO.">
-<meta property="og:url" content="https://tgether.pl/polityka-prywatnosci.html">
-<meta property="og:image" content="https://tgether.pl/og-image.png">
-<meta property="og:locale" content="pl_PL">
-<meta property="og:site_name" content="TGether">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#14161A">
+<meta name="theme-color" content="#07090D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/brand.css">
-<link rel="stylesheet" href="/ds.css">
-<link rel="stylesheet" href="/landing.css">
-<link rel="stylesheet" href="/site-extra.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090D;--surface:#10141C;--line:rgba(148,170,200,.14);--text:#F2F5F9;--muted:#8C97A8;--cyan:#2BD9FE;--blue:#3D7BFF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--muted);line-height:1.62;font-size:16.5px}
+.wrap{max-width:760px;margin:0 auto;padding:60px 24px 90px}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+h1{font-family:"Space Grotesk",sans-serif;font-size:40px;letter-spacing:-.03em;color:var(--text);margin-bottom:8px;line-height:1.05}
+h2{font-family:"Space Grotesk",sans-serif;font-size:21px;color:var(--text);margin:34px 0 10px;letter-spacing:-.02em}
+.tag{background:linear-gradient(100deg,#2BD9FE,#3D7BFF 55%,#7A5CFF);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600;margin-bottom:30px}
+.note{background:var(--surface);border-left:3px solid var(--blue);border-radius:8px;padding:14px 18px;font-size:14.5px;margin:22px 0}
+p{margin:8px 0}
+.back{display:inline-block;margin-top:40px;font-weight:600}
+.mark{color:var(--cyan);font-weight:600}
+</style>
 </head>
 <body>
-<a href="#main" class="skip-link">Przejdź do treści</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="syg" viewBox="0 0 120 60">
-    <path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6"
-      fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
-  <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-ghost" viewBox="0 0 24 24"><path d="M5 20V9a7 7 0 0 1 14 0v11l-2.5-2-2.5 2-2-2-2 2-2.5-2z"/><path d="M9.5 10h.01M14.5 10h.01"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-    <symbol id="i-link" viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5V18a2 2 0 0 1-2 2A14 14 0 0 1 4 6a2 2 0 0 1 2-2z"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-    <symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></symbol>
-    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M14 7l3 3"/></symbol>
-    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 7V3M15 7V3M7 7h10v3a5 5 0 0 1-10 0z"/><path d="M12 15v6"/></symbol>
-    <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7"/><path d="M8 14h8"/></symbol>
-    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 14 2-8h6"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
-    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
-    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14-4M4 6v3h3"/><path d="M4 13a8 8 0 0 0 14 4m2-1v-3h-3"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-  </g>
-</svg>
-<nav class="nav">
-  <a class="nav-mark" href="/index.html" aria-label="TGether — strona główna">
-    <svg viewBox="0 0 120 60" style="color:var(--copper)"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span class="wordmark">TGether</span>
-  </a>
-  <div class="nav-links">
-    <a href="/o-nas.html" data-nav="o-nas.html">O nas</a>
-    <a href="/produkt.html" data-nav="produkt.html">Produkt</a>
-    <a href="/cennik.html" data-nav="cennik.html">Cennik</a>
-    <a href="/case-studies.html" data-nav="case-studies.html">Realizacje</a>
-    <a href="/blog.html" data-nav="blog.html">Blog</a>
-    <a href="/kontakt.html" data-nav="kontakt.html">Kontakt</a>
-  </div>
-  <div class="nav-right">
-    <a href="/kontakt.html" class="nav-cta">Umów rozmowę</a>
-    <button class="nav-burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span class="bars"><span></span><span></span><span></span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-    <a class="mm-link" href="/o-nas.html">O nas</a>
-    <a class="mm-link" href="/produkt.html">Produkt</a>
-    <a class="mm-link" href="/cennik.html">Cennik</a>
-    <a class="mm-link" href="/case-studies.html">Realizacje</a>
-    <a class="mm-link" href="/blog.html">Blog</a>
-    <a class="mm-link" href="/kontakt.html">Kontakt</a>
-    <a class="mm-link" href="/faq.html">FAQ</a>
-    <a href="/kontakt.html" class="lbtn copper mm-cta">Umów rozmowę<svg><use href="#i-arrow"></use></svg></a>
-    <div class="mm-foot">Zostajemy. · tomasz@tgether.pl</div>
+<div class="wrap">
+<h1>Polityka prywatności</h1>
+<div class="tag">TGether. Wdrażamy. I zostajemy.</div>
+<div class="note">Dokument w wersji startowej. Dane rejestrowe (nazwa działalności, NIP, adres) zostaną uzupełnione (pola oznaczone <span class="mark">[do uzupełnienia]</span>).</div>
+
+<h2>1. Administrator danych</h2>
+<p>Administratorem danych jest Tomasz Gubała, prowadzący działalność pod nazwą <span class="mark">[do uzupełnienia]</span>, <span class="mark">[adres]</span>, NIP <span class="mark">[do uzupełnienia]</span>. Kontakt: <a href="mailto:tomasz@tgether.pl">tomasz@tgether.pl</a>.</p>
+
+<h2>2. Jakie dane przetwarzamy</h2>
+<p>Dane podane dobrowolnie w formularzu kontaktowym na stronie lub w wiadomości e-mail (imię i nazwisko, adres e-mail, wielkość firmy, treść wiadomości) oraz dane zbierane automatycznie przez serwer i ewentualne narzędzia analityczne (adres IP, dane o przeglądarce).</p>
+
+<h2>3. Cel i podstawa prawna</h2>
+<p>Odpowiedź na zapytanie i kontakt w sprawie współpracy: art. 6 ust. 1 lit. b i f RODO (podjęcie działań przed zawarciem umowy oraz prawnie uzasadniony interes). Analityka: wyłącznie za zgodą (lit. a).</p>
+
+<h2>4. Okres przechowywania</h2>
+<p>Dane z korespondencji przechowujemy do czasu zakończenia sprawy i upływu okresu przedawnienia roszczeń.</p>
+
+<h2>5. Odbiorcy danych</h2>
+<p>Dostawcy hostingu i poczty, dostawca obsługi formularza kontaktowego (Formspree, Inc.) oraz, jeśli włączone, narzędzia analityczne, wyłącznie w niezbędnym zakresie.</p>
+
+<h2>6. Twoje prawa</h2>
+<p>Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu, przenoszenia danych oraz wniesienia skargi do Prezesa UODO.</p>
+
+<h2>7. Pliki cookies</h2>
+<p>Strona może używać plików cookies niezbędnych do jej działania oraz, za zgodą, analitycznych. Zgodę można w każdej chwili zmienić w ustawieniach przeglądarki.</p>
+
+<h2>8. Kontakt</h2>
+<p>W sprawach dotyczących danych osobowych: <a href="mailto:tomasz@tgether.pl">tomasz@tgether.pl</a>.</p>
+
+<a href="/" class="back">← Wróć na stronę główną</a>
 </div>
-<main id="main">
-
-<section class="section" style="padding-top:160px">
-  <div class="wrap legal">
-    <div class="kicker reveal"><span class="idx">Prawne</span></div>
-    <h1 class="display reveal" style="margin:18px 0 0; font-size:clamp(32px,4.4vw,56px)">Polityka prywatności</h1>
-    <p class="upd reveal" style="margin-top:16px">Ostatnia aktualizacja: 2026 · WERSJA ROBOCZA — do uzupełnienia danymi rejestrowymi.</p>
-
-    <div class="reveal">
-      <h2>1. Administrator danych</h2>
-      <p>Administratorem danych osobowych jest Tomasz Gubała, prowadzący działalność pod marką TGether (dalej: „Administrator"). Kontakt: <a href="mailto:tomasz@tgether.pl" style="color:var(--copper-lo)">tomasz@tgether.pl</a>. <em>[Uzupełnij: pełna nazwa, NIP, adres siedziby.]</em></p>
-
-      <h2>2. Jakie dane zbieramy</h2>
-      <p>Przetwarzamy dane, które podajesz dobrowolnie w&nbsp;formularzu kontaktowym: imię i&nbsp;nazwisko, adres e-mail, opcjonalnie nazwę firmy oraz treść wiadomości. Zbieramy także niezbędne dane techniczne (logi serwera) oraz — za Twoją zgodą — dane statystyczne.</p>
-
-      <h2>3. Cel i podstawa prawna</h2>
-      <ul>
-        <li>Odpowiedź na zapytanie i&nbsp;kontakt — art. 6 ust. 1 lit. b oraz f RODO (uzasadniony interes).</li>
-        <li>Statystyka i&nbsp;ulepszanie strony — art. 6 ust. 1 lit. a RODO (zgoda, baner cookie).</li>
-        <li>Obowiązki prawne (np. księgowe) — art. 6 ust. 1 lit. c RODO.</li>
-      </ul>
-
-      <h2>4. Pliki cookie</h2>
-      <p>Strona używa niezbędnych plików cookie zapewniających jej działanie. Pliki statystyczne uruchamiamy wyłącznie po wyrażeniu zgody w&nbsp;banerze. Zgodę możesz wycofać w&nbsp;każdej chwili, czyszcząc dane przeglądarki.</p>
-
-      <h2>5. Odbiorcy danych</h2>
-      <p>Dane mogą być przetwarzane przez zaufanych dostawców usług (hosting, obsługa formularza, poczta). Powierzenie odbywa się na podstawie stosownych umów. <em>[Uzupełnij listę podmiotów przetwarzających.]</em></p>
-
-      <h2>6. Okres przechowywania</h2>
-      <p>Dane z&nbsp;formularza przechowujemy przez czas niezbędny do obsługi zapytania i&nbsp;ewentualnej współpracy, a&nbsp;następnie przez okres wynikający z&nbsp;przepisów prawa.</p>
-
-      <h2>7. Twoje prawa</h2>
-      <p>Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia oraz wniesienia sprzeciwu. Przysługuje Ci również skarga do Prezesa Urzędu Ochrony Danych Osobowych.</p>
-
-      <h2>8. Kontakt</h2>
-      <p>W&nbsp;sprawach danych osobowych napisz na <a href="mailto:tomasz@tgether.pl" style="color:var(--copper-lo)">tomasz@tgether.pl</a>.</p>
-    </div>
-  </div>
-</section>
-
-</main>
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-cols">
-      <div class="foot-col">
-        <div style="display:flex; align-items:center; gap:12px">
-          <svg viewBox="0 0 120 60" style="width:34px; color:var(--copper)"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="wordmark" style="font-size:30px; color:var(--ivory)">TGether</span>
-        </div>
-        <p class="small" style="margin-top:18px; max-width:32ch; color:var(--titanium)">Portal dla firm z&nbsp;modułami szytymi pod Ciebie — i&nbsp;stałą administracją.</p>
-        <p class="small" style="margin-top:18px; color:var(--titanium)"><a href="mailto:tomasz@tgether.pl" style="color:var(--copper-hi)">tomasz@tgether.pl</a></p>
-      </div>
-      <div class="foot-col">
-        <div class="label">Nawigacja</div>
-        <div class="links">
-          <a href="/o-nas.html">O nas</a>
-          <a href="/produkt.html">Produkt</a>
-          <a href="/cennik.html">Cennik</a>
-          <a href="/case-studies.html">Realizacje</a>
-        </div>
-      </div>
-      <div class="foot-col">
-        <div class="label">Więcej</div>
-        <div class="links">
-          <a href="/blog.html">Blog</a>
-          <a href="/faq.html">FAQ</a>
-          <a href="/kontakt.html">Kontakt</a>
-          <a href="/lp.html">Landing</a>
-        </div>
-      </div>
-      <div class="foot-col">
-        <div class="label">Prawne</div>
-        <div class="links">
-          <a href="/polityka-prywatnosci.html">Polityka prywatności</a>
-          <a href="/regulamin.html">Regulamin</a>
-        </div>
-      </div>
-    </div>
-    <hr class="rule" style="margin:48px 0 22px; color:var(--titanium)">
-    <div class="foot-bottom label">
-      <span>© 2026 TGether · Tomasz Gubała</span>
-      <span style="color:var(--copper)">Zostajemy.</span>
-    </div>
-  </div>
-</footer>
-<div class="cookie" role="dialog" aria-label="Zgoda na pliki cookie" aria-live="polite">
-  <p>Używamy niezbędnych plików cookie, by strona działała poprawnie. Statystyki włączymy dopiero za Twoją zgodą. Więcej w&nbsp;<a href="/polityka-prywatnosci.html">Polityce prywatności</a>.</p>
-  <div class="c-acts">
-    <button class="ds-btn ghost sm" data-consent="necessary" style="color:var(--ivory); border-color:color-mix(in srgb,var(--ivory) 30%,transparent)">Tylko niezbędne</button>
-    <button class="ds-btn copper sm" data-consent="all">Akceptuję wszystkie</button>
-  </div>
-</div>
-<script src="/brand.js"></script>
-<script src="/site.js"></script>
 </body>
 </html>

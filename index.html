@@ -2,281 +2,1130 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TGether — portal dla firm z modułami szytymi pod Ciebie</title>
-<meta name="description" content="Gotowy portal dla firm z głównymi modułami. Pod Twój proces dorabiamy indywidualne moduły i zostajemy jako administrator, żeby wszystko działało.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System do zarządzania firmą 10-50 osób | PortalGO od TGether</title>
+<meta name="description" content="PortalGO porządkuje zadania, grafik, urlopy, premie i dokumenty w jednym systemie zbudowanym pod Twoją firmę. Wdrożenie w tygodnie, stała opieka w cenie. Umów demo.">
+<meta name="keywords" content="portal operacyjny dla firm, system do zarządzania firmą, zarządzanie zadaniami MŚP, system premiowy, grafik pracy online, elektroniczne wnioski urlopowe, intranet dla małej firmy, PortalGO, TGether">
 <link rel="canonical" href="https://tgether.pl/">
-<meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:title" content="TGether — portal dla firm z modułami szytymi pod Ciebie">
-<meta property="og:description" content="Gotowy portal dla firm z głównymi modułami. Pod Twój proces dorabiamy indywidualne moduły i zostajemy jako administrator, żeby wszystko działało.">
 <meta property="og:url" content="https://tgether.pl/">
-<meta property="og:image" content="https://tgether.pl/og-image.png">
+<meta property="og:title" content="TGether, Cała firma. Jedno miejsce. Zero chaosu.">
+<meta property="og:description" content="PortalGO zbiera zadania, grafik, urlopy, premie i dokumenty w jednym systemie zbudowanym pod Twoją firmę. Umów demo.">
+<meta property="og:image" content="https://tgether.pl/og-cover.png">
 <meta property="og:locale" content="pl_PL">
-<meta property="og:site_name" content="TGether">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TGether: cała firma. Jedno miejsce. Zero chaosu.">
+<meta name="twitter:description" content="PortalGO zbiera zadania, grafik, urlopy, premie i dokumenty w jednym systemie. Umów demo.">
+<meta name="twitter:image" content="https://tgether.pl/og-image.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#14161A">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#07090D">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://tgether.pl/#org",
+      "name": "TGether",
+      "url": "https://tgether.pl/",
+      "slogan": "Cała firma. Jedno miejsce. Zero chaosu.",
+      "description": "Partner technologiczny dla małych i średnich firm. Twórca PortalGO (portal operacyjny), systemu premiowego Premie oraz aplikacji internetowych budowanych pod procesy klientów.",
+      "email": "tomasz@tgether.pl",
+      "founder": { "@type": "Person", "name": "Tomasz Gubała" },
+      "areaServed": "PL"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "PortalGO",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "publisher": { "@id": "https://tgether.pl/#org" },
+      "description": "System do zarządzania firmą: agenda, zadania, projekty, dokumenty, grafik pracy, urlopy, system premiowy, raporty i moduły dedykowane."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Premie",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "publisher": { "@id": "https://tgether.pl/#org" },
+      "description": "Samodzielny system premiowy: zasady zdefiniowane raz, kwoty wyliczane automatycznie co miesiąc, pełna historia rozliczeń."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Ile trwa wdrożenie PortalGO?", "acceptedAnswer": { "@type": "Answer", "text": "Standardowe wdrożenie z podstawowymi modułami trwa od 2 do 6 tygodni, łącznie z migracją danych i szkoleniem zespołu." } },
+        { "@type": "Question", "name": "Czy PortalGO można rozbudować o własne moduły?", "acceptedAnswer": { "@type": "Answer", "text": "Tak. Każdy proces prowadzony dziś w Excelu, mailu czy na kartce możemy przekształcić w dedykowany moduł działający wewnątrz portalu." } },
+        { "@type": "Question", "name": "Ile kosztuje PortalGO?", "acceptedAnswer": { "@type": "Answer", "text": "Wdrożenie wyceniamy po krótkiej rozmowie o procesach firmy, a potem obowiązuje stały, przewidywalny abonament z opieką i rozwojem w cenie. Wstępne widełki podajemy na pierwszym spotkaniu." } },
+        { "@type": "Question", "name": "Kto opiekuje się systemem po starcie?", "acceptedAnswer": { "@type": "Answer", "text": "Jedna osoba: autor systemu jest też jego administratorem. Problemy trafiają od razu do kogoś, kto zna portal na pamięć, i zamykają się w minuty, nie w tygodnie." } },
+        { "@type": "Question", "name": "Dla jakich firm jest PortalGO?", "acceptedAnswer": { "@type": "Answer", "text": "Dla firm zatrudniających od 10 do 50 pracowników, handlowych, usługowych, serwisowych i produkcyjnych." } }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/brand.css">
-<link rel="stylesheet" href="/ds.css">
-<link rel="stylesheet" href="/landing.css">
-<link rel="stylesheet" href="/site-extra.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TGether","url":"https://tgether.pl","email":"tomasz@tgether.pl","founder":{"@type":"Person","name":"Tomasz Gubała"},"description":"Portal dla firm z gotowymi modułami. Indywidualne moduły dorabiane pod klienta i stała administracja."}</script>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090D;
+  --bg-2:#0B0E14;
+  --surface:#10141C;
+  --surface-2:#151A24;
+  --line:rgba(148,170,200,.12);
+  --line-strong:rgba(148,170,200,.22);
+  --text:#F2F5F9;
+  --muted:#8C97A8;
+  --muted-2:#6E7886;
+  --blue:#3D7BFF;
+  --cyan:#2BD9FE;
+  --grad:linear-gradient(100deg,#2BD9FE 0%,#3D7BFF 55%,#7A5CFF 100%);
+  --font-d:"Space Grotesk",-apple-system,system-ui,sans-serif;
+  --font-b:"Inter",-apple-system,system-ui,sans-serif;
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:rgba(61,123,255,.35)}
+h1,h2,h3,h4{font-family:var(--font-d);font-weight:600;line-height:1.12;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--cyan)}
+.sec{padding:130px 0;position:relative}
+.sec-head{max-width:680px;margin-bottom:64px}
+.sec-head h2{font-size:clamp(32px,4.6vw,52px);margin-bottom:18px}
+.sec-head p{font-size:18px;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(36px)}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(7,9,13,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1280px;margin:0 auto;padding:0 28px}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--font-d);font-size:21px;font-weight:700;letter-spacing:-.01em}
+.logo svg{display:block}
+.nav-links{display:flex;gap:34px;font-size:14.5px;font-weight:500;color:var(--muted)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.lang-sw{display:flex;border:1px solid var(--line-strong);border-radius:99px;overflow:hidden;font-size:12.5px;font-weight:600}
+.lang-sw button{background:none;border:0;color:var(--muted);padding:10px 14px;cursor:pointer;font-family:inherit;font-weight:600;transition:.2s}
+.lang-sw button.on{background:rgba(61,123,255,.18);color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--font-b);font-size:15px;font-weight:600;padding:13px 26px;border-radius:12px;border:0;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.3,1.1),box-shadow .25s,background .25s;position:relative}
+.btn-pri{background:var(--grad);color:#04101F;box-shadow:0 0 0 0 rgba(61,123,255,0)}
+.btn-pri:hover{transform:translateY(-2px);box-shadow:0 14px 44px -8px rgba(61,123,255,.55)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line-strong)}
+.btn-ghost:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.btn-sm{padding:9px 19px;font-size:14px}
+.hamb{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:0;cursor:pointer;padding:11px 8px}
+.hamb span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+.mobile-menu{position:fixed;top:72px;left:0;right:0;z-index:99;background:rgba(7,9,13,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);padding:10px 28px 24px;display:flex;flex-direction:column;transform:translateY(-130%);transition:transform .35s;}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{padding:15px 0;border-bottom:1px solid var(--line);font-size:17px;font-weight:500;color:var(--text)}
+.mobile-menu a:last-of-type{border-bottom:0}
+
+/* ---------- HERO ---------- */
+#hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 0 80px}
+#c3d{position:absolute;inset:0;z-index:0}
+.hero-fade{position:absolute;inset:auto 0 0 0;height:240px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:1;pointer-events:none}
+.hero-in{position:relative;z-index:2;max-width:880px}
+.badge{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;color:var(--muted);border:1px solid var(--line-strong);background:rgba(16,20,28,.6);backdrop-filter:blur(8px);border-radius:99px;padding:8px 18px;margin-bottom:30px}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-in h1{font-size:clamp(44px,7.2vw,86px);letter-spacing:-.03em;margin-bottom:26px}
+.hero-sub{font-size:clamp(17px,1.7vw,21px);color:var(--muted);max-width:640px;margin-bottom:42px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:58px}
+.hero-meta{display:flex;gap:34px;flex-wrap:wrap;font-size:14px;color:var(--muted-2)}
+.hero-meta span{display:flex;align-items:center;gap:9px}
+.hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--blue);display:inline-block}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint::after{content:"";width:1px;height:42px;background:linear-gradient(var(--cyan),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- PROBLEM ---------- */
+#problem{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.chaos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:70px}
+.chaos-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;gap:18px;align-items:flex-start;transition:border-color .3s,transform .3s}
+.chaos-card:hover{border-color:rgba(255,107,107,.4);transform:translateY(-3px)}
+.chaos-ic{flex:none;width:44px;height:44px;border-radius:12px;background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.25);display:flex;align-items:center;justify-content:center;color:#FF8B8B}
+.chaos-card h3{font-size:17px;margin-bottom:6px}
+.chaos-card p{font-size:14.5px;color:var(--muted)}
+.problem-punch{text-align:center;font-family:var(--font-d);font-size:clamp(26px,3.6vw,42px);font-weight:600;letter-spacing:-.02em;max-width:760px;margin:0 auto}
+.problem-punch em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- MOCKUP (browser frame) ---------- */
+.mock{background:linear-gradient(180deg,#131826,#0D1118);border:1px solid var(--line-strong);border-radius:18px;overflow:hidden;box-shadow:0 50px 120px -30px rgba(0,0,0,.8),0 0 0 1px rgba(43,217,254,.05),0 0 90px -20px rgba(61,123,255,.18);font-size:12px}
+.mock-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+.mock-bar i{width:10px;height:10px;border-radius:50%;display:block}
+.mock-bar i:nth-child(1){background:#FF5F57}.mock-bar i:nth-child(2){background:#FEBC2E}.mock-bar i:nth-child(3){background:#28C840}
+.mock-url{margin-left:14px;background:rgba(255,255,255,.05);border-radius:7px;padding:4px 14px;color:var(--muted-2);font-size:11px;flex:1;max-width:320px}
+.mock-body{display:flex;min-height:430px}
+.mock-side{width:185px;flex:none;border-right:1px solid var(--line);padding:16px 10px;background:rgba(0,0,0,.25)}
+.mock-side .ms-logo{display:flex;align-items:center;gap:8px;font-family:var(--font-d);font-weight:700;font-size:13px;padding:4px 10px 16px}
+.ms-item{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:8px;color:var(--muted);margin-bottom:2px;font-weight:500}
+.ms-item.on{background:rgba(61,123,255,.16);color:var(--text)}
+.ms-item svg{flex:none;opacity:.8}
+.ms-sep{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);padding:14px 10px 6px}
+.mock-main{flex:1;padding:20px 22px;min-width:0}
+.mm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.mm-head .mm-title{font-family:var(--font-d);font-size:16px;font-weight:600}
+.mm-head .mm-date{color:var(--muted-2);font-size:11px}
+.mm-chip{background:var(--grad);color:#04101F;font-weight:700;font-size:10.5px;border-radius:7px;padding:5px 12px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.kpi{background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:12px 14px}
+.kpi b{display:block;font-family:var(--font-d);font-size:19px;letter-spacing:-.02em}
+.kpi span{font-size:10.5px;color:var(--muted)}
+.kpi .up{color:#3DDC97}.kpi .down{color:#FF6B6B}
+.mm-cols{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
+.panel{background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:14px}
+.panel .panel-h{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+.task-row{display:flex;align-items:center;gap:10px;padding:8px 2px;border-bottom:1px solid var(--line);font-size:11.5px}
+.task-row:last-child{border:0}
+.tr-check{width:14px;height:14px;border-radius:5px;border:1.5px solid var(--muted-2);flex:none}
+.tr-check.done{background:var(--blue);border-color:var(--blue);position:relative}
+.tr-check.done::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff}
+.task-row .who{margin-left:auto;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3D7BFF,#7A5CFF);display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;flex:none}
+.tag{font-size:9px;font-weight:600;border-radius:5px;padding:2px 7px;flex:none}
+.tag.b{background:rgba(61,123,255,.18);color:#7EA6FF}
+.tag.g{background:rgba(61,220,151,.14);color:#3DDC97}
+.tag.o{background:rgba(255,184,76,.14);color:#FFB84C}
+.bar-row{display:flex;align-items:center;gap:9px;font-size:11px;margin-bottom:9px}
+.bar-row .nm{width:64px;flex:none;color:var(--muted)}
+.bar{flex:1;height:7px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--grad)}
+.bar-row b{font-size:10px;width:30px;text-align:right}
+.cal-mini{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:9.5px;text-align:center}
+.cal-mini span{padding:5px 0;border-radius:6px;color:var(--muted)}
+.cal-mini span.hd{color:var(--muted-2);font-weight:600}
+.cal-mini span.ev{background:rgba(43,217,254,.14);color:var(--cyan);font-weight:600}
+.cal-mini span.ev2{background:rgba(122,92,255,.16);color:#A78BFF;font-weight:600}
+
+/* ---------- PORTALGO SECTION ---------- */
+#portalgo .mock{transform-style:preserve-3d}
+.pg-points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:64px}
+.pg-point{padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.pg-point b{display:block;font-family:var(--font-d);font-size:17px;margin-bottom:8px}
+.pg-point p{font-size:14.5px;color:var(--muted)}
+
+/* ---------- MODULES ---------- */
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px}
+.mod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;transition:.3s;cursor:default;position:relative;overflow:hidden}
+.mod::before{content:"";position:absolute;inset:0;background:radial-gradient(220px at var(--mx,50%) var(--my,0%),rgba(61,123,255,.14),transparent 70%);opacity:0;transition:opacity .3s}
+.mod:hover::before{opacity:1}
+.mod:hover{border-color:rgba(61,123,255,.45);transform:translateY(-4px)}
+.mod .mi,.app-card .mi{width:38px;height:38px;border-radius:10px;background:rgba(61,123,255,.12);border:1px solid rgba(61,123,255,.25);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--cyan)}
+.mod b{display:block;font-family:var(--font-d);font-size:15.5px;margin-bottom:5px}
+.mod p{font-size:13px;color:var(--muted);line-height:1.5}
+.mod.custom{background:linear-gradient(135deg,rgba(61,123,255,.14),rgba(122,92,255,.1));border-color:rgba(61,123,255,.4)}
+
+/* ---------- APLIKACJE ---------- */
+.apps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.app-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
+.app-card:hover{transform:translateY(-4px)}
+.app-flag{position:absolute;top:20px;right:20px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(43,217,254,.12);color:var(--cyan);border:1px solid rgba(43,217,254,.3);border-radius:99px;padding:4px 10px}
+.app-card b{font-family:var(--font-d);font-size:19px;margin:16px 0 8px;display:block}
+.app-card p{font-size:14.5px;color:var(--muted);flex:1}
+.app-card .app-link{margin-top:18px;font-size:14.5px;font-weight:600;color:var(--cyan)}
+.app-card .app-link:hover{text-decoration:underline}
+@media(max-width:900px){.apps-grid{grid-template-columns:1fr}}
+
+/* ---------- TRANSFORM ---------- */
+#transform{overflow:hidden}
+.tf-flow{display:flex;align-items:center;gap:0;justify-content:center;flex-wrap:wrap;margin:60px 0}
+.tf-col{display:flex;flex-direction:column;gap:12px}
+.tf-item svg{flex:none;color:var(--muted-2)}
+.tf-item{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px 20px;font-size:14.5px;color:var(--muted);font-weight:500}
+.tf-item s{text-decoration-color:rgba(255,107,107,.6)}
+.tf-arrow{padding:0 44px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.tf-arrow svg{display:block}
+.tf-result{background:linear-gradient(135deg,rgba(61,123,255,.16),rgba(43,217,254,.08));border:1px solid rgba(61,123,255,.5);border-radius:18px;padding:30px 36px;max-width:330px;box-shadow:0 0 60px -15px rgba(61,123,255,.4)}
+.tf-result b{font-family:var(--font-d);font-size:19px;display:block;margin-bottom:8px}
+.tf-result p{font-size:14px;color:var(--muted)}
+.tf-note{text-align:center;color:var(--muted);max-width:620px;margin:0 auto;font-size:16.5px}
+
+/* ---------- BONUS PRODUCT ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.feat-list{display:flex;flex-direction:column;gap:22px;margin-top:36px}
+.feat{display:flex;gap:16px}
+.feat .fi{flex:none;width:40px;height:40px;border-radius:11px;background:rgba(43,217,254,.1);border:1px solid rgba(43,217,254,.3);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-family:var(--font-d);font-weight:700;font-size:14px}
+.feat b{display:block;font-size:16px;margin-bottom:3px;font-family:var(--font-d)}
+.feat p{font-size:14.5px;color:var(--muted)}
+.bonus-table{width:100%;border-collapse:collapse;font-size:11px}
+.bonus-table th{text-align:left;color:var(--muted-2);font-weight:600;text-transform:uppercase;font-size:9.5px;letter-spacing:.08em;padding:0 8px 9px}
+.bonus-table td{padding:9px 8px;border-top:1px solid var(--line)}
+.bonus-table .amt{font-family:var(--font-d);font-weight:600}
+.pill{font-size:9px;font-weight:700;border-radius:99px;padding:3px 9px}
+.pill.ok{background:rgba(61,220,151,.15);color:#3DDC97}
+.pill.wait{background:rgba(255,184,76,.15);color:#FFB84C}
+
+/* ---------- PARTNER ---------- */
+#partner{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:st}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;position:relative}
+.step::before{counter-increment:st;content:"0" counter(st);font-family:var(--font-d);font-size:42px;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.9;display:block;margin-bottom:16px;letter-spacing:-.03em}
+.step b{display:block;font-family:var(--font-d);font-size:17px;margin-bottom:8px}
+.step p{font-size:14px;color:var(--muted)}
+.partner-quote{margin-top:70px;text-align:center;font-family:var(--font-d);font-size:clamp(22px,3vw,32px);font-weight:500;letter-spacing:-.015em;max-width:820px;margin-left:auto;margin-right:auto;line-height:1.35}
+.partner-quote em{font-style:normal;color:var(--cyan)}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:0;color:var(--text);font-family:var(--font-d);font-size:18px;font-weight:600;text-align:left;padding:26px 50px 26px 0;cursor:pointer;position:relative;letter-spacing:-.01em}
+.faq-q::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--cyan);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.faq-a p{color:var(--muted);font-size:15.5px;padding:0 40px 26px 0}
+
+/* ---------- CTA / DEMO ---------- */
+#demo{position:relative;overflow:hidden}
+#demo::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:540px;background:radial-gradient(ellipse,rgba(61,123,255,.22),transparent 65%);pointer-events:none}
+.demo-box{position:relative;background:var(--surface);border:1px solid var(--line-strong);border-radius:24px;padding:64px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;box-shadow:0 40px 110px -30px rgba(0,0,0,.7)}
+.demo-box h2{font-size:clamp(30px,3.8vw,44px);margin-bottom:18px}
+.demo-box .demo-sub{color:var(--muted);font-size:17px;margin-bottom:34px}
+.demo-points{display:flex;flex-direction:column;gap:14px;font-size:15px;color:var(--muted)}
+.demo-points span{display:flex;gap:12px;align-items:center}
+.demo-points svg{flex:none}
+form{display:flex;flex-direction:column;gap:14px}
+.fld label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.fld input,.fld select,.fld textarea{width:100%;background:var(--bg-2);border:1px solid var(--line-strong);border-radius:11px;color:var(--text);font-family:inherit;font-size:15px;padding:13px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(61,123,255,.18)}
+.fld textarea{resize:vertical;min-height:84px}
+.form-ok{display:none;text-align:center;padding:40px 0}
+.form-ok .ok-ic{width:64px;height:64px;border-radius:50%;background:rgba(61,220,151,.12);border:1px solid rgba(61,220,151,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:26px;color:#3DDC97}
+.form-ok b{font-family:var(--font-d);font-size:22px;display:block;margin-bottom:8px}
+.form-ok p{color:var(--muted)}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:64px 0 40px;background:var(--bg-2)}
+.foot-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:48px}
+.foot-brand p{color:var(--muted);font-size:14px;max-width:300px;margin-top:16px}
+.foot-cols{display:flex;gap:72px;flex-wrap:wrap}
+.foot-col b{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted-2);margin-bottom:16px;font-weight:600}
+.foot-col a{display:block;font-size:14.5px;color:var(--muted);margin-bottom:10px;transition:color .2s}
+.foot-col a:hover{color:var(--cyan)}
+.foot-signoff{text-align:center;margin:8px 0 44px;font-family:var(--font-d);font-weight:600;font-size:clamp(22px,3vw,32px);letter-spacing:-.015em;color:var(--text);line-height:1.25}
+.foot-signoff .big{font-size:clamp(30px,4.4vw,46px)}
+.foot-base{border-top:1px solid var(--line);padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted-2)}
+
+@media(max-width:960px){
+  .nav-links{display:none}
+  .hamb{display:flex}
+  .split{grid-template-columns:1fr;gap:48px}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .demo-box{grid-template-columns:1fr;padding:40px 28px;gap:40px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .mm-cols{grid-template-columns:1fr}
+  .mock-side{display:none}
+  .tf-arrow{transform:rotate(90deg);padding:24px 0}
+  .sec{padding:90px 0}
+}
+@media(max-width:600px){
+  .steps{grid-template-columns:1fr}
+  .pg-points{grid-template-columns:1fr}
+  .nav-in{padding:0 16px}
+  .logo span{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* hover: obrys rysowany od srodka lewego boku do prawego */
+.mod,.chaos-card,.pg-point,.step,.app-card{position:relative}
+.ring-draw{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.ring-draw path{fill:none;stroke-width:.66;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .55s cubic-bezier(.4,0,.2,1)}
+.mod:hover .ring-draw path,.chaos-card:hover .ring-draw path,.pg-point:hover .ring-draw path,.step:hover .ring-draw path,.app-card:hover .ring-draw path{stroke-dashoffset:0}
+.mod:hover,.chaos-card:hover,.pg-point:hover,.step:hover,.app-card:hover{border-color:transparent}
+
+@media(max-width:700px),(max-height:740px){.scroll-hint{display:none}}
+
+/* ---------- TLO 3D ZA CALA STRONA ---------- */
+#c3d{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+nav{z-index:100}
+.sec,#hero,footer{position:relative;z-index:1}
+#hero{overflow:visible}
+.hero-fade{display:none}
+#problem,#partner{background:rgba(9,12,17,.66)}
+footer{background:rgba(9,12,17,.8)}
+@media(max-width:700px){
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(620px at 85% -5%,rgba(61,123,255,.16),transparent 60%),radial-gradient(520px at 5% 50%,rgba(43,217,254,.07),transparent 60%),radial-gradient(640px at 60% 110%,rgba(122,92,255,.12),transparent 60%)}
+}
+</style>
 </head>
 <body>
-<a href="#main" class="skip-link">Przejdź do treści</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="syg" viewBox="0 0 120 60">
-    <path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6"
-      fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
-  <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-ghost" viewBox="0 0 24 24"><path d="M5 20V9a7 7 0 0 1 14 0v11l-2.5-2-2.5 2-2-2-2 2-2.5-2z"/><path d="M9.5 10h.01M14.5 10h.01"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-    <symbol id="i-link" viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5V18a2 2 0 0 1-2 2A14 14 0 0 1 4 6a2 2 0 0 1 2-2z"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-    <symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></symbol>
-    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M14 7l3 3"/></symbol>
-    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 7V3M15 7V3M7 7h10v3a5 5 0 0 1-10 0z"/><path d="M12 15v6"/></symbol>
-    <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7"/><path d="M8 14h8"/></symbol>
-    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 14 2-8h6"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
-    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
-    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14-4M4 6v3h3"/><path d="M4 13a8 8 0 0 0 14 4m2-1v-3h-3"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-  </g>
-</svg>
-<nav class="nav">
-  <a class="nav-mark" href="/index.html" aria-label="TGether — strona główna">
-    <svg viewBox="0 0 120 60" style="color:var(--copper)"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span class="wordmark">TGether</span>
-  </a>
-  <div class="nav-links">
-    <a href="/o-nas.html" data-nav="o-nas.html">O nas</a>
-    <a href="/produkt.html" data-nav="produkt.html">Produkt</a>
-    <a href="/cennik.html" data-nav="cennik.html">Cennik</a>
-    <a href="/case-studies.html" data-nav="case-studies.html">Realizacje</a>
-    <a href="/blog.html" data-nav="blog.html">Blog</a>
-    <a href="/kontakt.html" data-nav="kontakt.html">Kontakt</a>
-  </div>
-  <div class="nav-right">
-    <a href="/kontakt.html" class="nav-cta">Umów rozmowę</a>
-    <button class="nav-burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span class="bars"><span></span><span></span><span></span></span>
-    </button>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="pg" gradientUnits="userSpaceOnUse" x1="10" y1="12" x2="110" y2="48"><stop stop-color="#2BD9FE"/><stop offset=".55" stop-color="#3D7BFF"/><stop offset="1" stop-color="#7A5CFF"/></linearGradient>
+<g id="syg"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="url(#pg)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g>
+</defs></svg>
+<canvas id="c3d" aria-hidden="true"></canvas>
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#hero" class="logo" aria-label="TGether, strona główna">
+      <svg width="44" height="22" viewBox="0 0 120 60" fill="none" aria-hidden="true"><use href="#syg"/></svg>
+      <span>TGether</span>
+    </a>
+    <div class="nav-links">
+      <a href="#aplikacje" data-i18n="nav1">Aplikacje</a>
+      <a href="#moduly" data-i18n="nav2">Moduły</a>
+      <a href="#premie" data-i18n="nav3">System premiowy</a>
+      <a href="#partner" data-i18n="nav4">Jak pracujemy</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-sw" role="group" aria-label="Język / Language">
+        <button id="lang-pl" class="on" onclick="setLang('pl')">PL</button>
+        <button id="lang-en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#demo" class="btn btn-pri btn-sm" data-i18n="navCta">Umów demo</a>
+      <button class="hamb" id="hamb" aria-label="Menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobile-menu">
-    <a class="mm-link" href="/o-nas.html">O nas</a>
-    <a class="mm-link" href="/produkt.html">Produkt</a>
-    <a class="mm-link" href="/cennik.html">Cennik</a>
-    <a class="mm-link" href="/case-studies.html">Realizacje</a>
-    <a class="mm-link" href="/blog.html">Blog</a>
-    <a class="mm-link" href="/kontakt.html">Kontakt</a>
-    <a class="mm-link" href="/faq.html">FAQ</a>
-    <a href="/kontakt.html" class="lbtn copper mm-cta">Umów rozmowę<svg><use href="#i-arrow"></use></svg></a>
-    <div class="mm-foot">Zostajemy. · tomasz@tgether.pl</div>
+<div class="mobile-menu" id="mmenu">
+  <a href="#aplikacje" data-i18n="nav1">Aplikacje</a>
+  <a href="#moduly" data-i18n="nav2">Moduły</a>
+  <a href="#premie" data-i18n="nav3">System premiowy</a>
+  <a href="#partner" data-i18n="nav4">Jak pracujemy</a>
+  <a href="#faq">FAQ</a>
 </div>
-<main id="main">
 
-<section class="lhero-section">
-  <div class="lhero-inner on-dark">
-    <svg class="hghost" viewBox="0 0 120 60" style="right:-10%; bottom:-6%; width:min(640px,62vw); color:color-mix(in srgb,var(--copper) 12%,transparent)"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div class="wrap" style="position:relative; z-index:2">
-      <div class="hgrid">
-        <div>
-          <span class="eyebrow-pill"><span class="dot"></span>Portal dla firm + moduły na miarę</span>
-          <h1 class="display" style="margin:26px 0 0; font-size:clamp(36px,5.4vw,72px); max-width:17ch">Gotowy portal. Moduły szyte <span class="serif-i" style="color:var(--copper-hi)">pod Ciebie</span>.</h1>
-          <p class="lede" style="margin-top:26px; max-width:52ch; color:var(--bone)">Masz działający portal z&nbsp;głównymi modułami od&nbsp;pierwszego dnia. W&nbsp;jego ramach dorabiamy moduły pod Twój proces — i&nbsp;zostajemy jako administrator, żeby wszystko zawsze działało.</p>
-          <div class="hbtns">
-            <a href="/kontakt.html" class="lbtn copper">Umów rozmowę<svg><use href="#i-arrow"></use></svg></a>
-            <a href="/produkt.html" class="lbtn ghost-d">Zobacz, jak to działa</a>
+<!-- ============ HERO ============ -->
+<header id="hero">
+  <div class="wrap hero-in">
+    <h1 id="h1"><span data-i18n="h1a">Cała firma.</span><br><span class="grad-text" data-i18n="h1b">Jedno miejsce.</span><br><span data-i18n="h1c">Zero chaosu.</span></h1>
+    <p class="hero-sub" data-i18n="heroSub">PortalGO zbiera zadania, projekty, grafik, urlopy, premie i dokumenty w jednym systemie zbudowanym pod Twoją firmę. Dla firm, które wyrosły z Exceli, ale nie potrzebują ERP.</p>
+    <div class="hero-cta">
+      <a href="#demo" class="btn btn-pri" data-i18n="ctaDemo">Umów demo →</a>
+      <a href="#portalgo" class="btn btn-ghost" data-i18n="ctaSee">Zobacz, jak działa</a>
+    </div>
+    <div class="hero-meta">
+      <span><i></i><span data-i18n="meta1">15+ gotowych modułów</span></span>
+      <span><i></i><span data-i18n="meta2">Wdrożenie w tygodnie, nie miesiące</span></span>
+      <span><i></i><span data-i18n="meta3">Moduły dedykowane pod Twoje procesy</span></span>
+    </div>
+  </div>
+  <div class="scroll-hint" data-i18n="scroll">Przewiń</div>
+</header>
+
+<!-- ============ PROBLEM ============ -->
+<section id="problem" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="probEye">Brzmi znajomo?</span>
+      <h2 data-i18n="probH">Twoja firma rośnie. Chaos rośnie szybciej.</h2>
+    </div>
+    <div class="chaos-grid">
+      <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M12 3v18"/></svg></div><div><h3 data-i18n="p1h">Grafik w Excelu</h3><p data-i18n="p1p">Trzy wersje pliku, każda inna. Nikt nie wie, która jest aktualna.</p></div></div>
+      <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div><div><h3 data-i18n="p2h">Urlopy na korytarzu</h3><p data-i18n="p2p">„Mówiłem szefowi w zeszłym tygodniu.” Tylko szef tego nie pamięta.</p></div></div>
+      <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></div><div><h3 data-i18n="p3h">Premie liczone ręcznie</h3><p data-i18n="p3p">Co miesiąc te same spory o to, komu ile się należy i dlaczego.</p></div></div>
+      <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg></div><div><h3 data-i18n="p4h">Ustalenia w WhatsAppie</h3><p data-i18n="p4p">Kluczowa decyzja zapadła w czacie. Trzysta wiadomości temu.</p></div></div>
+      <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg></div><div><h3 data-i18n="p5h">Wiedza w głowach</h3><p data-i18n="p5p">Procedury zna tylko pani Kasia. Pani Kasia właśnie złożyła wypowiedzenie.</p></div></div>
+      <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div><div><h3 data-i18n="p6h">Dokumenty wszędzie</h3><p data-i18n="p6p">Umowa klienta? Może na mailu, może na dysku, może w segregatorze.</p></div></div>
+    </div>
+    <p class="problem-punch reveal" data-i18n="punch">To nie jest problem ludzi. <em>To brak systemu.</em></p>
+  </div>
+</section>
+
+<!-- ============ APLIKACJE ============ -->
+<section id="aplikacje" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="appsEye">Co budujemy</span>
+      <h2 data-i18n="appsH">Trzy aplikacje. Jedna zasada: zero chaosu.</h2>
+      <p data-i18n="appsSub">Flagowy portal operacyjny, samodzielny system premiowy i aplikacje internetowe budowane pod konkretny proces Twojej firmy.</p>
+    </div>
+    <div class="apps-grid">
+      <div class="app-card reveal">
+        <span class="app-flag" data-i18n="appFlag">Flagowa</span>
+        <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div>
+        <b>PortalGO</b>
+        <p data-i18n="app1p">Portal operacyjny firmy: zadania, grafik, urlopy, dokumenty i raporty w jednym miejscu. Serce codziennej pracy zespołu.</p>
+        <a class="app-link" href="#portalgo" data-i18n="app1l">Poznaj PortalGO →</a>
+      </div>
+      <div class="app-card reveal">
+        <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div>
+        <b>Premie</b>
+        <p data-i18n="app2p">Samodzielny system premiowy, który zamienia comiesięczne spory o premie w przejrzyste zasady i automatyczne rozliczenia.</p>
+        <a class="app-link" href="#premie" data-i18n="app2l">Zobacz, jak liczy →</a>
+      </div>
+      <div class="app-card reveal">
+        <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <b data-i18n="app3h">Aplikacje dedykowane</b>
+        <p data-i18n="app3p">Oferty, rezerwacje, portale dla klientów: budujemy aplikacje internetowe pod konkretny proces i utrzymujemy je w ruchu.</p>
+        <a class="app-link" href="#demo" data-i18n="app3l">Porozmawiajmy →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTALGO ============ -->
+<section id="portalgo" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">PortalGO</span>
+      <h2 data-i18n="pgH">Portal operacyjny Twojej firmy.</h2>
+      <p data-i18n="pgSub">Jedno miejsce, w którym pracownik znajduje swoje zadania, grafik i wniosek urlopowy. A Ty, pełny obraz firmy w czasie rzeczywistym.</p>
+    </div>
+    <div class="mock reveal" id="mock-pg" aria-label="Podgląd panelu PortalGO">
+      <div class="mock-bar"><i></i><i></i><i></i><div class="mock-url">portal.twojafirma.pl/agenda</div></div>
+      <div class="mock-body">
+        <div class="mock-side">
+          <div class="ms-logo"><svg width="24" height="12" viewBox="0 0 120 60" fill="none" aria-hidden="true"><use href="#syg"/></svg> PortalGO</div>
+          <div class="ms-item on">▦ <span data-i18n="ms1">Agenda</span></div>
+          <div class="ms-item">✓ <span data-i18n="ms2">Zadania</span></div>
+          <div class="ms-item">◫ <span data-i18n="ms3">Projekty</span></div>
+          <div class="ms-item">✎ <span data-i18n="ms4">Notatki</span></div>
+          <div class="ms-sep" data-i18n="msSep1">Organizacja</div>
+          <div class="ms-item">▤ <span data-i18n="ms5">Dokumenty</span></div>
+          <div class="ms-item">◷ <span data-i18n="ms6">Grafik pracy</span></div>
+          <div class="ms-item">✈ <span data-i18n="ms7">Urlopy</span></div>
+          <div class="ms-item">◈ <span data-i18n="ms8">Premie</span></div>
+          <div class="ms-sep" data-i18n="msSep2">Firma</div>
+          <div class="ms-item">▣ <span data-i18n="ms9">Raporty</span></div>
+          <div class="ms-item">◉ <span data-i18n="ms10">Ogłoszenia</span></div>
+        </div>
+        <div class="mock-main">
+          <div class="mm-head">
+            <div><div class="mm-title" data-i18n="mmHi">Dzień dobry, Tomku 👋</div><div class="mm-date" data-i18n="mmDate">piątek, 12 czerwca · 8 spraw na dziś</div></div>
+            <div class="mm-chip" data-i18n="mmBtn">+ Nowe zadanie</div>
           </div>
-          <div class="htrust">
-            <div class="m"><span class="v">1</span><span class="l">portal, wiele modułów</span></div>
-            <span class="sep"></span>
-            <div class="m"><span class="v">0</span><span class="l">wdrożeń od zera</span></div>
-            <span class="sep"></span>
-            <div class="m"><span class="v">∞</span><span class="l">rozwój i administracja</span></div>
+          <div class="kpis">
+            <div class="kpi"><b>12</b><span data-i18n="k1">zadań w toku</span></div>
+            <div class="kpi"><b>3</b><span data-i18n="k2">wnioski urlopowe</span></div>
+            <div class="kpi"><b class="up">98%</b><span data-i18n="k3">raportów na czas</span></div>
+            <div class="kpi"><b>4</b><span data-i18n="k4">projekty aktywne</span></div>
+          </div>
+          <div class="mm-cols">
+            <div class="panel">
+              <div class="panel-h" data-i18n="pnl1">Dzisiejsze zadania</div>
+              <div class="task-row"><span class="tr-check done"></span><s data-i18n="t1">Wysłać ofertę (Hurtownia Bielsko)</s><span class="tag g" data-i18n="tg1">Gotowe</span><span class="who">MK</span></div>
+              <div class="task-row"><span class="tr-check"></span><span data-i18n="t2">Przegląd umowy serwisowej</span><span class="tag o" data-i18n="tg2">Dziś</span><span class="who">AN</span></div>
+              <div class="task-row"><span class="tr-check"></span><span data-i18n="t3">Zatwierdzić grafik na lipiec</span><span class="tag b" data-i18n="tg3">Pilne</span><span class="who">TG</span></div>
+              <div class="task-row"><span class="tr-check"></span><span data-i18n="t4">Raport dzienny: serwis</span><span class="tag b">15:00</span><span class="who">PW</span></div>
+              <div class="panel-h" style="margin-top:14px" data-i18n="pnl2">Projekty</div>
+              <div class="bar-row"><span class="nm" data-i18n="pr1">Magazyn</span><div class="bar"><i style="width:78%"></i></div><b>78%</b></div>
+              <div class="bar-row"><span class="nm" data-i18n="pr2">Salon Škoda</span><div class="bar"><i style="width:45%"></i></div><b>45%</b></div>
+              <div class="bar-row"><span class="nm" data-i18n="pr3">Rekrutacja</span><div class="bar"><i style="width:92%"></i></div><b>92%</b></div>
+            </div>
+            <div class="panel">
+              <div class="panel-h" data-i18n="pnl3">Grafik: ten tydzień</div>
+              <div class="cal-mini">
+                <span class="hd">Pn</span><span class="hd">Wt</span><span class="hd">Śr</span><span class="hd">Cz</span><span class="hd">Pt</span><span class="hd">So</span><span class="hd">Nd</span>
+                <span>8</span><span class="ev">9</span><span>10</span><span class="ev2">11</span><span class="ev">12</span><span>13</span><span>14</span>
+              </div>
+              <div class="panel-h" style="margin-top:14px" data-i18n="pnl4">Ogłoszenia</div>
+              <div class="task-row"><span data-i18n="an1">🎉 Premie za maj rozliczone</span></div>
+              <div class="task-row"><span data-i18n="an2">📋 Nowa procedura reklamacji</span></div>
+              <div class="task-row"><span data-i18n="an3">🚗 Przegląd floty: zapisy</span></div>
+            </div>
           </div>
         </div>
-        <div class="hportrait">
-          <div class="img-ph" data-label="Tomasz Gubała · zdjęcie do uzupełnienia" style="aspect-ratio:4/5" aria-hidden="true"></div>
-          <div class="hsign">
-            <svg viewBox="0 0 120 60"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><div class="nm">Tomasz Gubała</div><div class="rl">Bezpośredni kontakt</div></div>
+      </div>
+    </div>
+    <div class="pg-points">
+      <div class="pg-point reveal"><b data-i18n="pgp1h">Każdy wie, co ma robić</b><p data-i18n="pgp1p">Zadania mają właściciela, termin i priorytet. Koniec z „myślałem, że ty to robisz”.</p></div>
+      <div class="pg-point reveal"><b data-i18n="pgp2h">Wszystko zostaje w firmie</b><p data-i18n="pgp2p">Notatki, dokumenty i ustalenia są w portalu, nie w czyjejś skrzynce ani głowie.</p></div>
+      <div class="pg-point reveal"><b data-i18n="pgp3h">Widzisz firmę z lotu ptaka</b><p data-i18n="pgp3p">Raporty dzienne i operacyjne pokazują, co się dzieje, bez pytania nikogo.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ============ MODUŁY ============ -->
+<section id="moduly" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="modEye">Moduły</span>
+      <h2 data-i18n="modH">Wszystko, czego firma używa na co dzień.</h2>
+      <p data-i18n="modSub">Włączasz tylko to, czego potrzebujesz. Resztę dokładasz, gdy firma rośnie.</p>
+    </div>
+    <div class="mod-grid">
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div><b data-i18n="m1h">Agenda</b><p data-i18n="m1p">Dzień pracownika na jednym ekranie: zadania, spotkania, terminy.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><b data-i18n="m2h">Zadania</b><p data-i18n="m2p">Właściciel, termin, priorytet. Nic nie ginie między ludźmi.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5v11M12 5v6M18 5v14"/></svg></div><b data-i18n="m3h">Projekty</b><p data-i18n="m3p">Etapy, postęp i odpowiedzialni, widoczne dla całego zespołu.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div><b data-i18n="m4h">Notatki</b><p data-i18n="m4p">Ustalenia ze spotkań zapisane tam, gdzie pracuje firma.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M8 13h8M8 17h6"/></svg></div><b data-i18n="m5h">Dokumenty</b><p data-i18n="m5p">Jedno repozytorium z uprawnieniami zamiast dysków i maili.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg></div><b data-i18n="m6h">Umowy</b><p data-i18n="m6p">Rejestr umów z terminami wypowiedzeń i przypomnieniami.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div><b data-i18n="m7h">Ogłoszenia</b><p data-i18n="m7p">Komunikaty firmowe z potwierdzeniem przeczytania.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><b data-i18n="m8h">Grafik pracy</b><p data-i18n="m8p">Zmiany, zastępstwa i dyspozycyjność, bez Excela.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><b data-i18n="m9h">Urlopy</b><p data-i18n="m9p">Wniosek, akceptacja, saldo dni. Wszystko online, z historią.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></div><b data-i18n="m10h">Raporty dzienne</b><p data-i18n="m10p">Krótki raport na koniec dnia zamiast porannych przesłuchań.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></div><b data-i18n="m11h">Raporty operacyjne</b><p data-i18n="m11p">Liczby z całej firmy zebrane automatycznie, nie ręcznie.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div><b data-i18n="m12h">System premiowy</b><p data-i18n="m12p">Zasady zdefiniowane raz, rozliczane automatycznie co miesiąc.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></div><b data-i18n="m13h">Komunikacja</b><p data-i18n="m13p">Wewnętrzne wątki przypięte do zadań i projektów.</p></div>
+      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M3.3 7l2.6 1.5M18.1 15.5 20.7 17M3.3 17l2.6-1.5M18.1 8.5 20.7 7"/></svg></div><b data-i18n="m14h">Procesy</b><p data-i18n="m14p">Powtarzalne procedury jako checklisty z odpowiedzialnymi.</p></div>
+      <div class="mod custom reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3Z"/></svg></div><b data-i18n="m15h">Moduły dedykowane</b><p data-i18n="m15p">Twój proces, zamieniony w działający moduł. Zbudowany pod Ciebie.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSFORM ============ -->
+<section id="transform" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:760px">
+      <span class="eyebrow" data-i18n="tfEye">Twój proces, nie nasz szablon</span>
+      <h2 data-i18n="tfH">Masz proces w Excelu? Zamienimy go w moduł.</h2>
+    </div>
+    <div class="tf-flow reveal">
+      <div class="tf-col">
+        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M12 3v18"/></svg> <s data-i18n="tf1">Rozliczenia montaży w arkuszu</s></div>
+        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M8 13h8M8 17h6"/></svg> <s data-i18n="tf2">Przeglądy floty na kartce</s></div>
+        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg> <s data-i18n="tf3">Zamówienia przez WhatsApp</s></div>
+        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> <s data-i18n="tf4">Reklamacje w skrzynce mailowej</s></div>
+        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg> <s data-i18n="tf5">Procedury w pamięci pracowników</s></div>
+      </div>
+      <div class="tf-arrow">
+        <svg width="64" height="24" viewBox="0 0 64 24" fill="none"><path d="M2 12h54m0 0-9-9m9 9-9 9" stroke="url(#ag)" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="ag" x1="2" y1="12" x2="58" y2="12"><stop stop-color="#2BD9FE"/><stop offset="1" stop-color="#3D7BFF"/></linearGradient></defs></svg>
+      </div>
+      <div class="tf-result">
+        <b data-i18n="tfRh">Dedykowany moduł w PortalGO</b>
+        <p data-i18n="tfRp">Z uprawnieniami, historią zmian, powiadomieniami i raportami. Działa tam, gdzie reszta firmy.</p>
+      </div>
+    </div>
+    <p class="tf-note reveal" data-i18n="tfNote">PortalGO nie jest zamkniętym pudełkiem. Opisujesz nam proces, my budujemy moduł, który go prowadzi. To różnica między „dostosuj się do programu” a „program dostosowany do Ciebie”.</p>
+  </div>
+</section>
+
+<!-- ============ SYSTEM PREMIOWY ============ -->
+<section id="premie" class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="reveal">
+          <span class="eyebrow" data-i18n="bnEye">Premie</span>
+          <h2 style="font-size:clamp(30px,4vw,46px);margin-bottom:16px" data-i18n="bnH">System premiowy. Zasady zamiast dyskusji.</h2>
+          <p style="color:var(--muted);font-size:17px" data-i18n="bnSub">Samodzielny system, który zamienia comiesięczne negocjacje w przejrzysty, automatyczny proces.</p>
+        </div>
+        <div class="feat-list">
+          <div class="feat reveal"><div class="fi">01</div><div><b data-i18n="b1h">Definiujesz zasady raz</b><p data-i18n="b1p">Prowizja od sprzedaży, premia za terminowość, bonus zespołowy, opisane jako reguły, nie uznaniowość.</p></div></div>
+          <div class="feat reveal"><div class="fi">02</div><div><b data-i18n="b2h">System liczy sam</b><p data-i18n="b2p">Co miesiąc kwoty wyliczają się z danych. Bez arkusza, bez ręcznego przepisywania, bez pomyłek.</p></div></div>
+          <div class="feat reveal"><div class="fi">03</div><div><b data-i18n="b3h">Pracownik widzi, skąd kwota</b><p data-i18n="b3p">Każda złotówka ma uzasadnienie widoczne dla pracownika. Spory kończą się, zanim się zaczną.</p></div></div>
+          <div class="feat reveal"><div class="fi">04</div><div><b data-i18n="b4h">Pełna historia rozliczeń</b><p data-i18n="b4p">Każdy miesiąc zarchiwizowany. Wracasz do dowolnego rozliczenia jednym kliknięciem.</p></div></div>
+        </div>
+      </div>
+      <div class="mock reveal" id="mock-bn" aria-label="Podgląd systemu premiowego">
+        <div class="mock-bar"><i></i><i></i><i></i><div class="mock-url">premie.twojafirma.pl/maj-2026</div></div>
+        <div style="padding:20px">
+          <div class="mm-head">
+            <div><div class="mm-title" data-i18n="bmH">Rozliczenie premii: maj 2026</div><div class="mm-date" data-i18n="bmSub">14 pracowników · 3 reguły premiowe · zatwierdzono 02.06</div></div>
+            <div class="mm-chip" data-i18n="bmBtn">Eksport</div>
           </div>
+          <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+            <div class="kpi"><b>42 350 zł</b><span data-i18n="bk1">suma premii</span></div>
+            <div class="kpi"><b class="up">+8%</b><span data-i18n="bk2">vs kwiecień</span></div>
+            <div class="kpi"><b>0</b><span data-i18n="bk3">korekt ręcznych</span></div>
+          </div>
+          <table class="bonus-table">
+            <thead><tr><th data-i18n="bth1">Pracownik</th><th data-i18n="bth2">Reguła</th><th data-i18n="bth3">Kwota</th><th data-i18n="bth4">Status</th></tr></thead>
+            <tbody>
+              <tr><td>M. Kowalska</td><td data-i18n="btr1">Prowizja 4% od sprzedaży</td><td class="amt">4 920 zł</td><td><span class="pill ok" data-i18n="pillOk">Zatwierdzona</span></td></tr>
+              <tr><td>A. Nowak</td><td data-i18n="btr2">Premia za terminowość</td><td class="amt">1 800 zł</td><td><span class="pill ok" data-i18n="pillOk2">Zatwierdzona</span></td></tr>
+              <tr><td>P. Wiśniewski</td><td data-i18n="btr3">Bonus zespołowy (serwis)</td><td class="amt">2 450 zł</td><td><span class="pill ok" data-i18n="pillOk3">Zatwierdzona</span></td></tr>
+              <tr><td>K. Zielińska</td><td data-i18n="btr1b">Prowizja 4% od sprzedaży</td><td class="amt">3 610 zł</td><td><span class="pill wait" data-i18n="pillWait">Do akceptacji</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ============ PARTNER ============ -->
+<section id="partner" class="sec">
   <div class="wrap">
-    <div class="kicker reveal"><span class="idx">01</span><span>Po co</span></div>
-    <h2 class="h2 reveal" style="margin:22px 0 0; max-width:22ch">Nie zaczynasz od&nbsp;zera. I&nbsp;nie zostajesz <span class="serif-i" style="color:var(--copper)">sam</span>.</h2>
-    <p class="body reveal" style="margin-top:18px">Budowa systemu od&nbsp;podstaw trwa miesiącami i&nbsp;często kończy się tak, że gotowy projekt zostaje bez nikogo, kto go zna. U&nbsp;nas startujesz na&nbsp;gotowym portalu, a&nbsp;moduły specyficzne dla Twojej firmy dorabiamy w&nbsp;jego ramach. Potem zostajemy jako administrator.</p>
-    <div class="vs-grid reveal">
-      <div class="vs-col bad">
-        <h3>System od&nbsp;zera, a&nbsp;potem cisza</h3>
-        <div class="vs-list">
-          <div class="vs-item"><svg><use href="#i-clock"></use></svg><span>Miesiące budowy, zanim cokolwiek ruszy</span></div>
-          <div class="vs-item"><svg><use href="#i-ghost"></use></svg><span>Po wdrożeniu zespół przechodzi dalej — system zostaje sam</span></div>
-          <div class="vs-item"><svg><use href="#i-link"></use></svg><span>Każda zmiana to osobna wycena i&nbsp;szukanie kogoś, kto zna kod</span></div>
-        </div>
-      </div>
-      <div class="vs-col good">
-        <h3>Jak to działa u&nbsp;nas</h3>
-        <div class="vs-list">
-          <div class="vs-item"><svg><use href="#i-check"></use></svg><span>Gotowy portal z&nbsp;głównymi modułami — działa od&nbsp;startu</span></div>
-          <div class="vs-item"><svg><use href="#i-check"></use></svg><span>Moduły pod Twój proces dorabiamy w&nbsp;ramach portalu</span></div>
-          <div class="vs-item"><svg><use href="#i-check"></use></svg><span>Zostajemy jako administrator — pilnujemy, żeby działało</span></div>
-        </div>
-      </div>
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="paEye">Jak pracujemy</span>
+      <h2 data-i18n="paH">Nie kupujesz programu. Zyskujesz dział.</h2>
+      <p data-i18n="paSub">Nie jesteśmy software housem, który oddaje kod i znika. Masz jednego opiekuna (autora i administratora systemu w jednej osobie), który odpowiada za to, żeby portal działał i nadążał za firmą.</p>
     </div>
-  </div>
-</section>
-
-<section class="section on-ivory">
-  <div class="wrap">
-    <div class="kicker reveal"><span class="idx">02</span><span>Jak to wygląda</span></div>
-    <h2 class="h2 reveal" style="margin:22px 0 0; max-width:20ch">Trzy etapy. Bez niespodzianek.</h2>
     <div class="steps">
-      <div class="step reveal"><span class="sn">01</span><h3>Rozmowa</h3><p>Mówisz, jak pracuje Twoja firma. Sprawdzamy, co załatwiają gotowe moduły portalu, a&nbsp;co trzeba dorobić pod Ciebie.</p></div>
-      <div class="step reveal"><span class="sn">02</span><h3>Uruchomienie i&nbsp;moduły</h3><p>Dostajesz dostęp do&nbsp;portalu z&nbsp;działającymi modułami. Indywidualne moduły dokładamy stopniowo — widzisz je w&nbsp;działaniu na&nbsp;bieżąco.</p></div>
-      <div class="step reveal"><span class="sn">03</span><h3>Administracja</h3><p>Zostajemy. Pilnujemy działania, robimy kopie, aktualizacje i&nbsp;dokładamy kolejne moduły, gdy firma rośnie.</p></div>
+      <div class="step reveal"><b data-i18n="s1h">Audyt procesów</b><p data-i18n="s1p">Siadamy z Tobą i mapujemy, jak firma naprawdę pracuje, łącznie z tym, co jest w Excelach i głowach.</p></div>
+      <div class="step reveal"><b data-i18n="s2h">Wdrożenie portalu</b><p data-i18n="s2p">Konfigurujemy moduły pod Twoje procesy i przenosimy dane. Zespół dostaje szkolenie, nie PDF-a.</p></div>
+      <div class="step reveal"><b data-i18n="s3h">Start i opieka</b><p data-i18n="s3p">Pierwsze tygodnie prowadzimy za rękę. Zbieramy uwagi zespołu i poprawiamy, co zgrzyta.</p></div>
+      <div class="step reveal"><b data-i18n="s4h">Stały rozwój</b><p data-i18n="s4p">Firma się zmienia, portal razem z nią. Nowe moduły i funkcje powstają, gdy ich potrzebujesz.</p></div>
+    </div>
+    <p class="partner-quote reveal" data-i18n="paQ">„Wdrażamy. <em>I zostajemy.</em> Klient nigdy nie zostaje sam z systemem.”</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
+      <h2 data-i18n="faqH">Pytania, które słyszymy najczęściej</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item reveal"><button class="faq-q" data-i18n="f1q">Ile trwa wdrożenie?</button><div class="faq-a"><p data-i18n="f1a">Standardowo 2-6 tygodni, zależnie od liczby modułów i danych do przeniesienia. Pierwsze efekty (działającą agendę i zadania) zespół widzi zwykle w pierwszym tygodniu.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" data-i18n="f2q">Czy musimy zmieniać sposób pracy pod program?</button><div class="faq-a"><p data-i18n="f2a">Nie, to program zmienia się pod Was. Zaczynamy od audytu Waszych procesów, a jeśli czegoś brakuje w standardzie, budujemy dedykowany moduł.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" data-i18n="f3q">Co z naszymi danymi z Exceli?</button><div class="faq-a"><p data-i18n="f3a">Przenosimy je w ramach wdrożenia. Grafiki, rejestry umów, listy zadań, migrujemy do portalu, żeby od pierwszego dnia pracować na prawdziwych danych.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" data-i18n="f4q">Dla jakich firm to ma sens?</button><div class="faq-a"><p data-i18n="f4a">Najlepiej sprawdzamy się w firmach 10-50 osób: handel, usługi, serwis, produkcja. Tam, gdzie firma wyrosła z Exceli, a pełny ERP to armata na wróbla.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" data-i18n="f7q">Ile to kosztuje?</button><div class="faq-a"><p data-i18n="f7a">Wdrożenie wyceniamy po krótkiej rozmowie o Twoich procesach, a potem płacisz stały, przewidywalny abonament z opieką i rozwojem w cenie. Wstępne widełki podajemy już na pierwszym spotkaniu.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" data-i18n="f6q">Kto się tym opiekuje po starcie?</button><div class="faq-a"><p data-i18n="f6a">Jedna osoba: autor systemu jest też jego administratorem. Problem trafia od razu do kogoś, kto zna portal na pamięć, więc zamyka się w minuty, nie w tygodnie. Bez kolejki zgłoszeń i wskazywania palcem.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" data-i18n="f5q">Co się dzieje po wdrożeniu?</button><div class="faq-a"><p data-i18n="f5a">Zostajemy. Utrzymujemy system, reagujemy na zgłoszenia i rozwijamy portal razem z firmą, w stałym, przewidywalnym modelu abonamentowym.</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ============ DEMO CTA ============ -->
+<section id="demo" class="sec">
   <div class="wrap">
-    <div class="kicker reveal"><span class="idx">03</span><span>Co to dla Ciebie znaczy</span></div>
-    <h2 class="h2 reveal" style="margin:22px 0 0; max-width:20ch">Jeden kontakt, stały koszt, Twoje dane.</h2>
-    <div class="feat-grid">
-      <div class="feat reveal"><div class="ic"><svg><use href="#i-layers"></use></svg></div><h3>Autor modułów = administrator</h3><p>Ta sama osoba dorabia Twoje moduły i&nbsp;administruje portalem. Zmiana trafia do&nbsp;kogoś, kto zna Twój system.</p></div>
-      <div class="feat reveal"><div class="ic"><svg><use href="#i-lock"></use></svg></div><h3>Twoje dane są Twoje</h3><p>Masz pełny wgląd i&nbsp;eksport danych w&nbsp;każdej chwili. Portal jest naszą platformą — Twoje dane zostają Twoje.</p></div>
-      <div class="feat reveal"><div class="ic"><svg><use href="#i-refresh"></use></svg></div><h3>Zmiany i&nbsp;administracja w&nbsp;stałej cenie</h3><p>Bieżące poprawki i&nbsp;utrzymanie w&nbsp;abonamencie. Wiesz, ile płacisz — bez liczenia godzin.</p></div>
+    <div class="demo-box reveal">
+      <div>
+        <h2 data-i18n="dH">Zobacz swoją firmę bez chaosu.</h2>
+        <p class="demo-sub" data-i18n="dSub">30 minut, online. Pokazujemy PortalGO na przykładach z Twojej branży i mówimy wprost, co ma sens, a co nie.</p>
+        <div class="demo-points">
+          <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#2BD9FE" stroke-width="1.5"/><path d="m5.5 9 2.5 2.5L12.5 7" stroke="#2BD9FE" stroke-width="1.5" stroke-linecap="round"/></svg><span data-i18n="dp1">Demo na żywym systemie, nie na slajdach</span></span>
+          <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#2BD9FE" stroke-width="1.5"/><path d="m5.5 9 2.5 2.5L12.5 7" stroke="#2BD9FE" stroke-width="1.5" stroke-linecap="round"/></svg><span data-i18n="dp2">Wstępna wycena jeszcze na spotkaniu</span></span>
+          <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#2BD9FE" stroke-width="1.5"/><path d="m5.5 9 2.5 2.5L12.5 7" stroke="#2BD9FE" stroke-width="1.5" stroke-linecap="round"/></svg><span data-i18n="dp3">Zero zobowiązań i zero follow-upów co tydzień</span></span>
+        </div>
+      </div>
+      <div>
+        <form id="demo-form" action="https://formspree.io/f/TWOJ_FORMSPREE_ID" method="POST" onsubmit="return demoSubmit(event)">
+          <input type="hidden" name="_subject" value="Zgłoszenie demo, tgether.pl">
+          <div class="fld"><label for="f-name" data-i18n="fl1">Imię i nazwisko</label><input id="f-name" name="imie_nazwisko" type="text" autocomplete="name" required placeholder="Jan Kowalski"></div>
+          <div class="fld"><label for="f-mail" data-i18n="fl2">Firmowy e-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required placeholder="jan@firma.pl"></div>
+          <div class="fld"><label for="f-size" data-i18n="fl3">Wielkość firmy</label>
+            <select id="f-size" name="wielkosc_firmy"><option data-i18n="fo1">10-20 pracowników</option><option data-i18n="fo2">21-50 pracowników</option><option data-i18n="fo3">Ponad 50 pracowników</option><option data-i18n="fo4">Mniej niż 10</option></select>
+          </div>
+          <div class="fld"><label for="f-msg" data-i18n="fl4">Co dziś najbardziej zgrzyta? (opcjonalnie)</label><textarea id="f-msg" name="wiadomosc" data-i18n-ph="fph" placeholder="np. premie liczymy ręcznie w trzech Excelach…"></textarea></div>
+          <button type="submit" class="btn btn-pri" style="margin-top:6px" data-i18n="fBtn">Umów demo →</button>
+          <p style="font-size:13px;color:var(--muted);margin-top:4px" data-i18n="rodo">Wysyłając formularz, akceptujesz <a href="/polityka-prywatnosci.html" style="color:var(--cyan)">politykę prywatności</a>.</p>
+        </form>
+        <div class="form-ok" id="form-ok">
+          <div class="ok-ic">✓</div>
+          <b data-i18n="okH">Dziękujemy!</b>
+          <p data-i18n="okP">Odezwiemy się w ciągu jednego dnia roboczego, żeby ustalić termin.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section on-ivory">
+<!-- ============ FOOTER ============ -->
+<footer>
   <div class="wrap">
-    <div class="kicker reveal"><span class="idx">04</span><span>Cennik</span></div>
-    <h2 class="h2 reveal" style="margin:22px 0 0; max-width:20ch">Stały, przewidywalny koszt.</h2>
-    <p class="body reveal" style="margin-top:18px">Dostęp do&nbsp;portalu, administracja i&nbsp;bieżące zmiany w&nbsp;abonamencie. Większe moduły wyceniamy z&nbsp;góry. Trzy poziomy, zależnie od&nbsp;tego, ile dorabiamy pod Ciebie.</p>
-    <div class="mini-cards reveal">
-      <div class="ds-card pad-lg"><div class="kpi-label">01</div><div class="h3" style="margin-top:8px">Portal + moduł</div><p class="body" style="font-size:14.5px; margin-top:10px">Dostęp do&nbsp;portalu i&nbsp;pierwszy moduł pod Twój proces.</p></div>
-      <div class="ds-card pad-lg" style="border-color:var(--copper)"><div class="kpi-label" style="color:var(--copper-lo)">02 · Najczęściej</div><div class="h3" style="margin-top:8px">Portal + rozwój</div><p class="body" style="font-size:14.5px; margin-top:10px">Dokładamy kolejne moduły i&nbsp;administrujemy na&nbsp;bieżąco.</p></div>
-      <div class="ds-card pad-lg"><div class="kpi-label">03</div><div class="h3" style="margin-top:8px">Partner technologiczny</div><p class="body" style="font-size:14.5px; margin-top:10px">Stały rozwój portalu pod Twoją firmę i&nbsp;priorytet.</p></div>
-    </div>
-    <div class="reveal mt-cta"><a href="/cennik.html" class="ds-btn copper lg">Zobacz cennik<svg><use href="#i-arrow"></use></svg></a></div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap" style="max-width:880px">
-    <div class="kicker reveal"><span class="idx">05</span><span>FAQ</span></div>
-    <h2 class="h2 reveal" style="margin:22px 0 0; max-width:18ch">Krótko, konkretnie.</h2>
-    <div class="faq reveal">
-      <details open>
-        <summary>Czym dokładnie zajmuje się TGether?<span class="pm"></span></summary>
-        <div class="ans"><p>Mamy własny portal dla firm z&nbsp;gotowymi, głównymi modułami. Pod Twój proces dorabiamy w&nbsp;jego ramach indywidualne moduły, a&nbsp;potem administrujemy całością — pilnujemy, żeby wszystko działało.</p></div>
-      </details>
-      <details>
-        <summary>Czy buduję cały system od&nbsp;zera?<span class="pm"></span></summary>
-        <div class="ans"><p>Nie. Startujesz na&nbsp;gotowym, działającym portalu — nie czekasz miesiącami i&nbsp;nie płacisz za&nbsp;budowę podstaw. Pod Ciebie dorabiamy tylko to, czego nie ma w&nbsp;modułach standardowych.</p></div>
-      </details>
-      <details>
-        <summary>Kto pilnuje, żeby to działało?<span class="pm"></span></summary>
-        <div class="ans"><p>My. Zostajemy jako administrator portalu: konta, konfiguracja, kopie, monitoring i&nbsp;aktualizacje są po&nbsp;naszej stronie. Piszesz wprost do&nbsp;osoby, która zna Twoje moduły.</p></div>
-      </details>
-    </div>
-    <div class="reveal mt-cta"><a href="/faq.html" class="ds-btn ghost">Wszystkie pytania<svg><use href="#i-arrow"></use></svg></a></div>
-  </div>
-</section>
-<section class="section">
-  <div class="wrap">
-    <div class="cta-band reveal">
-      <svg class="ghost" viewBox="0 0 120 60"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <h2>Sprawdźmy, co portal załatwia <span class="si">u&nbsp;Ciebie</span>.</h2>
-      <p>Krótka rozmowa o&nbsp;tym, jak pracuje Twoja firma. Powiemy wprost, co dają gotowe moduły, a&nbsp;co dorobimy — bez zobowiązań.</p>
-      <div class="hbtns" style="justify-content:center; margin-top:34px; position:relative">
-        <a href="/kontakt.html" class="lbtn copper"><svg><use href="#i-phone"></use></svg>Umów rozmowę</a>
-        <a href="/produkt.html" class="lbtn ghost-d">Zobacz, jak działamy</a>
+    <div class="foot-in">
+      <div class="foot-brand">
+        <a href="#hero" class="logo"><svg width="40" height="20" viewBox="0 0 120 60" fill="none" aria-hidden="true"><use href="#syg"/></svg><span>TGether</span></a>
+        <p data-i18n="ftDesc">Partner technologiczny dla małych i średnich firm. Porządkujemy codzienną pracę, i bierzemy za to odpowiedzialność.</p>
       </div>
-      <div style="display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-top:32px; position:relative">
-        <span style="display:inline-flex; align-items:center; gap:9px; font-size:13px; color:var(--titanium)"><svg style="width:16px;height:16px;color:var(--copper)"><use href="#i-check"></use></svg>Bez zobowiązań</span>
-        <span style="display:inline-flex; align-items:center; gap:9px; font-size:13px; color:var(--titanium)"><svg style="width:16px;height:16px;color:var(--copper)"><use href="#i-check"></use></svg>Odpowiedź w&nbsp;24&nbsp;h</span>
-        <span style="display:inline-flex; align-items:center; gap:9px; font-size:13px; color:var(--titanium)"><svg style="width:16px;height:16px;color:var(--copper)"><use href="#i-shield"></use></svg>Pełen dostęp do Twoich danych</span>
+      <div class="foot-cols">
+        <div class="foot-col"><b data-i18n="ftC1">Produkty</b><a href="#portalgo">PortalGO</a><a href="#premie" data-i18n="ftP2">System premiowy</a><a href="#aplikacje" data-i18n="ftP3">Aplikacje dedykowane</a></div>
+        <div class="foot-col"><b data-i18n="ftC2">Firma</b><a href="#partner" data-i18n="ftF1">Jak pracujemy</a><a href="#faq">FAQ</a><a href="#demo" data-i18n="ftF3">Umów demo</a><a href="/polityka-prywatnosci.html" data-i18n="ftF4">Polityka prywatności</a></div>
+        <div class="foot-col"><b data-i18n="ftC3">Kontakt</b><a href="mailto:tomasz@tgether.pl">tomasz@tgether.pl</a><a href="https://tgether.pl">tgether.pl</a></div>
       </div>
     </div>
-  </div>
-</section>
-</main>
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-cols">
-      <div class="foot-col">
-        <div style="display:flex; align-items:center; gap:12px">
-          <svg viewBox="0 0 120 60" style="width:34px; color:var(--copper)"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="wordmark" style="font-size:30px; color:var(--ivory)">TGether</span>
-        </div>
-        <p class="small" style="margin-top:18px; max-width:32ch; color:var(--titanium)">Portal dla firm z&nbsp;modułami szytymi pod Ciebie — i&nbsp;stałą administracją.</p>
-        <p class="small" style="margin-top:18px; color:var(--titanium)"><a href="mailto:tomasz@tgether.pl" style="color:var(--copper-hi)">tomasz@tgether.pl</a></p>
-      </div>
-      <div class="foot-col">
-        <div class="label">Nawigacja</div>
-        <div class="links">
-          <a href="/o-nas.html">O nas</a>
-          <a href="/produkt.html">Produkt</a>
-          <a href="/cennik.html">Cennik</a>
-          <a href="/case-studies.html">Realizacje</a>
-        </div>
-      </div>
-      <div class="foot-col">
-        <div class="label">Więcej</div>
-        <div class="links">
-          <a href="/blog.html">Blog</a>
-          <a href="/faq.html">FAQ</a>
-          <a href="/kontakt.html">Kontakt</a>
-          <a href="/lp.html">Landing</a>
-        </div>
-      </div>
-      <div class="foot-col">
-        <div class="label">Prawne</div>
-        <div class="links">
-          <a href="/polityka-prywatnosci.html">Polityka prywatności</a>
-          <a href="/regulamin.html">Regulamin</a>
-        </div>
-      </div>
+    <div class="foot-signoff">
+      <span data-i18n="ftS1">Wdrażamy. I zostajemy.</span><br>
+      <span class="grad-text big" data-i18n="ftS2">Razem.</span>
     </div>
-    <hr class="rule" style="margin:48px 0 22px; color:var(--titanium)">
-    <div class="foot-bottom label">
-      <span>© 2026 TGether · Tomasz Gubała</span>
-      <span style="color:var(--copper)">Zostajemy.</span>
+    <div class="foot-base">
+      <span>© 2026 TGether · Tomasz Gubała. <span data-i18n="ftR">Wszelkie prawa zastrzeżone.</span></span>
+      <span data-i18n="ftMade">Oprogramowanie dla firm ze stałym opiekunem</span>
     </div>
   </div>
 </footer>
-<div class="cookie" role="dialog" aria-label="Zgoda na pliki cookie" aria-live="polite">
-  <p>Używamy niezbędnych plików cookie, by strona działała poprawnie. Statystyki włączymy dopiero za Twoją zgodą. Więcej w&nbsp;<a href="/polityka-prywatnosci.html">Polityce prywatności</a>.</p>
-  <div class="c-acts">
-    <button class="ds-btn ghost sm" data-consent="necessary" style="color:var(--ivory); border-color:color-mix(in srgb,var(--ivory) 30%,transparent)">Tylko niezbędne</button>
-    <button class="ds-btn copper sm" data-consent="all">Akceptuję wszystkie</button>
-  </div>
-</div>
-<script src="/brand.js"></script>
-<script src="/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* ================= I18N ================= */
+const plDict = {}, plPh = {};
+document.querySelectorAll('[data-i18n]').forEach(el => { plDict[el.dataset.i18n] = el.innerHTML; });
+document.querySelectorAll('[data-i18n-ph]').forEach(el => { plPh[el.dataset.i18nPh] = el.placeholder; });
+
+const enDict = {
+  nav1:"Apps", nav2:"Modules", nav3:"Bonus system", nav4:"How we work", navCta:"Book a demo",
+  h1a:"Your whole company.", h1b:"One place.", h1c:"Zero chaos.",
+  heroSub:"PortalGO brings tasks, projects, schedules, leave, bonuses and documents into one system built around your company. For companies that have outgrown Excel but do not need an ERP.",
+  ctaDemo:"Book a demo →", ctaSee:"See how it works",
+  meta1:"15+ ready-made modules", meta2:"Live in weeks, not months", meta3:"Custom modules for your processes",
+  scroll:"Scroll",
+  appsEye:"What we build", appsH:"Three apps. One rule: zero chaos.",
+  appsSub:"A flagship operations portal, a standalone bonus system and web applications built around your company's specific processes.",
+  appFlag:"Flagship",
+  app1p:"The company operations portal: tasks, schedules, leave, documents and reports in one place. The heart of the team's daily work.",
+  app1l:"Meet PortalGO →",
+  app2p:"A standalone bonus system that turns monthly bonus disputes into clear rules and automatic settlements.",
+  app2l:"See how it counts →",
+  app3h:"Custom web apps", app3p:"Offers, bookings, customer portals: we build web applications around a specific process and keep them running.",
+  app3l:"Let's talk →",
+  probEye:"Sound familiar?", probH:"Your company is growing. The chaos grows faster.",
+  p1h:"Schedules in Excel", p1p:"Three versions of the file, all different. Nobody knows which one is current.",
+  p2h:"Leave agreed in the hallway", p2p:"“I told the boss last week.” Except the boss doesn't remember.",
+  p3h:"Bonuses counted by hand", p3p:"Every month, the same arguments about who gets what and why.",
+  p4h:"Decisions in WhatsApp", p4p:"The key decision was made in a chat. Three hundred messages ago.",
+  p5h:"Knowledge in people's heads", p5p:"Only Kate knows the procedures. Kate just handed in her notice.",
+  p6h:"Documents everywhere", p6p:"The client's contract? Maybe in email, maybe on a drive, maybe in a binder.",
+  punch:"It's not a people problem. <em>It's the lack of a system.</em>",
+  pgH:"The operations portal for your company.",
+  pgSub:"One place where every employee finds their tasks, schedule and leave request. And you, a real-time picture of the whole company.",
+  ms1:"Agenda", ms2:"Tasks", ms3:"Projects", ms4:"Notes", msSep1:"Organisation", ms5:"Documents", ms6:"Work schedule", ms7:"Leave", ms8:"Bonuses", msSep2:"Company", ms9:"Reports", ms10:"Announcements",
+  mmHi:"Good morning, Tom 👋", mmDate:"Friday, June 12 · 8 items for today", mmBtn:"+ New task",
+  k1:"tasks in progress", k2:"leave requests", k3:"reports on time", k4:"active projects",
+  pnl1:"Today's tasks", pnl2:"Projects", pnl3:"Schedule: this week", pnl4:"Announcements",
+  t1:"Send offer (Bielsko Wholesale)", t2:"Review service contract", t3:"Approve July schedule", t4:"Daily report: service",
+  tg1:"Done", tg2:"Today", tg3:"Urgent",
+  pr1:"Warehouse", pr2:"Škoda showroom", pr3:"Recruitment",
+  an1:"🎉 May bonuses settled", an2:"📋 New complaints procedure", an3:"🚗 Fleet inspection: sign-ups",
+  pgp1h:"Everyone knows what to do", pgp1p:"Tasks have an owner, a deadline and a priority. No more “I thought you were doing it”.",
+  pgp2h:"Everything stays in the company", pgp2p:"Notes, documents and decisions live in the portal, not in someone's inbox or head.",
+  pgp3h:"A bird's-eye view of the company", pgp3p:"Daily and operational reports show what's happening, without asking anyone.",
+  modEye:"Modules", modH:"Everything your company uses every day.", modSub:"Switch on only what you need. Add the rest as the company grows.",
+  m1h:"Agenda", m1p:"An employee's day on one screen: tasks, meetings, deadlines.",
+  m2h:"Tasks", m2p:"Owner, deadline, priority. Nothing falls between people.",
+  m3h:"Projects", m3p:"Stages, progress and owners, visible to the whole team.",
+  m4h:"Notes", m4p:"Meeting decisions recorded where the company works.",
+  m5h:"Documents", m5p:"One repository with permissions instead of drives and emails.",
+  m6h:"Contracts", m6p:"A contract register with notice periods and reminders.",
+  m7h:"Announcements", m7p:"Company messages with read confirmation.",
+  m8h:"Work schedule", m8p:"Shifts, cover and availability, without Excel.",
+  m9h:"Leave", m9p:"Request, approval, balance of days. All online, with history.",
+  m10h:"Daily reports", m10p:"A short end-of-day report instead of morning interrogations.",
+  m11h:"Operational reports", m11p:"Numbers from the whole company collected automatically, not by hand.",
+  m12h:"Bonus system", m12p:"Rules defined once, settled automatically every month.",
+  m13h:"Communication", m13p:"Internal threads pinned to tasks and projects.",
+  m14h:"Processes", m14p:"Repeatable procedures as checklists with owners.",
+  m15h:"Custom modules", m15p:"Your process, turned into a working module. Built for you.",
+  tfEye:"Your process, not our template", tfH:"Got a process in Excel? We'll turn it into a module.",
+  tf1:"Installation billing in a spreadsheet", tf2:"Fleet inspections on paper", tf3:"Orders via WhatsApp", tf4:"Complaints in an inbox", tf5:"Procedures in employees' memory",
+  tfRh:"A dedicated module in PortalGO", tfRp:"With permissions, change history, notifications and reports. Running where the rest of the company runs.",
+  tfNote:"PortalGO is not a closed box. You describe the process, we build the module that runs it. That's the difference between “adapt to the software” and “software adapted to you”.",
+  bnEye:"Bonuses", bnH:"The bonus system. Rules instead of arguments.",
+  bnSub:"A standalone system that turns monthly negotiations into a transparent, automatic process.",
+  b1h:"Define the rules once", b1p:"Sales commission, on-time bonus, team bonus, written as rules, not discretion.",
+  b2h:"The system does the maths", b2p:"Every month the amounts are calculated from data. No spreadsheet, no copying by hand, no mistakes.",
+  b3h:"Employees see where the number comes from", b3p:"Every złoty has a visible justification. Disputes end before they start.",
+  b4h:"Full settlement history", b4p:"Every month archived. Go back to any settlement in one click.",
+  bmH:"Bonus settlement: May 2026", bmSub:"14 employees · 3 bonus rules · approved 02.06", bmBtn:"Export",
+  bk1:"total bonuses", bk2:"vs April", bk3:"manual corrections",
+  bth1:"Employee", bth2:"Rule", bth3:"Amount", bth4:"Status",
+  btr1:"4% sales commission", btr2:"On-time bonus", btr3:"Team bonus (service)", btr1b:"4% sales commission",
+  pillOk:"Approved", pillOk2:"Approved", pillOk3:"Approved", pillWait:"Pending",
+  paEye:"How we work", paH:"You're not buying software. You're gaining a department.",
+  paSub:"We're not a software house that hands over code and disappears. You get one dedicated person (the author and administrator of the system in one) responsible for keeping the portal running and keeping up with your company.",
+  s1h:"Process audit", s1p:"We sit down with you and map how the company really works, including what lives in spreadsheets and heads.",
+  s2h:"Portal rollout", s2p:"We configure the modules around your processes and migrate the data. The team gets training, not a PDF.",
+  s3h:"Launch and care", s3p:"We hold your hand through the first weeks, gather the team's feedback and fix what grinds.",
+  s4h:"Continuous development", s4p:"The company changes, the portal changes with it. New modules and features arrive when you need them.",
+  paQ:"“We deploy. <em>And we stay.</em> The client is never left alone with the system.”",
+  faqH:"The questions we hear most often",
+  f1q:"How long does implementation take?", f1a:"Typically 2-6 weeks, depending on the number of modules and the data to migrate. The team usually sees the first results (a working agenda and tasks) within the first week.",
+  f2q:"Do we have to change how we work to fit the software?", f2a:"No, the software changes to fit you. We start with an audit of your processes, and if something is missing from the standard, we build a dedicated module.",
+  f3q:"What about our data in Excel?", f3a:"We migrate it as part of the rollout. Schedules, contract registers, task lists, they go into the portal so you work on real data from day one.",
+  f4q:"What kind of companies is this for?", f4a:"We work best with companies of 10-50 people: trade, services, repair shops, manufacturing. Where the company has outgrown Excel, but a full ERP is overkill.",
+  f7q:"How much does it cost?", f7a:"We quote the rollout after a short conversation about your processes, then you pay a fixed, predictable subscription with care and development included. You get a ballpark range at the first meeting.", f6q:"Who looks after it once it's live?", f6a:"One person: the system's author is also its administrator. Issues go straight to someone who knows the portal by heart, so they're resolved in minutes, not weeks. No ticket queue, no finger-pointing.", f5q:"What happens after the rollout?", f5a:"We stay. We maintain the system, respond to requests and grow the portal with the company, on a fixed, predictable subscription.",
+  dH:"See your company without the chaos.",
+  dSub:"30 minutes, online. We show PortalGO on examples from your industry and tell you plainly what makes sense, and what doesn't.",
+  dp1:"A demo on a live system, not slides", dp2:"A ballpark quote during the meeting", dp3:"No commitment and no weekly follow-ups",
+  fl1:"Full name", fl2:"Company email", fl3:"Company size", fl4:"What grinds the most today? (optional)",
+  fo1:"10-20 employees", fo2:"21-50 employees", fo3:"More than 50 employees", fo4:"Fewer than 10",
+  fph:"e.g. we calculate bonuses by hand in three spreadsheets…",
+  fBtn:"Book a demo →",
+  okH:"Thank you!", okP:"We'll get back to you within one business day to set a date.",
+  rodo:"By submitting this form you accept our <a href=\"/polityka-prywatnosci.html\" style=\"color:var(--cyan)\">privacy policy</a>.",
+  ftDesc:"A technology partner for small and medium companies. We bring order to daily work, and take responsibility for it.",
+  ftC1:"Products", ftP2:"Bonus system", ftP3:"Custom web apps",
+  ftC2:"Company", ftF1:"How we work", ftF3:"Book a demo", ftF4:"Privacy policy",
+  ftC3:"Contact",
+  ftR:"All rights reserved.", ftMade:"Software with a dedicated caretaker built in", ftS1:"We deploy. And we stay.", ftS2:"Together."
+};
+const titles = {
+  pl:"System do zarządzania firmą 10-50 osób | PortalGO od TGether",
+  en:"All-in-one company management for 10-50 people | PortalGO by TGether"
+};
+function setLang(l){
+  const d = l === 'en' ? enDict : plDict;
+  document.querySelectorAll('[data-i18n]').forEach(el => { const v = d[el.dataset.i18n]; if (v !== undefined) el.innerHTML = v; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = l === 'en' ? (enDict[el.dataset.i18nPh] || el.placeholder) : (plPh[el.dataset.i18nPh] || el.placeholder); });
+  document.documentElement.lang = l;
+  document.title = titles[l];
+  document.getElementById('lang-pl').classList.toggle('on', l === 'pl');
+  document.getElementById('lang-en').classList.toggle('on', l === 'en');
+}
+
+/* ================= NAV ================= */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), { passive: true });
+const hamb = document.getElementById('hamb'), mmenu = document.getElementById('mmenu');
+hamb.addEventListener('click', () => {
+  const o = mmenu.classList.toggle('open');
+  hamb.setAttribute('aria-expanded', o);
+  nav.classList.add('scrolled');
+});
+mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mmenu.classList.remove('open');
+  hamb.setAttribute('aria-expanded', 'false');
+}));
+
+/* ================= FAQ ================= */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement, a = item.querySelector('.faq-a'), open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = 0; });
+    if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+
+/* ================= FORM ================= */
+function demoSubmit(e){
+  e.preventDefault();
+  const f = document.getElementById('demo-form');
+  const btn = f.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+    .then(r => {
+      if (!r.ok) throw new Error();
+      f.style.display = 'none';
+      document.getElementById('form-ok').style.display = 'block';
+    })
+    .catch(() => {
+      btn.disabled = false;
+      const b = 'Firma: ' + document.getElementById('f-size').value + '\n\n' + document.getElementById('f-msg').value;
+      location.href = 'mailto:tomasz@tgether.pl?subject=' + encodeURIComponent('Demo PortalGO') + '&body=' + encodeURIComponent(b);
+    });
+  return false;
+}
+
+/* ================= HOVER RING: rysowanie ramki ================= */
+(function(){
+  const NS = 'http://www.w3.org/2000/svg';
+  let uid = 0;
+  const cards = document.querySelectorAll('.mod, .chaos-card, .pg-point, .step, .app-card');
+  const ro = new ResizeObserver(entries => entries.forEach(e => drawRing(e.target)));
+  function drawRing(card){
+    const svg = card.querySelector(':scope > .ring-draw');
+    if (!svg) return;
+    const w = card.offsetWidth, h = card.offsetHeight;
+    if (!w || !h) return;
+    const r = Math.min(parseFloat(getComputedStyle(card).borderTopLeftRadius) || 0, h / 2 - 1, w / 2 - 1);
+    const i = .5, L = i, T = i, R = w - i, B = h - i, m = h / 2, ra = Math.max(0, r - i);
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    const [pTop, pBot] = svg.querySelectorAll('path');
+    pTop.setAttribute('d', `M ${L} ${m} L ${L} ${T + ra} A ${ra} ${ra} 0 0 1 ${L + ra} ${T} L ${R - ra} ${T} A ${ra} ${ra} 0 0 1 ${R} ${T + ra} L ${R} ${m}`);
+    pBot.setAttribute('d', `M ${L} ${m} L ${L} ${B - ra} A ${ra} ${ra} 0 0 0 ${L + ra} ${B} L ${R - ra} ${B} A ${ra} ${ra} 0 0 0 ${R} ${B - ra} L ${R} ${m}`);
+  }
+  cards.forEach(card => {
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'ring-draw');
+    svg.setAttribute('aria-hidden', 'true');
+    const gid = 'rg' + (++uid);
+    const defs = document.createElementNS(NS, 'defs');
+    const grad = document.createElementNS(NS, 'linearGradient');
+    grad.setAttribute('id', gid);
+    [['0','#2BD9FE'],['0.55','#3D7BFF'],['1','#7A5CFF']].forEach(([o, c]) => {
+      const st = document.createElementNS(NS, 'stop');
+      st.setAttribute('offset', o); st.setAttribute('stop-color', c);
+      grad.appendChild(st);
+    });
+    defs.appendChild(grad);
+    svg.appendChild(defs);
+    for (let k = 0; k < 2; k++){
+      const path = document.createElementNS(NS, 'path');
+      path.setAttribute('pathLength', '1');
+      path.setAttribute('stroke', 'url(#' + gid + ')');
+      svg.appendChild(path);
+    }
+    card.appendChild(svg);
+    drawRing(card);
+    ro.observe(card);
+  });
+})();
+
+/* ================= MODULE CARD GLOW ================= */
+document.querySelectorAll('.mod').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+/* ================= THREE.JS TŁO, chaos → porządek + logo TGether ================= */
+function initBG3D(){
+  try {
+  if (typeof THREE === 'undefined') return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = document.getElementById('c3d');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(55, 1, .1, 200);
+  camera.position.z = 17;
+  const partGroup = new THREE.Group();
+  const logoGroup = new THREE.Group();
+  logoGroup.position.z = -7;            /* logo zawsze głęboko w tle */
+  scene.add(logoGroup);
+  scene.add(partGroup);
+
+  const ss = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
+  const cA = new THREE.Color('#2BD9FE'), cB = new THREE.Color('#3D7BFF'), cC = new THREE.Color('#7A5CFF');
+  function lerp3(t, tmp){ if (t < .5) tmp.copy(cA).lerp(cB, t*2); else tmp.copy(cB).lerp(cC, (t-.5)*2); return tmp; }
+
+  /* ---- sygnet TGether: rysowany 1:1 z krzywych logo na teksturze (zero szwow) ---- */
+  const S = .34;
+  const logoTex = (() => {
+    const W = 2048, H = 1024, sc = W / 120;
+    const c = document.createElement('canvas'); c.width = W; c.height = H;
+    const g = c.getContext('2d');
+    g.scale(sc, sc);
+    const path = new Path2D('M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6');
+    const grad = g.createLinearGradient(10, 0, 110, 0);
+    grad.addColorStop(0, '#2BD9FE'); grad.addColorStop(.55, '#3D7BFF'); grad.addColorStop(1, '#7A5CFF');
+    g.strokeStyle = grad; g.lineCap = 'round'; g.lineJoin = 'round';
+    [[19, .05], [13, .1], [9, 1]].forEach(([lw, a]) => { g.globalAlpha = a; g.lineWidth = lw; g.stroke(path); });
+    const t = new THREE.CanvasTexture(c);
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    return t;
+  })();
+  const logoMat = new THREE.MeshBasicMaterial({ map: logoTex, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false });
+  const logoMesh = new THREE.Mesh(new THREE.PlaneGeometry(120 * S, 60 * S), logoMat);
+  logoMesh.renderOrder = 0;            /* rysowane przed cząstkami, nigdy na pierwszym planie */
+  logoGroup.add(logoMesh);
+
+  /* ---- cząstki: chaos → porządek ---- */
+  const gc = document.createElement('canvas'); gc.width = gc.height = 64;
+  const gx = gc.getContext('2d'), gr = gx.createRadialGradient(32,32,0,32,32,32);
+  gr.addColorStop(0,'rgba(255,255,255,1)'); gr.addColorStop(.4,'rgba(150,200,255,.65)'); gr.addColorStop(1,'rgba(0,0,0,0)');
+  gx.fillStyle = gr; gx.fillRect(0,0,64,64);
+  const glowTex = new THREE.CanvasTexture(gc);
+
+  const mobile = innerWidth < 700;
+  const SIDE = mobile ? 8 : 10, N = SIDE*SIDE*SIDE, GAP = mobile ? 1.3 : 1.2;
+  const chaos = new Float32Array(N*3), order = new Float32Array(N*3), col = new Float32Array(N*3);
+  const tmpC = new THREE.Color();
+  let i3 = 0;
+  const off = (SIDE-1)*GAP/2;
+  for (let x = 0; x < SIDE; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++){
+    order[i3] = x*GAP-off; order[i3+1] = y*GAP-off; order[i3+2] = z*GAP-off;
+    const r = 11 + Math.random()*14, th = Math.random()*Math.PI*2, ph = Math.acos(2*Math.random()-1);
+    chaos[i3] = r*Math.sin(ph)*Math.cos(th);
+    chaos[i3+1] = r*Math.sin(ph)*Math.sin(th)*.75;
+    chaos[i3+2] = r*Math.cos(ph)*.7;
+    const u = y/(SIDE-1);
+    tmpC.copy(cA).lerp(u<.5?cB:cC, u<.5?u*2:(u-.5)*2*.8+.2);
+    col[i3]=tmpC.r; col[i3+1]=tmpC.g; col[i3+2]=tmpC.b;
+    i3 += 3;
+  }
+  const pos = new Float32Array(N*3); pos.set(chaos);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const ptsMesh = new THREE.Points(geo, new THREE.PointsMaterial({
+    size: .24, map: glowTex, vertexColors: true, transparent: true, opacity: .58,
+    blending: THREE.AdditiveBlending, depthWrite: false
+  }));
+  ptsMesh.renderOrder = 2;
+  partGroup.add(ptsMesh);
+
+  /* siec krystaliczna: krawedzie kratownicy we wszystkich trzech osiach */
+  const linePos = [];
+  const at = (x, y, z) => { const i = ((x * SIDE + y) * SIDE + z) * 3; linePos.push(order[i], order[i+1], order[i+2]); };
+  for (let x = 0; x < SIDE; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++){
+    if (z < SIDE - 1) { at(x, y, z); at(x, y, z + 1); }
+    if (y < SIDE - 1) { at(x, y, z); at(x, y + 1, z); }
+    if (x < SIDE - 1) { at(x, y, z); at(x + 1, y, z); }
+  }
+  const lgeo = new THREE.BufferGeometry();
+  lgeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePos), 3));
+  const lmat = new THREE.LineBasicMaterial({ color: 0x3D7BFF, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+  const lines = new THREE.LineSegments(lgeo, lmat);
+  lines.renderOrder = 1;
+  partGroup.add(lines);
+
+  let mx = 0, my = 0, sp = 0, p = 0;
+  addEventListener('mousemove', e => { mx = (e.clientX/innerWidth - .5)*2; my = (e.clientY/innerHeight - .5)*2; }, { passive: true });
+  function onScroll(){ sp = scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight); }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  function resize(){
+    renderer.setSize(innerWidth, innerHeight, false);
+    camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+    /* logo szerokie: ~85% szerokości widoku na głębokości -7 */
+    const vw = 2 * 24 * Math.tan(camera.fov * Math.PI / 360) * camera.aspect;
+    logoGroup.userData.s = Math.min(1.35, vw * .85 / 34);
+    partGroup.scale.setScalar(innerWidth > 960 ? 1 : .7);
+  }
+  addEventListener('resize', resize); resize();
+  let visible = true;
+  document.addEventListener('visibilitychange', () => visible = !document.hidden);
+
+  const attr = geo.attributes.position;
+  function tick(time){
+    requestAnimationFrame(tick);
+    if (!visible) return;
+    const t = reduced ? 0 : time * .001;
+    const pT = reduced ? 1 : ss(.22, .62, sp);   /* porządek wraz ze scrollem */
+    p += (pT - p) * .06;
+    const lf = reduced ? 1 : ss(.34, .8, sp);    /* logo wyłania się później, delikatnie */
+    for (let i = 0, j = 0; i < N; i++, j += 3){
+      const w = Math.sin(t * .8 + i * .41) * .15 * (1 - p * .97);
+      attr.array[j]     = chaos[j]     + (order[j]     - chaos[j])     * p + w;
+      attr.array[j + 1] = chaos[j + 1] + (order[j + 1] - chaos[j + 1]) * p + Math.cos(t * .7 + i * .53) * .15 * (1 - p * .96);
+      attr.array[j + 2] = chaos[j + 2] + (order[j + 2] - chaos[j + 2]) * p + w;
+    }
+    attr.needsUpdate = true;
+    lmat.opacity = p * .07;
+    logoMat.opacity = .26 * lf;
+    logoGroup.rotation.y = Math.sin(t * .18) * .1 + mx * .07;
+    logoGroup.rotation.x = Math.sin(t * .14) * .05 + my * .05;
+    logoGroup.position.y = Math.sin(t * .35) * .25;
+    logoGroup.scale.setScalar((logoGroup.userData.s || 1) * (.93 + .07 * lf));
+    partGroup.rotation.y = t * .08 + mx * .25 + sp * 1.9;
+    partGroup.rotation.x = Math.sin(t * .16) * .1 + my * .13 + sp * .3;
+    camera.position.z = 17 - sp * 3.2;
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(tick);
+  } catch(e) { /* brak WebGL, strona działa bez animacji 3D */ }
+}
+/* tło 3D tylko desktop i bez preferencji ograniczonego ruchu */
+if (innerWidth > 700 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const bgScript = document.createElement('script');
+  bgScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  bgScript.onload = initBG3D;
+  document.head.appendChild(bgScript);
+}
+
+
+/* ================= GSAP, intro, scroll storytelling ================= */
+if (typeof gsap !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Intro hero
+  gsap.from('.badge, #h1, .hero-sub, .hero-cta, .hero-meta', {
+    opacity: 0, y: 34, duration: 1, stagger: .12, ease: 'power3.out', delay: .25
+  });
+
+  // Reveal sekcji
+  gsap.utils.toArray('.reveal:not(.chaos-card):not(.mod)').forEach(el => {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: .95, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 86%' }
+    });
+  });
+
+  // Mockup PortalGO, wjazd z perspektywą (efekt prezentacji produktu)
+  gsap.fromTo('#mock-pg',
+    { rotationX: 14, scale: .94, transformPerspective: 1200, transformOrigin: 'center top' },
+    { rotationX: 0, scale: 1, ease: 'none',
+      scrollTrigger: { trigger: '#mock-pg', start: 'top 90%', end: 'top 35%', scrub: .6 } });
+
+
+  // Karty chaosu, stagger
+  ScrollTrigger.batch('.chaos-card', {
+    start: 'top 88%',
+    onEnter: b => gsap.to(b, { opacity: 1, y: 0, stagger: .09, duration: .8, ease: 'power3.out' })
+  });
+  ScrollTrigger.batch('.mod', {
+    start: 'top 90%',
+    onEnter: b => gsap.to(b, { opacity: 1, y: 0, stagger: .05, duration: .7, ease: 'power3.out' })
+  });
+} else {
+  document.querySelectorAll('.reveal,.chaos-card,.mod').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+}
+</script>
 </body>
 </html>
