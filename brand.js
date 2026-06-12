@@ -2,23 +2,10 @@
 (function(){
   document.documentElement.classList.add('js');
 
-  // Resolve mark symbols to explicit-stroke inline paths so they survive
-  // html-to-image capture / PPTX export (currentColor through <use> is not).
-  const BROKEN = 'M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6';
-  const MK = { syg: BROKEN, sygG: BROKEN };
-  const NS='http://www.w3.org/2000/svg';
-  document.querySelectorAll('svg use').forEach(u=>{
-    const id=(u.getAttribute('href')||u.getAttribute('xlink:href')||'').replace('#','');
-    const d=MK[id]; if(!d) return;
-    const svg=u.ownerSVGElement;
-    const col=getComputedStyle(svg).color || '#A96540';
-    const p=document.createElementNS(NS,'path');
-    p.setAttribute('d',d); p.setAttribute('fill','none');
-    p.setAttribute('stroke',col);
-    p.setAttribute('stroke-width','9');
-    p.setAttribute('stroke-linecap','round'); p.setAttribute('stroke-linejoin','round');
-    svg.replaceChild(p,u);
-  });
+  // Znaki marki renderują się natywnie przez <use> + currentColor (zawsze
+  // w kolorze z CSS). Nie przerysowujemy ich w JS — wcześniejszy kod czytał
+  // kolor przez getComputedStyle w trakcie ładowania i przy wyścigu z CSS
+  // potrafił "wypalić" czarny obrys (niewidoczny na ciemnym tle).
 
   // Reveal on scroll
   const reveals = [...document.querySelectorAll('.reveal')];
