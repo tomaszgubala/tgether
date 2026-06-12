@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 - TGether</title>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>404 — nie znaleziono | TGether</title>
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=Newsreader:ital@1&display=swap" rel="stylesheet">
-<style>
-body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:#14161A;color:#D8D5CD;font-family:"Hanken Grotesk",system-ui,sans-serif}
-.box{padding:24px}
-svg{width:120px;height:60px;color:#C7855E;margin-bottom:20px}
-h1{font-size:64px;color:#F3EFE6;margin:0;letter-spacing:-.03em}
-p{font-family:"Newsreader",serif;font-style:italic;color:#C7855E;font-size:22px;margin:8px 0 28px}
-a{display:inline-block;background:#A96540;color:#1B130E;text-decoration:none;font-weight:600;padding:13px 26px;border-radius:999px}
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+<link rel="stylesheet" href="/landing.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
-<body>
-<div class="box">
-<svg viewBox="0 0 120 60"><path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<h1>404</h1>
-<p>Tej strony tu nie ma. Ale ja zostaję.</p>
-<a href="/">← Wróć na stronę główną</a>
+<body class="on-dark" style="min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px">
+<div style="max-width:560px">
+  <svg viewBox="0 0 120 60" style="width:88px; color:var(--copper); margin:0 auto 28px" aria-hidden="true">
+    <path d="M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6"
+      fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <div class="eyebrow" style="justify-content:center; color:var(--titanium)">Błąd 404</div>
+  <h1 class="display" style="font-size:clamp(40px,8vw,80px); margin:18px 0 0; color:var(--ivory)">Tej strony tu&nbsp;<span class="serif-i" style="color:var(--copper-hi)">nie ma</span>.</h1>
+  <p class="lede" style="margin:20px auto 0; max-width:42ch; color:var(--bone)">Ale my jesteśmy. Wróć na stronę główną albo napisz — odpiszemy osobiście.</p>
+  <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:34px">
+    <a href="/" class="lbtn copper">Strona główna<svg><use href="#i-arrow"></use></svg></a>
+    <a href="/kontakt.html" class="lbtn ghost-d">Kontakt</a>
+  </div>
 </div>
 </body>
 </html>
