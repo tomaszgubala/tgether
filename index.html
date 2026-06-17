@@ -953,6 +953,7 @@ function initBG3D(){
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
   const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x060912, .024);   /* głębia: dalsze cząstki rozpływają się w tle */
   const camera = new THREE.PerspectiveCamera(55, 1, .1, 200);
   camera.position.z = 17;
   const partGroup = new THREE.Group();
@@ -981,7 +982,7 @@ function initBG3D(){
     t.anisotropy = renderer.capabilities.getMaxAnisotropy();
     return t;
   })();
-  const logoMat = new THREE.MeshBasicMaterial({ map: logoTex, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false });
+  const logoMat = new THREE.MeshBasicMaterial({ map: logoTex, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false, fog: false });
   const logoMesh = new THREE.Mesh(new THREE.PlaneGeometry(120 * S, 60 * S), logoMat);
   logoMesh.renderOrder = 0;            /* rysowane przed cząstkami, nigdy na pierwszym planie */
   logoGroup.add(logoMesh);
@@ -989,7 +990,7 @@ function initBG3D(){
   /* ---- cząstki: chaos → porządek ---- */
   const gc = document.createElement('canvas'); gc.width = gc.height = 64;
   const gx = gc.getContext('2d'), gr = gx.createRadialGradient(32,32,0,32,32,32);
-  gr.addColorStop(0,'rgba(255,255,255,1)'); gr.addColorStop(.4,'rgba(150,200,255,.65)'); gr.addColorStop(1,'rgba(0,0,0,0)');
+  gr.addColorStop(0,'rgba(220,238,255,.82)'); gr.addColorStop(.28,'rgba(125,175,255,.46)'); gr.addColorStop(.65,'rgba(80,120,225,.12)'); gr.addColorStop(1,'rgba(0,0,0,0)');
   gx.fillStyle = gr; gx.fillRect(0,0,64,64);
   const glowTex = new THREE.CanvasTexture(gc);
 
@@ -1015,7 +1016,7 @@ function initBG3D(){
   geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
   const ptsMesh = new THREE.Points(geo, new THREE.PointsMaterial({
-    size: .24, map: glowTex, vertexColors: true, transparent: true, opacity: .58,
+    size: .26, map: glowTex, vertexColors: true, transparent: true, opacity: .42,
     blending: THREE.AdditiveBlending, depthWrite: false
   }));
   ptsMesh.renderOrder = 2;
@@ -1061,20 +1062,20 @@ function initBG3D(){
     p += (pT - p) * .06;
     const lf = reduced ? 1 : ss(.34, .8, sp);    /* logo wyłania się później, delikatnie */
     for (let i = 0, j = 0; i < N; i++, j += 3){
-      const w = Math.sin(t * .8 + i * .41) * .15 * (1 - p * .97);
+      const w = Math.sin(t * .8 + i * .41) * .09 * (1 - p * .97);
       attr.array[j]     = chaos[j]     + (order[j]     - chaos[j])     * p + w;
-      attr.array[j + 1] = chaos[j + 1] + (order[j + 1] - chaos[j + 1]) * p + Math.cos(t * .7 + i * .53) * .15 * (1 - p * .96);
+      attr.array[j + 1] = chaos[j + 1] + (order[j + 1] - chaos[j + 1]) * p + Math.cos(t * .7 + i * .53) * .09 * (1 - p * .96);
       attr.array[j + 2] = chaos[j + 2] + (order[j + 2] - chaos[j + 2]) * p + w;
     }
     attr.needsUpdate = true;
-    lmat.opacity = p * .07;
-    logoMat.opacity = .26 * lf;
-    logoGroup.rotation.y = Math.sin(t * .18) * .1 + mx * .07;
-    logoGroup.rotation.x = Math.sin(t * .14) * .05 + my * .05;
-    logoGroup.position.y = Math.sin(t * .35) * .25;
+    lmat.opacity = p * .12;
+    logoMat.opacity = .3 * lf;
+    logoGroup.rotation.y = Math.sin(t * .18) * .1 + mx * .05;
+    logoGroup.rotation.x = Math.sin(t * .14) * .05 + my * .04;
+    logoGroup.position.y = Math.sin(t * .35) * .16;
     logoGroup.scale.setScalar((logoGroup.userData.s || 1) * (.93 + .07 * lf));
-    partGroup.rotation.y = t * .08 + mx * .25 + sp * 1.9;
-    partGroup.rotation.x = Math.sin(t * .16) * .1 + my * .13 + sp * .3;
+    partGroup.rotation.y = t * .05 + mx * .18 + sp * .9;
+    partGroup.rotation.x = Math.sin(t * .16) * .08 + my * .1 + sp * .18;
     camera.position.z = 17 - sp * 3.2;
     renderer.render(scene, camera);
   }
