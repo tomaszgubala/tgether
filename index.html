@@ -985,7 +985,7 @@ function initBG3D(){
   const glowTex = new THREE.CanvasTexture(gc);
 
   const mobile = innerWidth < 700;
-  const SIDE = mobile ? 8 : 10, N = SIDE*SIDE*SIDE;
+  const N = mobile ? 720 : 1300;   /* nieco gestsze logo z gwiazd */
   const chaos = new Float32Array(N*3), order = new Float32Array(N*3), col = new Float32Array(N*3);
   const tmpC = new THREE.Color();
   /* "porzadek" = logo uformowane z gwiazd: kazda gwiazda dostaje punkt na konturze wstegi ∞ */
