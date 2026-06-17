@@ -957,41 +957,25 @@ function initBG3D(){
   const camera = new THREE.PerspectiveCamera(55, 1, .1, 200);
   camera.position.z = 17;
   const partGroup = new THREE.Group();
-  const logoGroup = new THREE.Group();
-  logoGroup.position.z = -7;            /* logo zawsze głęboko w tle */
-  scene.add(logoGroup);
   scene.add(partGroup);
 
   const ss = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
   const cA = new THREE.Color('#2BD9FE'), cB = new THREE.Color('#3D7BFF'), cC = new THREE.Color('#7A5CFF');
   function lerp3(t, tmp){ if (t < .5) tmp.copy(cA).lerp(cB, t*2); else tmp.copy(cB).lerp(cC, (t-.5)*2); return tmp; }
 
-  /* ---- sygnet TGether: rysowany 1:1 z krzywych logo na teksturze (zero szwow) ---- */
-  const S = .34;
-  const logoTex = (() => {
-    const W = 2048, H = 1024, sc = W / 120;
+  /* ---- ksztalt logo TGether (kontur wstegi ∞) -> punkty, z ktorych gwiazdy uloza logo ---- */
+  const logoPts = (() => {
+    const K = 6, W = 120 * K, H = 60 * K;
     const c = document.createElement('canvas'); c.width = W; c.height = H;
-    const g = c.getContext('2d');
-    g.scale(sc, sc);
+    const g = c.getContext('2d'); g.scale(K, K);
     const path = new Path2D('M60 30 C56 20.2,44 12,32 12 C19 12,10 20.2,10 30 C10 39.8,19 48,32 48 C41 48,49 43.1,52 36.6 L40 36.6 M60 30 C64 39.8,76 48,88 48 C101 48,110 39.8,110 30 C110 20.2,101 12,88 12 C80 12,72 16.1,67 22.6');
-    const grad = g.createLinearGradient(10, 0, 110, 0);
-    grad.addColorStop(0, '#2BD9FE'); grad.addColorStop(.55, '#3D7BFF'); grad.addColorStop(1, '#7A5CFF');
-    g.strokeStyle = grad; g.lineCap = 'round'; g.lineJoin = 'round';
-    /* ten sam ksztalt wstegi co dawniej, ale wydrazony: pelna wstega -> wyciecie srodka -> zostaje sam kontur */
-    g.globalAlpha = .10; g.lineWidth = 14; g.stroke(path);   /* miekka poswiata na zewnatrz */
-    g.globalAlpha = .18; g.lineWidth = 11; g.stroke(path);
-    g.globalAlpha = 1;   g.lineWidth = 9;  g.stroke(path);    /* pelna sylwetka logo */
-    g.globalCompositeOperation = 'destination-out';
-    g.globalAlpha = 1;   g.lineWidth = 6;  g.stroke(path);    /* wycina wnetrze: zostaje ~1.5 konturu z kazdej strony */
-    g.globalCompositeOperation = 'source-over';
-    const t = new THREE.CanvasTexture(c);
-    t.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    return t;
+    g.lineCap = 'round'; g.lineJoin = 'round'; g.strokeStyle = '#fff';
+    g.lineWidth = 9; g.stroke(path);                                                 /* pelna sylwetka wstegi */
+    g.globalCompositeOperation = 'destination-out'; g.lineWidth = 6; g.stroke(path); /* wydrazenie -> sam kontur */
+    const d = g.getImageData(0, 0, W, H).data, pts = [];
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) if (d[(y * W + x) * 4 + 3] > 40) pts.push(x / K, y / K);
+    return pts;   /* pary [px,py] w ukladzie 0..120 / 0..60 */
   })();
-  const logoMat = new THREE.MeshBasicMaterial({ map: logoTex, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false, fog: false });
-  const logoMesh = new THREE.Mesh(new THREE.PlaneGeometry(120 * S, 60 * S), logoMat);
-  logoMesh.renderOrder = 0;            /* rysowane przed cząstkami, nigdy na pierwszym planie */
-  logoGroup.add(logoMesh);
 
   /* ---- cząstki: chaos → porządek ---- */
   const gc = document.createElement('canvas'); gc.width = gc.height = 64;
@@ -1001,47 +985,36 @@ function initBG3D(){
   const glowTex = new THREE.CanvasTexture(gc);
 
   const mobile = innerWidth < 700;
-  const SIDE = mobile ? 8 : 10, N = SIDE*SIDE*SIDE, GAP = mobile ? 1.3 : 1.2;
+  const SIDE = mobile ? 8 : 10, N = SIDE*SIDE*SIDE;
   const chaos = new Float32Array(N*3), order = new Float32Array(N*3), col = new Float32Array(N*3);
   const tmpC = new THREE.Color();
-  let i3 = 0;
-  const off = (SIDE-1)*GAP/2;
-  for (let x = 0; x < SIDE; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++){
-    order[i3] = x*GAP-off; order[i3+1] = y*GAP-off; order[i3+2] = z*GAP-off;
+  /* "porzadek" = logo uformowane z gwiazd: kazda gwiazda dostaje punkt na konturze wstegi ∞ */
+  const LW = 19, sX = LW/120, DEPTH = 2.4, npt = logoPts.length/2;
+  for (let i = 0, i3 = 0; i < N; i++, i3 += 3){
+    const k = (Math.random()*npt|0)*2;
+    order[i3]   =  (logoPts[k]   - 60) * sX;
+    order[i3+1] = -(logoPts[k+1] - 30) * sX;
+    order[i3+2] =  (Math.random()-.5) * DEPTH;
     const r = 11 + Math.random()*14, th = Math.random()*Math.PI*2, ph = Math.acos(2*Math.random()-1);
-    chaos[i3] = r*Math.sin(ph)*Math.cos(th);
+    chaos[i3]   = r*Math.sin(ph)*Math.cos(th);
     chaos[i3+1] = r*Math.sin(ph)*Math.sin(th)*.75;
     chaos[i3+2] = r*Math.cos(ph)*.7;
-    const u = y/(SIDE-1);
+    const u = logoPts[k]/120;
     tmpC.copy(cA).lerp(u<.5?cB:cC, u<.5?u*2:(u-.5)*2*.8+.2);
     col[i3]=tmpC.r; col[i3+1]=tmpC.g; col[i3+2]=tmpC.b;
-    i3 += 3;
   }
   const pos = new Float32Array(N*3); pos.set(chaos);
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
   const ptsMesh = new THREE.Points(geo, new THREE.PointsMaterial({
-    size: .26, map: glowTex, vertexColors: true, transparent: true, opacity: .42,
+    size: .25, map: glowTex, vertexColors: true, transparent: true, opacity: .38,
     blending: THREE.AdditiveBlending, depthWrite: false
   }));
   ptsMesh.renderOrder = 2;
   partGroup.add(ptsMesh);
 
-  /* siec krystaliczna: krawedzie kratownicy we wszystkich trzech osiach */
-  const linePos = [];
-  const at = (x, y, z) => { const i = ((x * SIDE + y) * SIDE + z) * 3; linePos.push(order[i], order[i+1], order[i+2]); };
-  for (let x = 0; x < SIDE; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++){
-    if (z < SIDE - 1) { at(x, y, z); at(x, y, z + 1); }
-    if (y < SIDE - 1) { at(x, y, z); at(x, y + 1, z); }
-    if (x < SIDE - 1) { at(x, y, z); at(x + 1, y, z); }
-  }
-  const lgeo = new THREE.BufferGeometry();
-  lgeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePos), 3));
-  const lmat = new THREE.LineBasicMaterial({ color: 0x3D7BFF, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
-  const lines = new THREE.LineSegments(lgeo, lmat);
-  lines.renderOrder = 1;
-  partGroup.add(lines);
+  /* (bez kratownicy: porzadek tworza same gwiazdy ukladajace sie w kontur logo) */
 
   let mx = 0, my = 0, sp = 0, p = 0;
   addEventListener('mousemove', e => { mx = (e.clientX/innerWidth - .5)*2; my = (e.clientY/innerHeight - .5)*2; }, { passive: true });
@@ -1050,9 +1023,6 @@ function initBG3D(){
   function resize(){
     renderer.setSize(innerWidth, innerHeight, false);
     camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
-    /* logo szerokie: ~85% szerokości widoku na głębokości -7 */
-    const vw = 2 * 24 * Math.tan(camera.fov * Math.PI / 360) * camera.aspect;
-    logoGroup.userData.s = Math.min(1.35, vw * .85 / 34);
     partGroup.scale.setScalar(innerWidth > 960 ? 1 : .7);
   }
   addEventListener('resize', resize); resize();
@@ -1066,7 +1036,6 @@ function initBG3D(){
     const t = reduced ? 0 : time * .001;
     const pT = reduced ? 1 : ss(.22, .62, sp);   /* porządek wraz ze scrollem */
     p += (pT - p) * .06;
-    const lf = reduced ? 1 : ss(.34, .8, sp);    /* logo wyłania się później, delikatnie */
     for (let i = 0, j = 0; i < N; i++, j += 3){
       const w = Math.sin(t * .8 + i * .41) * .09 * (1 - p * .97);
       attr.array[j]     = chaos[j]     + (order[j]     - chaos[j])     * p + w;
@@ -1074,15 +1043,10 @@ function initBG3D(){
       attr.array[j + 2] = chaos[j + 2] + (order[j + 2] - chaos[j + 2]) * p + w;
     }
     attr.needsUpdate = true;
-    lmat.opacity = p * .12;
-    logoMat.opacity = .3 * lf;
-    logoGroup.rotation.y = Math.sin(t * .18) * .1 + mx * .05;
-    logoGroup.rotation.x = Math.sin(t * .14) * .05 + my * .04;
-    logoGroup.position.y = Math.sin(t * .35) * .16;
-    logoGroup.scale.setScalar((logoGroup.userData.s || 1) * (.93 + .07 * lf));
-    partGroup.rotation.y = t * .05 + mx * .18 + sp * .9;
-    partGroup.rotation.x = Math.sin(t * .16) * .08 + my * .1 + sp * .18;
-    camera.position.z = 17 - sp * 3.2;
+    partGroup.rotation.y = mx * .12 + Math.sin(t * .06) * .05;   /* logo zwrocone do widza, lekki oddech */
+    partGroup.rotation.x = my * .08 + Math.sin(t * .05) * .035;
+    partGroup.position.y = Math.sin(t * .3) * .12;
+    camera.position.z = 17 - sp * 3.0;
     renderer.render(scene, camera);
   }
   requestAnimationFrame(tick);
