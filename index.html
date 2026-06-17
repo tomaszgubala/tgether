@@ -977,7 +977,13 @@ function initBG3D(){
     const grad = g.createLinearGradient(10, 0, 110, 0);
     grad.addColorStop(0, '#2BD9FE'); grad.addColorStop(.55, '#3D7BFF'); grad.addColorStop(1, '#7A5CFF');
     g.strokeStyle = grad; g.lineCap = 'round'; g.lineJoin = 'round';
-    [[5, .04], [3, .13], [1.6, .92]].forEach(([lw, a]) => { g.globalAlpha = a; g.lineWidth = lw; g.stroke(path); });
+    /* ten sam ksztalt wstegi co dawniej, ale wydrazony: pelna wstega -> wyciecie srodka -> zostaje sam kontur */
+    g.globalAlpha = .10; g.lineWidth = 14; g.stroke(path);   /* miekka poswiata na zewnatrz */
+    g.globalAlpha = .18; g.lineWidth = 11; g.stroke(path);
+    g.globalAlpha = 1;   g.lineWidth = 9;  g.stroke(path);    /* pelna sylwetka logo */
+    g.globalCompositeOperation = 'destination-out';
+    g.globalAlpha = 1;   g.lineWidth = 6;  g.stroke(path);    /* wycina wnetrze: zostaje ~1.5 konturu z kazdej strony */
+    g.globalCompositeOperation = 'source-over';
     const t = new THREE.CanvasTexture(c);
     t.anisotropy = renderer.capabilities.getMaxAnisotropy();
     return t;
