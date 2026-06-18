@@ -1092,6 +1092,38 @@ function initBG3D(){
   }));
   leMesh.renderOrder = 4; partGroup.add(leMesh);
 
+  /* 2c) BARDZO CIENKI OBRYS sylwetki ∞ (krawedzie figury jako linia) */
+  const olp = [];
+  (() => {
+    const NSV = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NSV, 'svg'), pe = document.createElementNS(NSV, 'path');
+    pe.setAttribute('d', LOGO_D); svg.appendChild(pe);
+    svg.setAttribute('width', '0'); svg.setAttribute('height', '0');
+    svg.style.cssText = 'position:absolute;left:-9999px;width:0;height:0';
+    document.body.appendChild(svg);
+    const L = pe.getTotalLength(), HALF = 4.4, STEP = .8;
+    const W2 = (x, y) => [(x - 60) * sX, -(y - 30) * sX, 0];
+    let pa = null, pb = null, pp = null;
+    for (let s = 0; s <= L; s += STEP){
+      const p = pe.getPointAtLength(s), p2 = pe.getPointAtLength(Math.min(L, s + .5));
+      let tx = p2.x - p.x, ty = p2.y - p.y; const tl = Math.hypot(tx, ty) || 1; tx /= tl; ty /= tl;
+      const nx = -ty, ny = tx;
+      const a = [p.x + nx*HALF, p.y + ny*HALF], b = [p.x - nx*HALF, p.y - ny*HALF];
+      const jump = pp && Math.hypot(p.x - pp[0], p.y - pp[1]) > 5;   /* przerwa miedzy subsciezkami */
+      if (pa && !jump){
+        olp.push(...W2(pa[0], pa[1]), ...W2(a[0], a[1]));
+        olp.push(...W2(pb[0], pb[1]), ...W2(b[0], b[1]));
+      }
+      pa = a; pb = b; pp = [p.x, p.y];
+    }
+    svg.remove();
+  })();
+  const olGeo = new THREE.BufferGeometry();
+  olGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(olp), 3));
+  const olMat = new THREE.LineBasicMaterial({ color: 0xCFE8FF, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+  const olLines = new THREE.LineSegments(olGeo, olMat);
+  olLines.renderOrder = 5; partGroup.add(olLines);
+
   let mx = 0, my = 0, sp = 0;
   addEventListener('mousemove', e => { mx = (e.clientX/innerWidth - .5)*2; my = (e.clientY/innerHeight - .5)*2; }, { passive: true });
   function onScroll(){ sp = scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight); }
@@ -1139,6 +1171,7 @@ function initBG3D(){
     lmat.opacity = pS * .12;                  /* linie kratownicy tla (struktura) */
     llMat.opacity = pL * .09;                 /* linie kratownicy wewnatrz logo */
     leMesh.material.opacity = .32 * (.4 + .6 * pL);   /* obrys LED - delikatny, wzmacnia sie z logo */
+    olMat.opacity = pL * .2;                           /* cienki obrys sylwetki - subtelny */
     const yRot = Math.sin(t * .12) * .36 + mx * .14 + sp * .14;   /* kolysanie zamiast pelnego obrotu */
     partGroup.rotation.y = Math.max(-.5236, Math.min(.5236, yRot)); /* zawsze front: max +/-30 stopni */
     partGroup.rotation.x = Math.sin(t * .16) * .06 + my * .1 + sp * .12;
