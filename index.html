@@ -985,38 +985,73 @@ function initBG3D(){
   const glowTex = new THREE.CanvasTexture(gc);
 
   const mobile = innerWidth < 700;
-  const N = mobile ? 720 : 1300;   /* nieco gestsze logo z gwiazd */
-  const chaos = new Float32Array(N*3), order = new Float32Array(N*3), col = new Float32Array(N*3);
   const tmpC = new THREE.Color();
-  /* "porzadek" = logo uformowane z gwiazd: kazda gwiazda dostaje punkt na konturze wstegi ∞ */
-  const LW = 19, sX = LW/120, DEPTH = 2.4, npt = logoPts.length/2;
-  for (let i = 0, i3 = 0; i < N; i++, i3 += 3){
-    const k = (Math.random()*npt|0)*2;
-    order[i3]   =  (logoPts[k]   - 60) * sX;
-    order[i3+1] = -(logoPts[k+1] - 30) * sX;
-    order[i3+2] =  (Math.random()-.5) * DEPTH;
+
+  /* ===== 1) STRUKTURA: krysztalowa kratownica (chaos -> struktura, zostaje na stale) ===== */
+  const SIDE = mobile ? 7 : 9, NS = SIDE*SIDE*SIDE, GAP = 1.3;
+  const sChaos = new Float32Array(NS*3), sOrder = new Float32Array(NS*3), sCol = new Float32Array(NS*3);
+  const off = (SIDE-1)*GAP/2;
+  for (let x = 0, i3 = 0; x < SIDE; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++, i3 += 3){
+    sOrder[i3] = x*GAP-off; sOrder[i3+1] = y*GAP-off; sOrder[i3+2] = z*GAP-off;
     const r = 11 + Math.random()*14, th = Math.random()*Math.PI*2, ph = Math.acos(2*Math.random()-1);
-    chaos[i3]   = r*Math.sin(ph)*Math.cos(th);
-    chaos[i3+1] = r*Math.sin(ph)*Math.sin(th)*.75;
-    chaos[i3+2] = r*Math.cos(ph)*.7;
-    const u = logoPts[k]/120;
+    sChaos[i3]   = r*Math.sin(ph)*Math.cos(th);
+    sChaos[i3+1] = r*Math.sin(ph)*Math.sin(th)*.75;
+    sChaos[i3+2] = r*Math.cos(ph)*.7;
+    const u = y/(SIDE-1);
     tmpC.copy(cA).lerp(u<.5?cB:cC, u<.5?u*2:(u-.5)*2*.8+.2);
-    col[i3]=tmpC.r; col[i3+1]=tmpC.g; col[i3+2]=tmpC.b;
+    sCol[i3]=tmpC.r; sCol[i3+1]=tmpC.g; sCol[i3+2]=tmpC.b;
   }
-  const pos = new Float32Array(N*3); pos.set(chaos);
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-  const ptsMesh = new THREE.Points(geo, new THREE.PointsMaterial({
-    size: .25, map: glowTex, vertexColors: true, transparent: true, opacity: .38,
+  const sPos = new Float32Array(NS*3); sPos.set(sChaos);
+  const sGeo = new THREE.BufferGeometry();
+  sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
+  sGeo.setAttribute('color', new THREE.BufferAttribute(sCol, 3));
+  const sMesh = new THREE.Points(sGeo, new THREE.PointsMaterial({
+    size: .22, map: glowTex, vertexColors: true, transparent: true, opacity: .32,
     blending: THREE.AdditiveBlending, depthWrite: false
   }));
-  ptsMesh.renderOrder = 2;
-  partGroup.add(ptsMesh);
+  sMesh.renderOrder = 2; partGroup.add(sMesh);
 
-  /* (bez kratownicy: porzadek tworza same gwiazdy ukladajace sie w kontur logo) */
+  /* siec krystaliczna: krawedzie kratownicy we wszystkich trzech osiach */
+  const linePos = [];
+  const at = (x, y, z) => { const i = ((x * SIDE + y) * SIDE + z) * 3; linePos.push(sOrder[i], sOrder[i+1], sOrder[i+2]); };
+  for (let x = 0; x < SIDE; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++){
+    if (z < SIDE - 1) { at(x, y, z); at(x, y, z + 1); }
+    if (y < SIDE - 1) { at(x, y, z); at(x, y + 1, z); }
+    if (x < SIDE - 1) { at(x, y, z); at(x + 1, y, z); }
+  }
+  const lgeo = new THREE.BufferGeometry();
+  lgeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePos), 3));
+  const lmat = new THREE.LineBasicMaterial({ color: 0x3D7BFF, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+  const lines = new THREE.LineSegments(lgeo, lmat);
+  lines.renderOrder = 1; partGroup.add(lines);
 
-  let mx = 0, my = 0, sp = 0, p = 0;
+  /* ===== 2) LOGO: gwiazdy ukladajace sie w kontur wstegi ∞ (wylania sie ze struktury, pozniej) ===== */
+  const NL = mobile ? 700 : 1200, LW = 15, sX = LW/120, DEPTH = 2.2, npt = logoPts.length/2;
+  const lChaos = new Float32Array(NL*3), lOrder = new Float32Array(NL*3), lCol = new Float32Array(NL*3);
+  for (let i = 0, i3 = 0; i < NL; i++, i3 += 3){
+    const k = (Math.random()*npt|0)*2;
+    lOrder[i3]   =  (logoPts[k]   - 60) * sX;
+    lOrder[i3+1] = -(logoPts[k+1] - 30) * sX;
+    lOrder[i3+2] =  (Math.random()-.5) * DEPTH;
+    const r = 11 + Math.random()*14, th = Math.random()*Math.PI*2, ph = Math.acos(2*Math.random()-1);
+    lChaos[i3]   = r*Math.sin(ph)*Math.cos(th);
+    lChaos[i3+1] = r*Math.sin(ph)*Math.sin(th)*.75;
+    lChaos[i3+2] = r*Math.cos(ph)*.7;
+    const u = logoPts[k]/120;
+    tmpC.copy(cA).lerp(u<.5?cB:cC, u<.5?u*2:(u-.5)*2*.8+.2);
+    lCol[i3]=tmpC.r; lCol[i3+1]=tmpC.g; lCol[i3+2]=tmpC.b;
+  }
+  const lPos = new Float32Array(NL*3); lPos.set(lChaos);
+  const lGeo = new THREE.BufferGeometry();
+  lGeo.setAttribute('position', new THREE.BufferAttribute(lPos, 3));
+  lGeo.setAttribute('color', new THREE.BufferAttribute(lCol, 3));
+  const lMesh = new THREE.Points(lGeo, new THREE.PointsMaterial({
+    size: .26, map: glowTex, vertexColors: true, transparent: true, opacity: .42,
+    blending: THREE.AdditiveBlending, depthWrite: false
+  }));
+  lMesh.renderOrder = 3; partGroup.add(lMesh);
+
+  let mx = 0, my = 0, sp = 0;
   addEventListener('mousemove', e => { mx = (e.clientX/innerWidth - .5)*2; my = (e.clientY/innerHeight - .5)*2; }, { passive: true });
   function onScroll(){ sp = scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight); }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
@@ -1029,22 +1064,33 @@ function initBG3D(){
   let visible = true;
   document.addEventListener('visibilitychange', () => visible = !document.hidden);
 
-  const attr = geo.attributes.position;
+  const sAttr = sGeo.attributes.position, lAttr = lGeo.attributes.position;
+  let pS = 0, pL = 0;
   function tick(time){
     requestAnimationFrame(tick);
     if (!visible) return;
     const t = reduced ? 0 : time * .001;
-    const pT = reduced ? 1 : ss(.22, .62, sp);   /* porządek wraz ze scrollem */
-    p += (pT - p) * .06;
-    for (let i = 0, j = 0; i < N; i++, j += 3){
-      const w = Math.sin(t * .8 + i * .41) * .09 * (1 - p * .97);
-      attr.array[j]     = chaos[j]     + (order[j]     - chaos[j])     * p + w;
-      attr.array[j + 1] = chaos[j + 1] + (order[j + 1] - chaos[j + 1]) * p + Math.cos(t * .7 + i * .53) * .09 * (1 - p * .96);
-      attr.array[j + 2] = chaos[j + 2] + (order[j + 2] - chaos[j + 2]) * p + w;
+    const tS = reduced ? 1 : ss(.16, .46, sp);   /* najpierw: chaos -> struktura */
+    const tL = reduced ? 1 : ss(.46, .82, sp);   /* potem: ze struktury -> logo */
+    pS += (tS - pS) * .06;
+    pL += (tL - pL) * .06;
+    for (let i = 0, j = 0; i < NS; i++, j += 3){
+      const w = Math.sin(t * .8 + i * .41) * .09 * (1 - pS * .97);
+      sAttr.array[j]     = sChaos[j]     + (sOrder[j]     - sChaos[j])     * pS + w;
+      sAttr.array[j + 1] = sChaos[j + 1] + (sOrder[j + 1] - sChaos[j + 1]) * pS + Math.cos(t * .7 + i * .53) * .09 * (1 - pS * .96);
+      sAttr.array[j + 2] = sChaos[j + 2] + (sOrder[j + 2] - sChaos[j + 2]) * pS + w;
     }
-    attr.needsUpdate = true;
-    partGroup.rotation.y = mx * .12 + Math.sin(t * .06) * .05;   /* logo zwrocone do widza, lekki oddech */
-    partGroup.rotation.x = my * .08 + Math.sin(t * .05) * .035;
+    sAttr.needsUpdate = true;
+    for (let i = 0, j = 0; i < NL; i++, j += 3){
+      const w = Math.sin(t * .9 + i * .37) * .08 * (1 - pL * .97);
+      lAttr.array[j]     = lChaos[j]     + (lOrder[j]     - lChaos[j])     * pL + w;
+      lAttr.array[j + 1] = lChaos[j + 1] + (lOrder[j + 1] - lChaos[j + 1]) * pL + Math.cos(t * .8 + i * .61) * .08 * (1 - pL * .96);
+      lAttr.array[j + 2] = lChaos[j + 2] + (lOrder[j + 2] - lChaos[j + 2]) * pL + w;
+    }
+    lAttr.needsUpdate = true;
+    lmat.opacity = pS * .12;                                     /* linie kratownicy wraz ze struktura */
+    partGroup.rotation.y = t * .04 + mx * .14 + sp * .45;
+    partGroup.rotation.x = Math.sin(t * .16) * .06 + my * .1 + sp * .12;
     partGroup.position.y = Math.sin(t * .3) * .12;
     camera.position.z = 17 - sp * 3.0;
     renderer.render(scene, camera);
