@@ -1139,7 +1139,8 @@ function initBG3D(){
     lmat.opacity = pS * .12;                  /* linie kratownicy tla (struktura) */
     llMat.opacity = pL * .09;                 /* linie kratownicy wewnatrz logo */
     leMesh.material.opacity = .32 * (.4 + .6 * pL);   /* obrys LED - delikatny, wzmacnia sie z logo */
-    partGroup.rotation.y = t * .04 + mx * .14 + sp * .45;
+    const yRot = Math.sin(t * .12) * .36 + mx * .14 + sp * .14;   /* kolysanie zamiast pelnego obrotu */
+    partGroup.rotation.y = Math.max(-.5236, Math.min(.5236, yRot)); /* zawsze front: max +/-30 stopni */
     partGroup.rotation.x = Math.sin(t * .16) * .06 + my * .1 + sp * .12;
     partGroup.position.y = Math.sin(t * .3) * .12;
     camera.position.z = 17 - sp * 3.0;
