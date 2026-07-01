@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://tgether.pl/">
 <meta property="og:title" content="TGether, Cała firma. Jedno miejsce. Zero chaosu.">
 <meta property="og:description" content="PortalGO zbiera zadania, grafik, urlopy, premie i dokumenty w jednym systemie zbudowanym pod Twoją firmę. Umów demo.">
-<meta property="og:image" content="https://tgether.pl/og-cover.png">
+<meta property="og:image" content="https://tgether.pl/og-image.png">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
@@ -114,6 +114,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,b
 nav.scrolled{background:rgba(7,9,13,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1280px;margin:0 auto;padding:0 28px}
 .logo{display:flex;align-items:center;gap:11px;font-family:var(--font-d);font-size:21px;font-weight:700;letter-spacing:-.01em}
+.logo img{height:25px;width:auto;display:block}
+.foot-brand .logo img{height:27px}
 .logo svg{display:block}
 .nav-links{display:flex;gap:34px;font-size:14.5px;font-weight:500;color:var(--muted)}
 .nav-links a{transition:color .2s}
@@ -401,8 +403,7 @@ footer{background:rgba(9,12,17,.8)}
 <nav id="nav">
   <div class="nav-in">
     <a href="#hero" class="logo" aria-label="TGether, strona główna">
-      <svg width="44" height="22" viewBox="0 0 120 60" fill="none" aria-hidden="true"><use href="#syg"/></svg>
-      <span>TGether</span>
+      <img src="img/znak/tgether-lockup-gradient.svg" alt="TGether" width="140" height="25">
     </a>
     <div class="nav-links">
       <a href="#aplikacje" data-i18n="nav1">Aplikacje</a>
@@ -746,7 +747,7 @@ footer{background:rgba(9,12,17,.8)}
   <div class="wrap">
     <div class="foot-in">
       <div class="foot-brand">
-        <a href="#hero" class="logo"><svg width="40" height="20" viewBox="0 0 120 60" fill="none" aria-hidden="true"><use href="#syg"/></svg><span>TGether</span></a>
+        <a href="#hero" class="logo"><img src="img/znak/tgether-lockup-gradient.svg" alt="TGether" width="150" height="27"></a>
         <p data-i18n="ftDesc">Partner technologiczny dla małych i średnich firm. Porządkujemy codzienną pracę, i bierzemy za to odpowiedzialność.</p>
       </div>
       <div class="foot-cols">
@@ -1014,7 +1015,7 @@ function initBG3D(){
   /* ---- cząstki: chaos → porządek ---- */
   const gc = document.createElement('canvas'); gc.width = gc.height = 64;
   const gx = gc.getContext('2d'), gr = gx.createRadialGradient(32,32,0,32,32,32);
-  gr.addColorStop(0,'rgba(220,238,255,.82)'); gr.addColorStop(.28,'rgba(125,175,255,.46)'); gr.addColorStop(.65,'rgba(80,120,225,.12)'); gr.addColorStop(1,'rgba(0,0,0,0)');
+  gr.addColorStop(0,'rgba(255,247,238,.86)'); gr.addColorStop(.28,'rgba(240,190,140,.5)'); gr.addColorStop(.65,'rgba(199,133,94,.14)'); gr.addColorStop(1,'rgba(0,0,0,0)');
   gx.fillStyle = gr; gx.fillRect(0,0,64,64);
   const glowTex = new THREE.CanvasTexture(gc);
 
@@ -1137,55 +1138,118 @@ function initBG3D(){
     partGroup.scale.setScalar(innerWidth > 960 ? 1 : .7);
   }
   addEventListener('resize', resize); resize();
+  /* ---- overdrive: fala montażu (per-cząstka) + przebieg światła po krawędzi ∞ ---- */
+  const easeOutExpo = x => x >= 1 ? 1 : 1 - Math.pow(2, -10 * x);
+  const SPREAD_S = .40, SPREAD_L = .52;
+  const sDelay = new Float32Array(NS);
+  { let mp = 1e-6; for (let i=0,j=0;i<NS;i++,j+=3){ const d=Math.hypot(sOrder[j],sOrder[j+1],sOrder[j+2]); sDelay[i]=d; if(d>mp)mp=d; } for(let i=0;i<NS;i++) sDelay[i]/=mp; }
+  const normX = (arr,n) => { let mn=1e9,mx2=-1e9; for(let i=0,j=0;i<n;i++,j+=3){ const v=arr[j]; if(v<mn)mn=v; if(v>mx2)mx2=v; } const rng=Math.max(1e-6,mx2-mn); const d=new Float32Array(n); for(let i=0,j=0;i<n;i++,j+=3) d[i]=(arr[j]-mn)/rng; return d; };
+  const liDelay = normX(liOrder, NLI);
+  const leDelay = normX(leOrder, NLE), ledXn = leDelay;
+  const leColBase = Float32Array.from(leCol);
+  const leColArr = leGeo.attributes.color.array;
+  /* ---- tryb statyczny (reduced-motion / mobile): jeden render złożonej struktury ---- */
+  const still = reduced || mobile;
+  /* ---- sygnały: świetlne punkty płynące po krawędziach kratownicy ---- */
+  const edges = [];
+  for (let k = 0; k < linePos.length; k += 6) edges.push([linePos[k],linePos[k+1],linePos[k+2],linePos[k+3],linePos[k+4],linePos[k+5]]);
+  const NSIG = still ? 0 : 16;
+  const sigPos = new Float32Array(Math.max(1, NSIG) * 3);
+  const sig = [];
+  for (let i = 0; i < NSIG; i++) sig.push({ e: (Math.random()*edges.length)|0, u: Math.random(), sp: .004 + Math.random()*.006 });
+  const sigGeo = new THREE.BufferGeometry(); sigGeo.setAttribute('position', new THREE.BufferAttribute(sigPos, 3));
+  const sigMat = new THREE.PointsMaterial({ size: .34, map: glowTex, transparent: true, opacity: 0, color: 0xFFE8CF, blending: THREE.AdditiveBlending, depthWrite: false });
+  const sigMesh = new THREE.Points(sigGeo, sigMat); sigMesh.renderOrder = 6; partGroup.add(sigMesh);
+  /* ---- iskrzenie w spoczynku ---- */
+  const sColBase = Float32Array.from(sCol);
+  const sparks = [];
   let visible = true;
   document.addEventListener('visibilitychange', () => visible = !document.hidden);
 
   const sAttr = sGeo.attributes.position, liAttr = liGeo.attributes.position, leAttr = leGeo.attributes.position;
   let pS = 0, pL = 0;
   function tick(time){
-    requestAnimationFrame(tick);
-    if (!visible) return;
-    const t = reduced ? 0 : time * .001;
-    const tS = reduced ? 1 : ss(.16, .46, sp);   /* najpierw: chaos -> struktura */
-    const tL = reduced ? 1 : ss(.46, .82, sp);   /* potem: ze struktury -> logo */
-    pS += (tS - pS) * .06;
-    pL += (tL - pL) * .06;
+    if (!still) requestAnimationFrame(tick);
+    if (!still && !visible) return;
+    const t = still ? 0 : time * .001;
+    const tS = still ? 1 : ss(.16, .46, sp);   /* najpierw: chaos -> struktura */
+    const tL = still ? 1 : ss(.46, .82, sp);   /* potem: ze struktury -> logo */
+    if (still){ pS = 1; pL = 1; } else { pS += (tS - pS) * .06; pL += (tL - pL) * .06; }
     for (let i = 0, j = 0; i < NS; i++, j += 3){
-      const w = Math.sin(t * .8 + i * .41) * .09 * (1 - pS * .97);
-      sAttr.array[j]     = sChaos[j]     + (sOrder[j]     - sChaos[j])     * pS + w;
-      sAttr.array[j + 1] = sChaos[j + 1] + (sOrder[j + 1] - sChaos[j + 1]) * pS + Math.cos(t * .7 + i * .53) * .09 * (1 - pS * .96);
-      sAttr.array[j + 2] = sChaos[j + 2] + (sOrder[j + 2] - sChaos[j + 2]) * pS + w;
+      const pe = easeOutExpo(Math.min(1, Math.max(0, (pS - sDelay[i] * SPREAD_S) / (1 - SPREAD_S))));
+      const fade = 1 - pe * .97;
+      let x = sChaos[j]     + (sOrder[j]     - sChaos[j])     * pe + Math.sin(t * .8 + i * .41) * .09 * fade;
+      let y = sChaos[j + 1] + (sOrder[j + 1] - sChaos[j + 1]) * pe + Math.cos(t * .7 + i * .53) * .09 * fade;
+      let z = sChaos[j + 2] + (sOrder[j + 2] - sChaos[j + 2]) * pe + Math.sin(t * .8 + i * .41) * .09 * fade;
+      sAttr.array[j] = x; sAttr.array[j + 1] = y; sAttr.array[j + 2] = z;
     }
     sAttr.needsUpdate = true;
     for (let i = 0, j = 0; i < NLI; i++, j += 3){
-      const w = Math.sin(t * .9 + i * .37) * .05 * (1 - pL * .97);
-      liAttr.array[j]     = liChaos[j]     + (liOrder[j]     - liChaos[j])     * pL + w;
-      liAttr.array[j + 1] = liChaos[j + 1] + (liOrder[j + 1] - liChaos[j + 1]) * pL + Math.cos(t * .8 + i * .61) * .05 * (1 - pL * .96);
-      liAttr.array[j + 2] = liChaos[j + 2] + (liOrder[j + 2] - liChaos[j + 2]) * pL + w;
+      const pe = easeOutExpo(Math.min(1, Math.max(0, (pL - liDelay[i] * SPREAD_L) / (1 - SPREAD_L))));
+      const fade = 1 - pe * .97;
+      let x = liChaos[j]     + (liOrder[j]     - liChaos[j])     * pe + Math.sin(t * .9 + i * .37) * .05 * fade;
+      let y = liChaos[j + 1] + (liOrder[j + 1] - liChaos[j + 1]) * pe + Math.cos(t * .8 + i * .61) * .05 * fade;
+      let z = liChaos[j + 2] + (liOrder[j + 2] - liChaos[j + 2]) * pe;
+      liAttr.array[j] = x; liAttr.array[j + 1] = y; liAttr.array[j + 2] = z;
     }
     liAttr.needsUpdate = true;
     for (let i = 0, j = 0; i < NLE; i++, j += 3){
-      const w = Math.sin(t * 1.1 + i * .29) * .05 * (1 - pL * .97);
-      leAttr.array[j]     = leChaos[j]     + (leOrder[j]     - leChaos[j])     * pL + w;
-      leAttr.array[j + 1] = leChaos[j + 1] + (leOrder[j + 1] - leChaos[j + 1]) * pL + Math.cos(t * .95 + i * .53) * .05 * (1 - pL * .96);
-      leAttr.array[j + 2] = leChaos[j + 2] + (leOrder[j + 2] - leChaos[j + 2]) * pL + w;
+      const pe = easeOutExpo(Math.min(1, Math.max(0, (pL - leDelay[i] * SPREAD_L) / (1 - SPREAD_L))));
+      const fade = 1 - pe * .97;
+      let x = leChaos[j]     + (leOrder[j]     - leChaos[j])     * pe + Math.sin(t * 1.1 + i * .29) * .05 * fade;
+      let y = leChaos[j + 1] + (leOrder[j + 1] - leChaos[j + 1]) * pe + Math.cos(t * .95 + i * .53) * .05 * fade;
+      let z = leChaos[j + 2] + (leOrder[j + 2] - leChaos[j + 2]) * pe;
+      leAttr.array[j] = x; leAttr.array[j + 1] = y; leAttr.array[j + 2] = z;
     }
     leAttr.needsUpdate = true;
+    /* przebieg światła po krawędzi ∞ po złożeniu logo */
+    if (pL > .55){ const sweep = (t * .12) % 1, bw2 = .0075;
+      for (let i = 0, j = 0; i < NLE; i++, j += 3){
+        let dd = ledXn[i] - sweep; if (dd > .5) dd -= 1; else if (dd < -.5) dd += 1;
+        const b = Math.exp(-(dd * dd) / bw2) * .9 * pL;
+        leColArr[j] = Math.min(1, leColBase[j] + b); leColArr[j + 1] = Math.min(1, leColBase[j + 1] + b * .82); leColArr[j + 2] = Math.min(1, leColBase[j + 2] + b * .62);
+      }
+      leGeo.attributes.color.needsUpdate = true;
+    }
     lmat.opacity = pS * .12;                  /* linie kratownicy tla (struktura) */
     llMat.opacity = pL * .09;                 /* linie kratownicy wewnatrz logo */
     leMesh.material.opacity = .32 * (.4 + .6 * pL);   /* obrys LED - delikatny, wzmacnia sie z logo */
+    /* sygnały płynące po krawędziach kratownicy (po uformowaniu struktury) */
+    if (NSIG){
+      sigMat.opacity = ss(.55, .85, pS) * .95;
+      for (let i = 0; i < NSIG; i++){
+        const s = sig[i]; s.u += s.sp;
+        if (s.u >= 1){ s.u = 0; s.e = (Math.random()*edges.length)|0; s.sp = .004 + Math.random()*.006; }
+        const e = edges[s.e], u = s.u, iu = 1 - u, j = i * 3;
+        sigPos[j] = e[0]*iu + e[3]*u; sigPos[j+1] = e[1]*iu + e[4]*u; sigPos[j+2] = e[2]*iu + e[5]*u;
+      }
+      sigGeo.attributes.position.needsUpdate = true;
+    }
+    /* iskrzenie w spoczynku: pojedyncze punkty struktury rozbłyskują */
+    if (!still && pS > .9){
+      if (Math.random() < .08 && sparks.length < 10) sparks.push({ i: (Math.random()*NS)|0, l: 1 });
+      let dirty = false;
+      for (let k = sparks.length - 1; k >= 0; k--){
+        const q = sparks[k]; q.l -= .03; const j = q.i * 3, b = Math.max(0, q.l) * .7;
+        sCol[j] = Math.min(1, sColBase[j] + b); sCol[j+1] = Math.min(1, sColBase[j+1] + b*.9); sCol[j+2] = Math.min(1, sColBase[j+2] + b*.8); dirty = true;
+        if (q.l <= 0){ sCol[j] = sColBase[j]; sCol[j+1] = sColBase[j+1]; sCol[j+2] = sColBase[j+2]; sparks.splice(k, 1); }
+      }
+      if (dirty) sGeo.attributes.color.needsUpdate = true;
+    }
     const yRot = Math.sin(t * .12) * .36 + mx * .14 + sp * .14;   /* kolysanie zamiast pelnego obrotu */
     partGroup.rotation.y = Math.max(-.5236, Math.min(.5236, yRot)); /* zawsze front: max +/-30 stopni */
     partGroup.rotation.x = Math.sin(t * .16) * .06 + my * .1 + sp * .12;
     partGroup.position.y = Math.sin(t * .3) * .12;
+    partGroup.scale.setScalar((innerWidth > 960 ? 1 : .7) * (1 + Math.sin(t * .45) * .012));
+    scene.fog.density = still ? .026 : (.058 - .034 * ss(0, .5, sp));   /* kinowa ostrość: z mgły w ostrość na scroll */
     camera.position.z = 17 - sp * 3.0;
     renderer.render(scene, camera);
   }
   requestAnimationFrame(tick);
   } catch(e) { /* brak WebGL, strona działa bez animacji 3D */ }
 }
-/* tło 3D tylko desktop i bez preferencji ograniczonego ruchu */
-if (innerWidth > 700 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+/* tło 3D: desktop = pełna animacja; mobile / reduced-motion = jeden statyczny render złożonej struktury */
+{
   const bgScript = document.createElement('script');
   bgScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
   bgScript.onload = initBG3D;
