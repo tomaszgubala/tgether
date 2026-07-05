@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PortalGO - Top5 / Raporty</title>
+<style>
+  :root{--fg:#1d1d1f;--muted:#6e6e73;--line:#e8e8ed;--card:#fff;--primary:#007aff;--emerald:#059669;--amber:#d97706;--rose:#e11d48;--violet:#7c3aed;--font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);color:var(--fg);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;display:flex;align-items:center;justify-content:center;padding:56px 48px;
+    background:radial-gradient(1000px 640px at 84% -6%,rgba(124,58,237,.16),transparent 56%),radial-gradient(820px 600px at 4% 104%,rgba(0,122,255,.12),transparent 56%),linear-gradient(160deg,#f7f8fb,#eceef4)}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(20,28,52,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(20,28,52,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(circle at 55% 45%,#000,transparent 78%);mask-image:radial-gradient(circle at 55% 45%,#000,transparent 78%)}
+  .win{position:relative;z-index:1;width:1140px;max-width:96vw;border-radius:20px;overflow:hidden;background:var(--card);border:1px solid rgba(20,28,52,.09);box-shadow:0 44px 90px -34px rgba(20,28,52,.42),0 14px 34px -18px rgba(20,28,52,.24)}
+  .win::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(125deg,rgba(255,255,255,.28),transparent 20%);mix-blend-mode:screen}
+  .app{display:grid;grid-template-columns:64px 1fr;background:#f4f5f7;min-height:640px}
+  .rail{background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:7px;padding:15px 0}
+  .rail .lg{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#0a84ff,#0057d8);display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px;margin-bottom:9px;box-shadow:0 6px 14px -6px rgba(0,122,255,.6)}
+  .rail .i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center}
+  .rail .i svg{width:19px;height:19px;stroke:#9a9aa0;stroke-width:1.85;fill:none}
+  .rail .i.on{background:var(--primary)}.rail .i.on svg{stroke:#fff}
+  .rail .av{margin-top:auto;width:38px;height:38px;border-radius:11px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:700;font-size:12px}
+  .main{display:flex;flex-direction:column;min-width:0}
+  .topbar{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.75)}
+  .topbar .search{flex:1;max-width:340px;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px 12px;color:#9a9aa0;font-size:13px}
+  .topbar .search svg{width:15px;height:15px;stroke:#9a9aa0;stroke-width:2;fill:none}
+  .topbar .sp{flex:1}
+  .topbar .ic{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);display:grid;place-items:center;background:#fff;position:relative}
+  .topbar .ic svg{width:17px;height:17px;stroke:#5a5a60;stroke-width:1.9;fill:none}
+  .topbar .ic .dot{position:absolute;top:7px;right:8px;width:7px;height:7px;border-radius:50%;background:var(--rose);border:2px solid #fff}
+  .topbar .av{width:38px;height:38px;border-radius:11px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:700;font-size:12px}
+  .content{padding:22px 26px 28px;overflow:hidden}
+  .phead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+  .phead h1{font-size:27px;font-weight:650;letter-spacing:-.02em;display:flex;align-items:center;gap:11px}
+  .phead h1 .sum{font-size:12.5px;font-weight:700;color:#6d28d9;background:#f5f3ff;padding:5px 12px;border-radius:999px}
+  .phead p{font-size:13px;color:var(--muted);margin-top:4px}
+  .tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:16px}
+  .tab{display:flex;align-items:center;gap:8px;padding:10px 15px 13px;font-size:13.5px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+  .tab svg{width:16px;height:16px;stroke-width:1.9;fill:none;stroke:currentColor}
+  .tab.on{color:var(--fg);border-bottom-color:var(--primary);font-weight:600}
+
+  .rank{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:18px}
+  .rc{position:relative;border-radius:16px;padding:13px 14px;overflow:hidden;border:1px solid rgba(124,58,237,.16)}
+  .rc .no{position:absolute;top:10px;right:11px;width:26px;height:26px;border-radius:8px;background:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;color:#6d28d9;box-shadow:0 2px 6px rgba(20,28,52,.12)}
+  .rc .nm{font-size:13px;font-weight:650;letter-spacing:-.01em}
+  .rc .veh{font-size:11px;color:var(--muted);margin-top:1px}
+  .rc .ct{font-size:11px;margin-top:9px;color:#0369a1;font-weight:600}
+  .rc .ct span{color:#5a5a60;font-weight:500}
+  .rc .foot{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+  .rc .pkt{font-size:12px;font-weight:700;color:#6d28d9}
+  .rc .ina{font-size:10px;font-weight:600}
+  .ina-g{color:#1e7a4d}.ina-a{color:#b45309}.ina-r{color:#be123c}
+
+  .rlead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .rlead b{font-size:14px;font-weight:650}
+  .rlead .btn{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 14px;border-radius:10px;font-size:12.5px;font-weight:600;background:var(--primary);color:#fff}
+  .rlead .btn svg{width:15px;height:15px;stroke:#fff;stroke-width:2.2;fill:none}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 18px -12px rgba(20,28,52,.2)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  thead th{text-align:right;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:11px 14px;border-bottom:1px solid var(--line);background:#fbfcfd}
+  thead th:first-child{text-align:left}
+  tbody td{padding:11px 14px;border-bottom:1px solid #f0f1f4;text-align:right;font-variant-numeric:tabular-nums;color:#3a3a40}
+  tbody td:first-child{text-align:left;font-weight:600}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr.today{background:#ecfdf5}
+  tbody tr.today td:first-child{color:#047857}
+  tbody tr.sum td{background:#fbfcfd;font-weight:700;border-top:1px solid var(--line);color:#1a1a1f}
+  .cmt{text-align:left!important;color:var(--muted)!important;max-width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dispo{color:#047857!important;font-weight:700!important}
+  @media(max-width:900px){.rail{display:none}.app{grid-template-columns:1fr}.rank{grid-template-columns:repeat(2,1fr)}table{font-size:11px}}
+</style>
+<style>
+/* ===== TGether - reskin dark + miedź (System B) ===== */
+:root{
+  --fg:#F2F5F9; --muted:#8C97A8; --line:rgba(148,170,200,.14); --card:#151A24; --primary:#C7855E;
+  --emerald:#3DDC97; --amber:#FFB84C; --rose:#FF8B8B; --violet:#7A5CFF;
+  --bg-2:#0B0E14; --surface:#10141C; --surface-2:#151A24; --copper:#C7855E; --copper-hi:#E0A878; --copper-lo:#A96540; --ink:#1c1206;
+}
+body{background:transparent!important;padding:34px 40px!important}
+body::before{display:none!important}
+.win{background:var(--surface)!important;border:1px solid rgba(148,170,200,.16)!important;
+  box-shadow:0 50px 120px -30px rgba(0,0,0,.8),0 0 0 1px rgba(199,133,94,.05),0 0 90px -24px rgba(199,133,94,.15)!important}
+.win::after{background:linear-gradient(125deg,rgba(255,255,255,.05),transparent 22%)!important}
+.app{background:var(--bg-2)!important}
+.rail{background:var(--surface)!important;border-right:1px solid var(--line)!important}
+.rail .lg{background:linear-gradient(135deg,#E0A878,#A96540)!important;color:#1c1206!important;box-shadow:0 6px 14px -6px rgba(199,133,94,.55)!important}
+.rail .i svg{stroke:#6E7886!important}
+.rail .i.on{background:rgba(199,133,94,.16)!important}
+.rail .i.on svg{stroke:var(--copper-hi)!important}
+.rail .av{background:linear-gradient(135deg,#C7855E,#A96540)!important;color:#1c1206!important}
+.topbar{background:rgba(16,20,28,.72)!important;border-bottom:1px solid var(--line)!important}
+.topbar .search{background:var(--bg-2)!important;border:1px solid var(--line)!important;color:var(--muted)!important}
+.topbar .search svg{stroke:var(--muted)!important}
+.topbar .ic{background:var(--surface-2)!important;border:1px solid var(--line)!important}
+.topbar .ic svg{stroke:var(--muted)!important}
+.topbar .ic .dot{background:var(--rose)!important;border:2px solid var(--surface)!important}
+.topbar .av{background:linear-gradient(135deg,#C7855E,#A96540)!important;color:#1c1206!important}
+
+/* Nagłówek / pigułka sumy */
+.phead h1 .sum{color:var(--copper-hi)!important;background:rgba(199,133,94,.16)!important}
+.tabs{border-bottom:1px solid var(--line)!important}
+.tab.on{color:var(--fg)!important;border-bottom-color:var(--copper)!important}
+
+/* Karty rankingu TOP5 - miedziany tint zamiast fioletu (inline gradient nadpisany) */
+.rc{border:1px solid rgba(199,133,94,.2)!important}
+.rc[style]{background:linear-gradient(150deg,rgba(199,133,94,.16),rgba(199,133,94,.03))!important}
+.rc .no{background:linear-gradient(135deg,#E0A878,#A96540)!important;color:#1c1206!important;box-shadow:0 2px 6px rgba(0,0,0,.4)!important}
+.rc .ct{color:var(--sky,#2BD9FE)!important}
+.rc .ct span{color:var(--muted)!important}
+.rc .pkt{color:var(--copper-hi)!important}
+.ina-g{color:#3DDC97!important}.ina-a{color:#FFB84C!important}.ina-r{color:#FF8B8B!important}
+
+/* Przycisk akcji */
+.rlead .btn{background:linear-gradient(135deg,#C7855E,#A96540)!important;color:#1c1206!important}
+.rlead .btn svg{stroke:#1c1206!important}
+
+/* Panel / tabela raportów */
+.panel{background:var(--surface-2)!important;border:1px solid var(--line)!important;box-shadow:none!important}
+thead th{color:var(--muted)!important;border-bottom:1px solid var(--line)!important;background:#0F131B!important}
+tbody td{border-bottom:1px solid var(--line)!important;color:#C7CDD8!important}
+tbody td:first-child{color:var(--fg)!important}
+tbody tr.today{background:rgba(61,220,151,.1)!important}
+tbody tr.today td:first-child{color:#3DDC97!important}
+tbody tr.sum td{background:#0F131B!important;border-top:1px solid var(--line)!important;color:var(--fg)!important}
+.cmt{color:var(--muted)!important}
+.dispo{color:#3DDC97!important}
+</style>
+<style>/* embed-normalize */html,body{min-height:0!important;height:auto!important}</style>
+</head>
+<body>
+  <div class="win">
+    <div class="app">
+      <nav class="rail">
+        <div class="lg">P</div>
+        <div class="i"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+        <div class="i"><svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="17" rx="2"/></svg></div>
+        <div class="i"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v6l9 4 9-4V7"/></svg></div>
+        <div class="i on"><svg viewBox="0 0 24 24"><path d="M6 9V2h12v7a6 6 0 01-12 0zM4 4H2v2a3 3 0 003 3M20 4h2v2a3 3 0 01-3 3M8 21h8M12 15v6"/></svg></div>
+        <div class="i"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
+        <div class="av">AN</div>
+      </nav>
+      <div class="main">
+        <div class="topbar">
+          <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg> Szukaj w portalu…</div>
+          <div class="sp"></div>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg><span class="dot"></span></div>
+          <div class="av">AN</div>
+        </div>
+        <div class="content">
+          <div class="phead">
+            <div>
+              <h1>TOP5 <span class="sum">Suma: 28,5 pkt</span></h1>
+              <p>Priorytetowe szanse i codzienny raport aktywności.</p>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <div class="tab"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Tablica</div>
+            <div class="tab on"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg> Raporty</div>
+            <div class="tab"><svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="17" rx="2"/></svg> Raport miesięczny</div>
+          </div>
+
+          <div class="rank">
+            <div class="rc" style="background:linear-gradient(150deg,rgba(124,58,237,.16),rgba(124,58,237,.03))"><div class="no">1</div><div class="nm">Anna</div><div class="veh">SUV Kompakt</div><div class="ct">03.07 <span>· Test jazdy</span></div><div class="foot"><span class="pkt">6,0 pkt</span><span class="ina ina-g">2 dni</span></div></div>
+            <div class="rc" style="background:linear-gradient(150deg,rgba(124,58,237,.13),rgba(124,58,237,.025))"><div class="no">2</div><div class="nm">Marek</div><div class="veh">Sedan Business</div><div class="ct">01.07 <span>· Oferta</span></div><div class="foot"><span class="pkt">5,5 pkt</span><span class="ina ina-g">4 dni</span></div></div>
+            <div class="rc" style="background:linear-gradient(150deg,rgba(124,58,237,.1),rgba(124,58,237,.02))"><div class="no">3</div><div class="nm">Ewa</div><div class="veh">Kombi Family</div><div class="ct">28.06 <span>· Pokaz</span></div><div class="foot"><span class="pkt">5,0 pkt</span><span class="ina ina-a">7 dni</span></div></div>
+            <div class="rc" style="background:linear-gradient(150deg,rgba(124,58,237,.08),rgba(124,58,237,.015))"><div class="no">4</div><div class="nm">Piotr</div><div class="veh">Crossover</div><div class="ct">24.06 <span>· Wycena</span></div><div class="foot"><span class="pkt">4,5 pkt</span><span class="ina ina-a">11 dni</span></div></div>
+            <div class="rc" style="background:linear-gradient(150deg,rgba(124,58,237,.06),rgba(124,58,237,.01))"><div class="no">5</div><div class="nm">Ola</div><div class="veh">Hatchback City</div><div class="ct">18.06 <span>· Kontakt</span></div><div class="foot"><span class="pkt">4,0 pkt</span><span class="ina ina-r">17 dni</span></div></div>
+          </div>
+
+          <div class="rlead">
+            <b>Raporty dzienne</b>
+            <span class="btn"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> Zrób raport</span>
+          </div>
+          <div class="panel">
+            <table>
+              <thead>
+                <tr><th>Data</th><th>Pokazy</th><th>Testy</th><th>Zainteresowani</th><th>TOP5</th><th>Rezerwa</th><th>Archiwum</th><th>Pkt</th><th>Sprzedano</th><th style="text-align:left">Komentarz</th></tr>
+              </thead>
+              <tbody>
+                <tr class="today"><td>05.07.2026</td><td>4</td><td>2</td><td>6</td><td>5</td><td>12</td><td>3</td><td>28,5</td><td class="dispo">2</td><td class="cmt">3 nowe wpisy, 2 testy jazdy</td></tr>
+                <tr><td>04.07.2026</td><td>3</td><td>1</td><td>5</td><td>5</td><td>11</td><td>2</td><td>27,0</td><td class="dispo">1</td><td class="cmt">Spokojny dzień</td></tr>
+                <tr><td>03.07.2026</td><td>6</td><td>3</td><td>8</td><td>5</td><td>13</td><td>4</td><td>29,5</td><td class="dispo">3</td><td class="cmt">Dużo ruchu, akcja weekendowa</td></tr>
+                <tr><td>02.07.2026</td><td>2</td><td>2</td><td>4</td><td>5</td><td>10</td><td>1</td><td>26,0</td><td class="dispo">0</td><td class="cmt">-</td></tr>
+                <tr><td>01.07.2026</td><td>5</td><td>1</td><td>7</td><td>5</td><td>12</td><td>2</td><td>28,0</td><td class="dispo">2</td><td class="cmt">Start miesiąca</td></tr>
+                <tr class="sum"><td>Suma / średnia</td><td>20</td><td>9</td><td>30</td><td>5</td><td>11,6</td><td>12</td><td>27,8</td><td>8</td><td class="cmt"></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
