@@ -220,9 +220,9 @@ nav.scrolled{background:rgba(7,9,13,.72);backdrop-filter:blur(18px);-webkit-back
 .pg-point b{display:block;font-family:var(--font-d);font-size:17px;margin-bottom:8px}
 .pg-point p{font-size:14.5px;color:var(--muted)}
 
-/* ---------- MODULES ---------- */
-.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px}
-.mod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;transition:.3s;cursor:default;position:relative;overflow:hidden}
+/* ---------- MODULES (siatka 3x3, klik → podgląd) ---------- */
+.mod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;transition:.3s;cursor:pointer;position:relative;overflow:hidden;text-align:left;font-family:var(--font-b);color:var(--text);display:flex;flex-direction:column;align-items:flex-start;width:100%}
 .mod::before{content:"";position:absolute;inset:0;background:radial-gradient(220px at var(--mx,50%) var(--my,0%),rgba(199,133,94,.14),transparent 70%);opacity:0;transition:opacity .3s}
 .mod:hover::before{opacity:1}
 .mod:hover{border-color:rgba(199,133,94,.45);transform:translateY(-4px)}
@@ -231,9 +231,26 @@ nav.scrolled{background:rgba(7,9,13,.72);backdrop-filter:blur(18px);-webkit-back
 .app-card.copper .mi{background:rgba(199,133,94,.14);border-color:rgba(199,133,94,.38);color:var(--copper)}
 .app-card.copper .app-link{color:var(--copper)}
 .app-card.copper .app-link:hover{color:var(--copper-lo)}
-.mod b{display:block;font-family:var(--font-d);font-size:15.5px;margin-bottom:5px}
-.mod p{font-size:13px;color:var(--muted);line-height:1.5}
+.mod b{display:block;font-family:var(--font-d);font-size:16.5px;margin-bottom:5px}
+.mod p{font-size:13.5px;color:var(--muted);line-height:1.5}
+.mod .mod-view{margin-top:auto;padding-top:16px;font-size:13px;font-weight:600;color:var(--muted-2);display:inline-flex;align-items:center;gap:7px;transition:color .25s}
+.mod .mod-view svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+.mod:hover .mod-view{color:var(--accent-hi)}
 .mod.custom{background:linear-gradient(135deg,rgba(199,133,94,.14),rgba(199,133,94,.1));border-color:rgba(199,133,94,.4)}
+
+/* ---------- PODGLĄD MODUŁU (dialog) ---------- */
+#mdlg{background:var(--bg-2);border:1px solid var(--line-strong);border-radius:20px;padding:0;width:min(1140px,94vw);max-height:94dvh;color:var(--text);margin:auto}
+#mdlg::backdrop{background:rgba(4,6,10,.74);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.dlg-head{padding:24px 28px 18px}
+.dlg-head b{font-family:var(--font-d);font-size:20px;letter-spacing:-.01em;display:block}
+.dlg-head p{font-size:14.5px;color:var(--muted);margin-top:5px;max-width:70ch}
+.dlg-body{padding:0 28px 28px;max-height:calc(94dvh - 120px);overflow:auto;overscroll-behavior:contain}
+.dlg-body .shot{border:1px solid var(--line-strong)}
+@media(max-width:700px){
+  #mdlg{max-height:90dvh}
+  .dlg-head{padding:18px 18px 14px}
+  .dlg-body{padding:0 18px 18px;max-height:calc(90dvh - 132px)}
+}
 
 /* ---------- APLIKACJE ---------- */
 .apps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -355,18 +372,19 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;background:var(--bg-
   .hamb{display:flex}
   .split{grid-template-columns:1fr;gap:48px}
   .steps{grid-template-columns:repeat(2,1fr)}
+  .mod-grid{grid-template-columns:repeat(2,1fr)}
   .demo-box{grid-template-columns:1fr;padding:40px 28px;gap:40px}
   .kpis{grid-template-columns:repeat(2,1fr)}
   .mm-cols{grid-template-columns:1fr}
   .mock-side{display:none}
-  .tf-arrow{transform:rotate(90deg);padding:24px 0}
   .sec{padding:90px 0}
 }
 @media(max-width:600px){
   .steps{grid-template-columns:1fr}
-  .pg-points{grid-template-columns:1fr}
+  .mod-grid{grid-template-columns:1fr}
   .nav-in{padding:0 16px}
   .logo span{display:none}
+  .nav-right .btn-sm{display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -446,9 +464,8 @@ footer{background:rgba(9,12,17,.8)}
       <img src="img/znak/tgether-lockup-gradient.svg" alt="TGether" width="140" height="25">
     </a>
     <div class="nav-links">
-      <a href="#aplikacje" data-i18n="nav1">Aplikacje</a>
+      <a href="#aplikacje" data-i18n="nav1">Co oferujemy</a>
       <a href="#moduly" data-i18n="nav2">Moduły</a>
-      <a href="#premie" data-i18n="nav3">System premiowy</a>
       <a href="#partner" data-i18n="nav4">Jak pracujemy</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -463,21 +480,21 @@ footer{background:rgba(9,12,17,.8)}
   </div>
 </nav>
 <div class="mobile-menu" id="mmenu">
-  <a href="#aplikacje" data-i18n="nav1">Aplikacje</a>
+  <a href="#aplikacje" data-i18n="nav1">Co oferujemy</a>
   <a href="#moduly" data-i18n="nav2">Moduły</a>
-  <a href="#premie" data-i18n="nav3">System premiowy</a>
   <a href="#partner" data-i18n="nav4">Jak pracujemy</a>
   <a href="#faq">FAQ</a>
+  <a href="#demo" data-i18n="navCta">Umów demo</a>
 </div>
 
 <!-- ============ HERO ============ -->
 <header id="hero">
   <div class="wrap hero-in">
     <h1 id="h1"><span data-i18n="h1a">Cała firma.</span><br><span class="grad-text" data-i18n="h1b">Jedno miejsce.</span><br><span data-i18n="h1c">Zero chaosu.</span></h1>
-    <p class="hero-sub" data-i18n="heroSub">PortalGO zbiera zadania, projekty, grafik, urlopy, premie i dokumenty w jednym systemie zbudowanym pod Twoją firmę. Dla firm, które wyrosły z Exceli, ale nie potrzebują ERP.</p>
+    <p class="hero-sub" data-i18n="heroSub">TGether buduje PortalGO, system do prowadzenia firmy: zadania, grafik, urlopy, premie i dokumenty w jednym miejscu. Wdrażamy go u Ciebie i zostajemy jako stały opiekun.</p>
     <div class="hero-cta">
       <a href="#demo" class="btn btn-pri" data-i18n="ctaDemo">Umów demo →</a>
-      <a href="#portalgo" class="btn btn-ghost" data-i18n="ctaSee">Zobacz, jak działa</a>
+      <a href="#moduly" class="btn btn-ghost" data-i18n="ctaSee">Zobacz, jak działa</a>
     </div>
     <div class="hero-meta">
       <span><i></i><span data-i18n="meta1">15+ gotowych modułów</span></span>
@@ -492,8 +509,8 @@ footer{background:rgba(9,12,17,.8)}
 <section id="problem" class="sec">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow" data-i18n="probEye">Brzmi znajomo?</span>
-      <h2 data-i18n="probH">Twoja firma rośnie. Chaos rośnie szybciej.</h2>
+      <span class="eyebrow" data-i18n="probEye">Znasz to?</span>
+      <h2 data-i18n="probH">Firma rośnie. Coraz trudniej nad wszystkim zapanować.</h2>
     </div>
     <div class="chaos-grid">
       <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M12 3v18"/></svg></div><div><h3 data-i18n="p1h">Grafik w Excelu</h3><p data-i18n="p1p">Trzy wersje pliku, każda inna. Nikt nie wie, która jest aktualna.</p></div></div>
@@ -503,7 +520,7 @@ footer{background:rgba(9,12,17,.8)}
       <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg></div><div><h3 data-i18n="p5h">Wiedza w głowach</h3><p data-i18n="p5p">Procedury zna tylko pani Kasia. Pani Kasia właśnie złożyła wypowiedzenie.</p></div></div>
       <div class="chaos-card reveal"><div class="chaos-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div><div><h3 data-i18n="p6h">Dokumenty wszędzie</h3><p data-i18n="p6p">Umowa klienta? Może na mailu, może na dysku, może w segregatorze.</p></div></div>
     </div>
-    <p class="problem-punch reveal" data-i18n="punch">To nie jest problem ludzi. <em>To brak systemu.</em></p>
+    <p class="problem-punch reveal" data-i18n="punch">Twoi ludzie robią swoje. <em>Brakuje im jednego miejsca.</em></p>
   </div>
 </section>
 
@@ -521,13 +538,13 @@ footer{background:rgba(9,12,17,.8)}
         <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div>
         <b>PortalGO</b>
         <p data-i18n="app1p">Portal operacyjny firmy: zadania, grafik, urlopy, dokumenty i raporty w jednym miejscu. Serce codziennej pracy zespołu.</p>
-        <a class="app-link" href="#portalgo" data-i18n="app1l">Poznaj PortalGO →</a>
+        <a class="app-link" href="#moduly" data-i18n="app1l">Zobacz moduły →</a>
       </div>
       <div class="app-card copper reveal">
         <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div>
         <b>Premie</b>
         <p data-i18n="app2p">System premiowy, który zamienia comiesięczne spory o premie w przejrzyste zasady i automatyczne rozliczenia. Działa osobno lub jako moduł PortalGO.</p>
-        <a class="app-link" href="#premie" data-i18n="app2l">Zobacz, jak liczy →</a>
+        <a class="app-link" href="#moduly" data-i18n="app2l">Zobacz, jak liczy →</a>
       </div>
       <div class="app-card reveal">
         <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
@@ -539,135 +556,76 @@ footer{background:rgba(9,12,17,.8)}
   </div>
 </section>
 
-<!-- ============ PORTALGO ============ -->
-<section id="portalgo" class="sec">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">PortalGO</span>
-      <h2 data-i18n="pgH">Portal operacyjny Twojej firmy.</h2>
-      <p data-i18n="pgSub">Jedno miejsce, w którym pracownik znajduje swoje zadania, grafik i wniosek urlopowy. A Ty, pełny obraz firmy w czasie rzeczywistym.</p>
-    </div>
-    <div class="shot reveal" id="mock-pg" aria-label="Podgląd panelu PortalGO">
-      <iframe data-w="1240" loading="lazy" title="PortalGO: panel główny firmy" src="img/mockups/07-panel-glowny.html"></iframe>
-    </div>
-    <div class="pg-points">
-      <div class="pg-point reveal"><b data-i18n="pgp1h">Każdy wie, co ma robić</b><p data-i18n="pgp1p">Zadania mają właściciela, termin i priorytet. Koniec z „myślałem, że ty to robisz”.</p></div>
-      <div class="pg-point reveal"><b data-i18n="pgp2h">Wszystko zostaje w firmie</b><p data-i18n="pgp2p">Notatki, dokumenty i ustalenia są w portalu, nie w czyjejś skrzynce ani głowie.</p></div>
-      <div class="pg-point reveal"><b data-i18n="pgp3h">Widzisz firmę z lotu ptaka</b><p data-i18n="pgp3p">Raporty dzienne i operacyjne pokazują, co się dzieje, bez pytania nikogo.</p></div>
-    </div>
-  </div>
-</section>
-<!-- ============ MODUŁY ============ -->
+<!-- ============ MODUŁY (klik → podgląd) ============ -->
 <section id="moduly" class="sec">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow" data-i18n="modEye">Moduły</span>
-      <h2 data-i18n="modH">Wszystko, czego firma używa na co dzień.</h2>
-      <p data-i18n="modSub">Włączasz tylko to, czego potrzebujesz. Resztę dokładasz, gdy firma rośnie.</p>
+      <h2 data-i18n="modH">Wszystko ma swoje miejsce. I wszystko na swoim miejscu.</h2>
+      <p data-i18n="modSub">Każdy obszar firmy dostaje swój moduł w PortalGO. Kliknij dowolny, żeby zobaczyć, jak wygląda w pracy.</p>
     </div>
     <div class="mod-grid">
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div><b data-i18n="m1h">Agenda</b><p data-i18n="m1p">Dzień pracownika na jednym ekranie: zadania, spotkania, terminy.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><b data-i18n="m2h">Zadania</b><p data-i18n="m2p">Właściciel, termin, priorytet. Nic nie ginie między ludźmi.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5v11M12 5v6M18 5v14"/></svg></div><b data-i18n="m3h">Projekty</b><p data-i18n="m3p">Etapy, postęp i odpowiedzialni, widoczne dla całego zespołu.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div><b data-i18n="m4h">Notatki</b><p data-i18n="m4p">Ustalenia ze spotkań zapisane tam, gdzie pracuje firma.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M8 13h8M8 17h6"/></svg></div><b data-i18n="m5h">Dokumenty</b><p data-i18n="m5p">Jedno repozytorium z uprawnieniami zamiast dysków i maili.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg></div><b data-i18n="m6h">Umowy</b><p data-i18n="m6p">Rejestr umów z terminami wypowiedzeń i przypomnieniami.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div><b data-i18n="m7h">Ogłoszenia</b><p data-i18n="m7p">Komunikaty firmowe z potwierdzeniem przeczytania.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><b data-i18n="m8h">Grafik pracy</b><p data-i18n="m8p">Zmiany, zastępstwa i dyspozycyjność, bez Excela.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><b data-i18n="m9h">Urlopy</b><p data-i18n="m9p">Wniosek, akceptacja, saldo dni. Wszystko online, z historią.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></div><b data-i18n="m10h">Raporty dzienne</b><p data-i18n="m10p">Krótki raport na koniec dnia zamiast porannych przesłuchań.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></div><b data-i18n="m11h">Raporty operacyjne</b><p data-i18n="m11p">Liczby z całej firmy zebrane automatycznie, nie ręcznie.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div><b data-i18n="m12h">System premiowy</b><p data-i18n="m12p">Zasady zdefiniowane raz, rozliczane automatycznie co miesiąc.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></div><b data-i18n="m13h">Komunikacja</b><p data-i18n="m13p">Wewnętrzne wątki przypięte do zadań i projektów.</p></div>
-      <div class="mod reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M3.3 7l2.6 1.5M18.1 15.5 20.7 17M3.3 17l2.6-1.5M18.1 8.5 20.7 7"/></svg></div><b data-i18n="m14h">Procesy</b><p data-i18n="m14p">Powtarzalne procedury jako checklisty z odpowiedzialnymi.</p></div>
-      <div class="mod custom reveal"><div class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3Z"/></svg></div><b data-i18n="m15h">Moduły dedykowane</b><p data-i18n="m15p">Twój proces, zamieniony w działający moduł. Zbudowany pod Ciebie.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ZOBACZ PRODUKT ============ -->
-<section id="showcase" class="sec">
-  <div class="wrap" data-gallery>
-    <div class="sec-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
-      <span class="eyebrow" data-i18n="scEye">Zajrzyj do środka</span>
-      <h2 data-i18n="scH">Tak to wygląda w codziennej pracy.</h2>
-      <p data-i18n="scSub">PortalGO moduł po module. Kliknij i sprawdź, jak wygląda porządek w firmie.</p>
-    </div>
-    <div class="sc-tabs reveal" role="tablist" aria-label="Moduły produktu">
-      <button class="sc-tab on" role="tab" aria-selected="true" data-src="img/mockups/08-agendy.html" data-cap="Zadaj pytanie po ludzku, a portal znajdzie odpowiedź w Twoich dziennikach i sprawach." data-cap-en="Ask in plain language, and the portal finds the answer across your journals and cases.">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-i18n="scT1">Agendy z AI</span></button>
-      <button class="sc-tab" role="tab" aria-selected="false" data-src="img/mockups/09-pisma.html" data-cap="Rejestr korespondencji z automatyczną numeracją, statusami i firmowym layoutem pisma." data-cap-en="A correspondence register with automatic numbering, statuses and a company letter layout.">
-        <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span data-i18n="scT2">Pisma</span></button>
-      <button class="sc-tab" role="tab" aria-selected="false" data-src="img/mockups/13-top5-raporty.html" data-cap="Ranking priorytetów i codzienny raport aktywności. Firma z lotu ptaka, bez pytania nikogo." data-cap-en="Priority ranking and a daily activity report. The company at a glance, without asking anyone.">
-        <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><span data-i18n="scT3">Raporty</span></button>
-      <button class="sc-tab" role="tab" aria-selected="false" data-src="img/mockups/12-minikpi.html" data-cap="Pulpit wskaźników: kondycja firmy i najważniejsze mierniki w jednym widoku." data-cap-en="A KPI dashboard: company health and the key metrics in a single view.">
-        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg><span data-i18n="scT4">Wskaźniki KPI</span></button>
-    </div>
-    <div class="sc-stage reveal">
-      <div class="shot" id="sc-shot"><iframe data-w="1240" title="PortalGO: podgląd modułu" src="img/mockups/08-agendy.html"></iframe></div>
-      <p class="sc-cap" id="sc-cap">Zadaj pytanie po ludzku, a portal znajdzie odpowiedź w Twoich dziennikach i sprawach.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TRANSFORM ============ -->
-<section id="transform" class="sec">
-  <div class="wrap">
-    <div class="sec-head reveal" style="max-width:760px">
-      <span class="eyebrow" data-i18n="tfEye">Twój proces, nie nasz szablon</span>
-      <h2 data-i18n="tfH">Masz proces w Excelu? Zamienimy go w moduł.</h2>
-    </div>
-    <div class="tf-flow reveal">
-      <div class="tf-col">
-        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M12 3v18"/></svg> <s data-i18n="tf1">Rozliczenia montaży w arkuszu</s></div>
-        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M8 13h8M8 17h6"/></svg> <s data-i18n="tf2">Przeglądy floty na kartce</s></div>
-        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg> <s data-i18n="tf3">Zamówienia przez WhatsApp</s></div>
-        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> <s data-i18n="tf4">Reklamacje w skrzynce mailowej</s></div>
-        <div class="tf-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg> <s data-i18n="tf5">Procedury w pamięci pracowników</s></div>
-      </div>
-      <div class="tf-arrow">
-        <svg width="64" height="24" viewBox="0 0 64 24" fill="none"><path d="M2 12h54m0 0-9-9m9 9-9 9" stroke="url(#ag)" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="ag" x1="2" y1="12" x2="58" y2="12"><stop stop-color="#E0A878"/><stop offset="1" stop-color="#C7855E"/></linearGradient></defs></svg>
-      </div>
-      <div class="tf-result">
-        <b data-i18n="tfRh">Dedykowany moduł w PortalGO</b>
-        <p data-i18n="tfRp">Z uprawnieniami, historią zmian, powiadomieniami i raportami. Działa tam, gdzie reszta firmy.</p>
-      </div>
-    </div>
-    <p class="tf-note reveal" data-i18n="tfNote">PortalGO nie jest zamkniętym pudełkiem. Opisujesz nam proces, my budujemy moduł, który go prowadzi. To różnica między „dostosuj się do programu” a „program dostosowany do Ciebie”.</p>
-    <div class="tf-shots reveal" data-gallery>
-      <div class="tf-shots-head">
-        <span class="tf-shots-label" data-i18n="tfsLabel">Przykłady modułów dedykowanych</span>
-        <div class="sc-tabs" role="tablist" aria-label="Moduły dedykowane">
-          <button class="sc-tab on" role="tab" aria-selected="true" data-src="img/mockups/14-myjnia.html" data-cap="Grafik stanowisk myjni: zlecenia na osi czasu, z podziałem na działy i statusy." data-cap-en="A car-wash bay schedule: jobs on a timeline, split by team and status.">
-            <svg viewBox="0 0 24 24"><path d="M4 20v-6a8 8 0 0 1 16 0v6"/><path d="M2 20h20"/></svg><span data-i18n="tfsT1">Myjnia</span></button>
-          <button class="sc-tab" role="tab" aria-selected="false" data-src="img/mockups/15-hotel-opon.html" data-cap="Hotel opon: ewidencja kompletów z półką, sezonem, bieżnikiem i statusem." data-cap-en="A tyre hotel: sets tracked by shelf, season, tread depth and status.">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg><span data-i18n="tfsT2">Hotel opon</span></button>
-        </div>
-      </div>
-      <div class="shot"><iframe data-w="1240" loading="lazy" title="PortalGO: przykład modułu dedykowanego" src="img/mockups/14-myjnia.html"></iframe></div>
-      <p class="sc-cap">Grafik stanowisk myjni: zlecenia na osi czasu, z podziałem na działy i statusy.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SYSTEM PREMIOWY ============ -->
-<section id="premie" class="sec">
-  <div class="wrap">
-    <div class="split" style="align-items:start">
-        <div class="reveal">
-          <span class="eyebrow" data-i18n="bnEye">Premie</span>
-          <h2 style="font-size:clamp(30px,4vw,46px);margin-bottom:16px" data-i18n="bnH">System premiowy. Zasady zamiast dyskusji.</h2>
-          <p style="color:var(--muted);font-size:17px" data-i18n="bnSub">Działa samodzielnie albo jako moduł PortalGO. Zamienia comiesięczne negocjacje w przejrzysty, automatyczny proces.</p>
-        </div>
-        <div class="feat-list" style="margin-top:0">
-          <div class="feat reveal"><div class="fi">01</div><div><b data-i18n="b1h">Definiujesz zasady raz</b><p data-i18n="b1p">Prowizja od sprzedaży, premia za terminowość, bonus zespołowy, opisane jako reguły, nie uznaniowość.</p></div></div>
-          <div class="feat reveal"><div class="fi">02</div><div><b data-i18n="b2h">System liczy sam</b><p data-i18n="b2p">Co miesiąc kwoty wyliczają się z danych. Bez arkusza, bez ręcznego przepisywania, bez pomyłek.</p></div></div>
-          <div class="feat reveal"><div class="fi">03</div><div><b data-i18n="b3h">Pracownik widzi, skąd kwota</b><p data-i18n="b3p">Każda złotówka ma uzasadnienie widoczne dla pracownika. Spory kończą się, zanim się zaczną.</p></div></div>
-          <div class="feat reveal"><div class="fi">04</div><div><b data-i18n="b4h">Pełna historia rozliczeń</b><p data-i18n="b4p">Każdy miesiąc zarchiwizowany. Wracasz do dowolnego rozliczenia jednym kliknięciem.</p></div></div>
-        </div>
-    </div>
-    <div class="shot reveal" id="mock-bn" aria-label="Podgląd systemu premiowego" style="margin-top:56px">
-      <iframe data-w="1240" loading="lazy" title="PortalGO: rozliczenie premii" src="img/mockups/10-premie.html"></iframe>
+      <button class="mod reveal" data-src="img/mockups/07-panel-glowny.html"
+        data-cap="Panel główny PortalGO: zadania zespołu, grafik i komunikaty w jednym widoku."
+        data-cap-en="The PortalGO dashboard: team tasks, the schedule and announcements in one view.">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>
+        <b data-i18n="t1h">Panel firmy</b><p data-i18n="t1p">Cała firma na jednym ekranie: zadania, grafik, komunikaty.</p>
+        <span class="mod-view"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg><span data-i18n="mView">Zobacz podgląd</span></span>
+      </button>
+      <button class="mod reveal" data-src="img/mockups/08-agendy.html"
+        data-cap="Zadaj pytanie po ludzku, a portal znajdzie odpowiedź w Twoich dziennikach i sprawach."
+        data-cap-en="Ask in plain language, and the portal finds the answer across your journals and cases.">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+        <b data-i18n="t2h">Agenda z AI</b><p data-i18n="t2p">Dzień pracy i odpowiedzi na pytania zadane po ludzku.</p>
+        <span class="mod-view"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg><span data-i18n="mView">Zobacz podgląd</span></span>
+      </button>
+      <button class="mod reveal" data-src="img/mockups/09-pisma.html"
+        data-cap="Rejestr korespondencji z automatyczną numeracją, statusami i firmowym layoutem pisma."
+        data-cap-en="A correspondence register with automatic numbering, statuses and a company letter layout.">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+        <b data-i18n="t3h">Pisma</b><p data-i18n="t3p">Rejestr korespondencji z automatyczną numeracją i statusami.</p>
+        <span class="mod-view"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg><span data-i18n="mView">Zobacz podgląd</span></span>
+      </button>
+      <button class="mod reveal" data-src="img/mockups/10-premie.html"
+        data-cap="Rozliczenie premii: każda kwota z widocznym uzasadnieniem, bez ręcznego liczenia."
+        data-cap-en="A bonus settlement: every amount with a visible justification, no manual maths.">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></span>
+        <b data-i18n="t4h">Premie</b><p data-i18n="t4p">Zasady zdefiniowane raz, kwoty liczone automatycznie.</p>
+        <span class="mod-view"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg><span data-i18n="mView">Zobacz podgląd</span></span>
+      </button>
+      <button class="mod reveal" data-src="img/mockups/13-top5-raporty.html"
+        data-cap="Ranking priorytetów i codzienny raport aktywności. Firma z lotu ptaka, bez pytania nikogo."
+        data-cap-en="Priority ranking and a daily activity report. The company at a glance, without asking anyone.">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></span>
+        <b data-i18n="t5h">Raporty</b><p data-i18n="t5p">Firma z lotu ptaka, bez pytania nikogo.</p>
+        <span class="mod-view"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg><span data-i18n="mView">Zobacz podgląd</span></span>
+      </button>
+      <button class="mod reveal" data-src="img/mockups/12-minikpi.html"
+        data-cap="Pulpit wskaźników: kondycja firmy i najważniejsze mierniki w jednym widoku."
+        data-cap-en="A KPI dashboard: company health and the key metrics in a single view.">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg></span>
+        <b data-i18n="t6h">Wskaźniki KPI</b><p data-i18n="t6p">Kondycja firmy w jednym widoku.</p>
+        <span class="mod-view"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg><span data-i18n="mView">Zobacz podgląd</span></span>
+      </button>
+      <button class="mod reveal" data-src="img/mockups/14-myjnia.html"
+        data-cap="Grafik stanowisk myjni: zlecenia na osi czasu, z podziałem na działy i statusy."
+        data-cap-en="A car-wash bay schedule: jobs on a timeline, split by team and status.">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20v-6a8 8 0 0 1 16 0v6"/><path d="M2 20h20"/></svg></span>
+        <b data-i18n="t7h">Myjnia</b><p data-i18n="t7p">Moduł zbudowany pod proces klienta: zlecenia na osi czasu.</p>
+        <span class="mod-view"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg><span data-i18n="mView">Zobacz podgląd</span></span>
+      </button>
+      <button class="mod reveal" data-src="img/mockups/15-hotel-opon.html"
+        data-cap="Hotel opon: ewidencja kompletów z półką, sezonem, bieżnikiem i statusem."
+        data-cap-en="A tyre hotel: sets tracked by shelf, season, tread depth and status.">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <b data-i18n="t8h">Hotel opon</b><p data-i18n="t8p">Moduł dedykowany: ewidencja opon z półką, sezonem i bieżnikiem.</p>
+        <span class="mod-view"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg><span data-i18n="mView">Zobacz podgląd</span></span>
+      </button>
+      <a class="mod custom reveal" href="#demo">
+        <span class="mi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3Z"/></svg></span>
+        <b data-i18n="t9h">Twój moduł dedykowany</b><p data-i18n="t9p">Masz proces w Excelu? Zamienimy go w moduł zbudowany pod Ciebie.</p>
+        <span class="mod-view"><span data-i18n="t9l">Porozmawiajmy →</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -701,11 +659,9 @@ footer{background:rgba(9,12,17,.8)}
     <div class="faq">
       <div class="faq-item reveal"><button class="faq-q" data-i18n="f1q">Ile trwa wdrożenie?</button><div class="faq-a"><p data-i18n="f1a">Standardowo 2-6 tygodni, zależnie od liczby modułów i danych do przeniesienia. Pierwsze efekty (działającą agendę i zadania) zespół widzi zwykle w pierwszym tygodniu.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q" data-i18n="f2q">Czy musimy zmieniać sposób pracy pod program?</button><div class="faq-a"><p data-i18n="f2a">Nie, to program zmienia się pod Was. Zaczynamy od audytu Waszych procesów, a jeśli czegoś brakuje w standardzie, budujemy dedykowany moduł.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q" data-i18n="f3q">Co z naszymi danymi z Exceli?</button><div class="faq-a"><p data-i18n="f3a">Przenosimy je w ramach wdrożenia. Grafiki, rejestry umów, listy zadań, migrujemy do portalu, żeby od pierwszego dnia pracować na prawdziwych danych.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q" data-i18n="f4q">Dla jakich firm to ma sens?</button><div class="faq-a"><p data-i18n="f4a">Najlepiej sprawdzamy się w firmach 10-50 osób: handel, usługi, serwis, produkcja. Tam, gdzie firma wyrosła z Exceli, a pełny ERP to armata na wróbla.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q" data-i18n="f7q">Ile to kosztuje?</button><div class="faq-a"><p data-i18n="f7a">Wdrożenie wyceniamy po krótkiej rozmowie o Twoich procesach, a potem płacisz stały, przewidywalny abonament z opieką i rozwojem w cenie. Wstępne widełki podajemy już na pierwszym spotkaniu.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q" data-i18n="f6q">Kto się tym opiekuje po starcie?</button><div class="faq-a"><p data-i18n="f6a">Jedna osoba: autor systemu jest też jego administratorem. Problem trafia od razu do kogoś, kto zna portal na pamięć, więc zamyka się w minuty, nie w tygodnie. Bez kolejki zgłoszeń i wskazywania palcem.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q" data-i18n="f5q">Co się dzieje po wdrożeniu?</button><div class="faq-a"><p data-i18n="f5a">Zostajemy. Utrzymujemy system, reagujemy na zgłoszenia i rozwijamy portal razem z firmą, w stałym, przewidywalnym modelu abonamentowym.</p></div></div>
     </div>
   </div>
 </section>
@@ -754,7 +710,7 @@ footer{background:rgba(9,12,17,.8)}
         <p data-i18n="ftDesc">Partner technologiczny dla małych i średnich firm. Porządkujemy codzienną pracę, i bierzemy za to odpowiedzialność.</p>
       </div>
       <div class="foot-cols">
-        <div class="foot-col"><b data-i18n="ftC1">Produkty</b><a href="#portalgo">PortalGO</a><a href="#premie" data-i18n="ftP2">System premiowy</a><a href="#aplikacje" data-i18n="ftP3">Aplikacje dedykowane</a></div>
+        <div class="foot-col"><b data-i18n="ftC1">Produkt</b><a href="#aplikacje" data-i18n="ftP1">Co oferujemy</a><a href="#moduly" data-i18n="ftP2">Moduły</a><a href="#demo" data-i18n="ftP3">Umów demo</a></div>
         <div class="foot-col"><b data-i18n="ftC2">Firma</b><a href="#partner" data-i18n="ftF1">Jak pracujemy</a><a href="#faq">FAQ</a><a href="#demo" data-i18n="ftF3">Umów demo</a><a href="/polityka-prywatnosci.html" data-i18n="ftF4">Polityka prywatności</a></div>
         <div class="foot-col"><b data-i18n="ftC3">Kontakt</b><a href="mailto:tomasz@tgether.pl">tomasz@tgether.pl</a><a href="https://tgether.pl">tgether.pl</a></div>
       </div>
@@ -769,6 +725,15 @@ footer{background:rgba(9,12,17,.8)}
     </div>
   </div>
 </footer>
+
+<!-- ============ PODGLĄD MODUŁU ============ -->
+<dialog id="mdlg" aria-label="Podgląd modułu">
+  <div class="dlg-head">
+    <div><b id="dlg-t"></b><p id="dlg-c"></p></div>
+  </div>
+  <div class="dlg-body"><div class="shot" id="dlg-shot"><iframe data-w="1240" title="PortalGO: podgląd modułu"></iframe></div></div>
+</dialog>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -778,9 +743,9 @@ document.querySelectorAll('[data-i18n]').forEach(el => { plDict[el.dataset.i18n]
 document.querySelectorAll('[data-i18n-ph]').forEach(el => { plPh[el.dataset.i18nPh] = el.placeholder; });
 
 const enDict = {
-  nav1:"Apps", nav2:"Modules", nav3:"Bonus system", nav4:"How we work", navCta:"Book a demo",
+  nav1:"What we offer", nav2:"Modules", nav4:"How we work", navCta:"Book a demo",
   h1a:"Your whole company.", h1b:"One place.", h1c:"Zero chaos.",
-  heroSub:"PortalGO brings tasks, projects, schedules, leave, bonuses and documents into one system built around your company. For companies that have outgrown Excel but do not need an ERP.",
+  heroSub:"TGether builds PortalGO, a system for running your company: tasks, schedules, leave, bonuses and documents in one place. We deploy it at your company and stay on as your dedicated caretaker.",
   ctaDemo:"Book a demo →", ctaSee:"See how it works",
   meta1:"15+ ready-made modules", meta2:"Live in weeks, not months", meta3:"Custom modules for your processes",
   scroll:"Scroll",
@@ -788,19 +753,19 @@ const enDict = {
   appsSub:"A flagship operations portal, a standalone bonus system and web applications built around your company's specific processes.",
   appFlag:"Flagship",
   app1p:"The company operations portal: tasks, schedules, leave, documents and reports in one place. The heart of the team's daily work.",
-  app1l:"Meet PortalGO →",
+  app1l:"See the modules →",
   app2p:"A bonus system that turns monthly bonus disputes into clear rules and automatic settlements. It works on its own or as a PortalGO module.",
   app2l:"See how it counts →",
   app3h:"Custom web apps", app3p:"Web applications built around a specific process and kept running. For example, a live automotive listings system for a car dealership.",
   app3l:"Let's talk →",
-  probEye:"Sound familiar?", probH:"Your company is growing. The chaos grows faster.",
+  probEye:"Know the feeling?", probH:"The company grows. Staying on top of everything gets harder.",
   p1h:"Schedules in Excel", p1p:"Three versions of the file, all different. Nobody knows which one is current.",
   p2h:"Leave agreed in the hallway", p2p:"“I told the boss last week.” Except the boss doesn't remember.",
   p3h:"Bonuses counted by hand", p3p:"Every month, the same arguments about who gets what and why.",
   p4h:"Decisions in WhatsApp", p4p:"The key decision was made in a chat. Three hundred messages ago.",
   p5h:"Knowledge in people's heads", p5p:"Only Kate knows the procedures. Kate just handed in her notice.",
   p6h:"Documents everywhere", p6p:"The client's contract? Maybe in email, maybe on a drive, maybe in a binder.",
-  punch:"It's not a people problem. <em>It's the lack of a system.</em>",
+  punch:"Your people do their job. <em>What they lack is one place.</em>",
   pgH:"The operations portal for your company.",
   pgSub:"One place where every employee finds their tasks, schedule and leave request. And you, a real-time picture of the whole company.",
   ms1:"Agenda", ms2:"Tasks", ms3:"Projects", ms4:"Notes", msSep1:"Organisation", ms5:"Documents", ms6:"Work schedule", ms7:"Leave", ms8:"Bonuses", msSep2:"Company", ms9:"Reports", ms10:"Announcements",
@@ -814,10 +779,17 @@ const enDict = {
   pgp1h:"Everyone knows what to do", pgp1p:"Tasks have an owner, a deadline and a priority. No more “I thought you were doing it”.",
   pgp2h:"Everything stays in the company", pgp2p:"Notes, documents and decisions live in the portal, not in someone's inbox or head.",
   pgp3h:"A bird's-eye view of the company", pgp3p:"Daily and operational reports show what's happening, without asking anyone.",
-  modEye:"Modules", modH:"Everything your company uses every day.", modSub:"Switch on only what you need. Add the rest as the company grows.",
-  scEye:"Look inside", scH:"This is what daily work looks like.", scSub:"PortalGO module by module. Click and see what order looks like.",
-  scT1:"AI agendas", scT2:"Letters", scT3:"Reports", scT4:"KPI metrics",
-  tfsLabel:"Examples of custom modules", tfsT1:"Car wash", tfsT2:"Tyre hotel",
+  modEye:"Modules", modH:"A place for everything. Everything in its place.", modSub:"Every part of the company gets its own module in PortalGO. Click any tile to see how it looks in daily work.",
+  mView:"See a preview",
+  t1h:"Company dashboard", t1p:"The whole company on one screen: tasks, schedule, announcements.",
+  t2h:"AI agenda", t2p:"An employee's day plus answers to questions asked in plain language.",
+  t3h:"Letters", t3p:"A correspondence register with automatic numbering and statuses.",
+  t4h:"Bonuses", t4p:"Rules defined once, amounts calculated automatically.",
+  t5h:"Reports", t5p:"The company at a glance, without asking anyone.",
+  t6h:"KPI metrics", t6p:"Company health in a single view.",
+  t7h:"Car wash", t7p:"A module built for a client's process: jobs on a timeline.",
+  t8h:"Tyre hotel", t8p:"A custom module: tyre sets tracked by shelf, season and tread.",
+  t9h:"Your custom module", t9p:"Got a process in Excel? We'll turn it into a module built for you.", t9l:"Let's talk →",
   m1h:"Agenda", m1p:"An employee's day on one screen: tasks, meetings, deadlines.",
   m2h:"Tasks", m2p:"Owner, deadline, priority. Nothing falls between people.",
   m3h:"Projects", m3p:"Stages, progress and owners, visible to the whole team.",
@@ -871,7 +843,7 @@ const enDict = {
   okH:"Thank you!", okP:"We'll get back to you within one business day to set a date.",
   rodo:"By submitting this form you accept our <a href=\"/polityka-prywatnosci.html\" style=\"color:var(--accent-hi)\">privacy policy</a>.",
   ftDesc:"A technology partner for small and medium companies. We bring order to daily work, and take responsibility for it.",
-  ftC1:"Products", ftP2:"Bonus system", ftP3:"Custom web apps",
+  ftC1:"Product", ftP1:"What we offer", ftP2:"Modules", ftP3:"Book a demo",
   ftC2:"Company", ftF1:"How we work", ftF3:"Book a demo", ftF4:"Privacy policy",
   ftC3:"Contact",
   ftR:"All rights reserved.", ftMade:"Software with a dedicated caretaker built in", ftS1:"We deploy. And we stay.", ftS2:"Together."
@@ -1030,11 +1002,11 @@ function initBG3D(){
   const tmpC = new THREE.Color();
 
   /* ===== 1) STRUKTURA: krysztalowa kratownica (chaos -> struktura, zostaje na stale) ===== */
-  const SIDE = mobile ? 7 : 9, NS = SIDE*SIDE*SIDE, GAP = 1.3;
+  const SIDE = mobile ? 7 : 9, SX = SIDE + 2, NS = SX*SIDE*SIDE, GAP = 1.3;   /* SX: szersza kratownica w osi X (dodatkowa kolumna z lewej i prawej) */
   const sChaos = new Float32Array(NS*3), sOrder = new Float32Array(NS*3), sCol = new Float32Array(NS*3);
-  const off = (SIDE-1)*GAP/2;
-  for (let x = 0, i3 = 0; x < SIDE; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++, i3 += 3){
-    sOrder[i3] = x*GAP-off; sOrder[i3+1] = y*GAP-off; sOrder[i3+2] = z*GAP-off;
+  const off = (SIDE-1)*GAP/2, offX = (SX-1)*GAP/2;
+  for (let x = 0, i3 = 0; x < SX; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++, i3 += 3){
+    sOrder[i3] = x*GAP-offX; sOrder[i3+1] = y*GAP-off; sOrder[i3+2] = z*GAP-off;
     const r = 11 + Math.random()*14, th = Math.random()*Math.PI*2, ph = Math.acos(2*Math.random()-1);
     sChaos[i3]   = r*Math.sin(ph)*Math.cos(th);
     sChaos[i3+1] = r*Math.sin(ph)*Math.sin(th)*.75;
@@ -1056,10 +1028,10 @@ function initBG3D(){
   /* siec krystaliczna: krawedzie kratownicy we wszystkich trzech osiach */
   const linePos = [];
   const at = (x, y, z) => { const i = ((x * SIDE + y) * SIDE + z) * 3; linePos.push(sOrder[i], sOrder[i+1], sOrder[i+2]); };
-  for (let x = 0; x < SIDE; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++){
+  for (let x = 0; x < SX; x++) for (let y = 0; y < SIDE; y++) for (let z = 0; z < SIDE; z++){
     if (z < SIDE - 1) { at(x, y, z); at(x, y, z + 1); }
     if (y < SIDE - 1) { at(x, y, z); at(x, y + 1, z); }
-    if (x < SIDE - 1) { at(x, y, z); at(x + 1, y, z); }
+    if (x < SX - 1) { at(x, y, z); at(x + 1, y, z); }
   }
   const lgeo = new THREE.BufferGeometry();
   lgeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePos), 3));
@@ -1281,13 +1253,6 @@ if (typeof gsap !== 'undefined') {
     });
   });
 
-  // Mockup PortalGO, wjazd z perspektywą (efekt prezentacji produktu)
-  gsap.fromTo('#mock-pg',
-    { rotationX: 14, scale: .94, transformPerspective: 1200, transformOrigin: 'center top' },
-    { rotationX: 0, scale: 1, ease: 'none',
-      scrollTrigger: { trigger: '#mock-pg', start: 'top 90%', end: 'top 35%', scrub: .6 } });
-
-
   // Karty chaosu, stagger
   ScrollTrigger.batch('.chaos-card', {
     start: 'top 88%',
@@ -1297,12 +1262,23 @@ if (typeof gsap !== 'undefined') {
     start: 'top 90%',
     onEnter: b => gsap.to(b, { opacity: 1, y: 0, stagger: .05, duration: .7, ease: 'power3.out' })
   });
+
+  // Po zmianie layoutu (fonty, tło 3D) przelicz pozycje wyzwalaczy, inaczej reveal bywa nieaktualny.
+  addEventListener('load', () => setTimeout(() => { try { ScrollTrigger.refresh(); } catch(e){} }, 300));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { try { ScrollTrigger.refresh(); } catch(e){} });
+
+  // Zabezpieczenie: treść nigdy nie może zostać niewidoczna, gdyby wyzwalacz nie odpalił.
+  addEventListener('load', () => setTimeout(() => {
+    document.querySelectorAll('.reveal, .mod').forEach(el => {
+      if (getComputedStyle(el).opacity === '0') { el.style.opacity = 1; el.style.transform = 'none'; }
+    });
+  }, 1400));
 } else {
   document.querySelectorAll('.reveal,.chaos-card,.mod').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
 }
 </script>
 <script>
-/* ================= PRODUCT SHOTS + GALLERY ================= */
+/* ================= PODGLĄD MODUŁU (dialog z przeskalowanym renderem) ================= */
 (function(){
   function measure(doc){
     return Math.max(
@@ -1316,8 +1292,7 @@ if (typeof gsap !== 'undefined') {
     try{ doc = f.contentDocument; }catch(e){ return; }
     if(!doc || !doc.body) return;
     var cw = shot.clientWidth; if(!cw) return;
-    // Tryb wąski TYLKO wg realnego viewportu (sygnał stabilny, nie łapie chwilowych
-    // małych szerokości). Mobile: mockup renderuje własny responsywny układ w skali 1;
+    // Mobile: mockup renderuje własny responsywny układ w skali 1;
     // desktop: render logiczny 1240 przeskalowany do szerokości kolumny.
     var narrow = window.innerWidth <= 700;
     var W = narrow ? Math.max(320, Math.round(cw)) : 1240;
@@ -1330,15 +1305,6 @@ if (typeof gsap !== 'undefined') {
     f.style.transform = 'scale(' + s + ')';
     shot.style.height = Math.round(h * s) + 'px';
     shot.classList.add('ready');
-    scheduleRefresh();
-  }
-  // Osadzone iframe'y zmieniają wysokość asynchronicznie po załadowaniu, trzeba
-  // przeliczyć pozycje ScrollTriggera, inaczej reveal sekcji poniżej nie odpala.
-  var _rt;
-  function scheduleRefresh(){
-    if(!window.ScrollTrigger) return;
-    clearTimeout(_rt);
-    _rt = setTimeout(function(){ try{ ScrollTrigger.refresh(); }catch(e){} }, 240);
   }
   function bindShot(shot){
     var f = shot.querySelector('iframe'); if(!f) return;
@@ -1349,44 +1315,39 @@ if (typeof gsap !== 'undefined') {
     if(window.ResizeObserver){ new ResizeObserver(run).observe(shot); }
     else { addEventListener('resize', run, {passive:true}); }
   }
-  document.querySelectorAll('.shot').forEach(bindShot);
-  // Catch-all: po pełnym załadowaniu strony (fonty/zasoby) przelicz wszystkie shoty.
-  addEventListener('load', function(){ [0,300,900].forEach(function(t){ setTimeout(function(){ document.querySelectorAll('.shot').forEach(sizeShot); }, t); }); });
 
-  /* Galerie zakładkowe (obsługa wielu przez [data-gallery]) */
+  var dlg = document.getElementById('mdlg'),
+      dlgShot = document.getElementById('dlg-shot'),
+      dlgFrame = dlgShot.querySelector('iframe'),
+      dlgT = document.getElementById('dlg-t'),
+      dlgC = document.getElementById('dlg-c');
+  var curTile = null;
+  bindShot(dlgShot);
+
   function isEN(){ var e = document.getElementById('lang-en'); return !!(e && e.classList.contains('on')); }
-  var _capFns = [];
-  document.querySelectorAll('[data-gallery]').forEach(function(g){
-    var tabs  = Array.prototype.slice.call(g.querySelectorAll('.sc-tab')),
-        stage = g.querySelector('.shot'),
-        cap   = g.querySelector('.sc-cap'),
-        frame = stage && stage.querySelector('iframe');
-    function setCap(tab){ if(!cap || !tab) return; cap.textContent = isEN() ? (tab.getAttribute('data-cap-en')||'') : (tab.getAttribute('data-cap')||''); }
-    tabs.forEach(function(tab){
-      tab.addEventListener('click', function(){
-        if(tab.classList.contains('on') || !frame) return;
-        tabs.forEach(function(t){ t.classList.remove('on'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('on'); tab.setAttribute('aria-selected','true');
-        stage.classList.remove('ready');
-        frame.src = tab.getAttribute('data-src');
-        setCap(tab);
-      });
-    });
-    _capFns.push(function(){ setCap(g.querySelector('.sc-tab.on')); });
+  function fillMeta(){
+    if(!curTile) return;
+    dlgT.textContent = curTile.querySelector('b').textContent;
+    dlgC.textContent = isEN() ? (curTile.getAttribute('data-cap-en') || '') : (curTile.getAttribute('data-cap') || '');
+  }
+  function openMod(tile){
+    curTile = tile;
+    fillMeta();
+    dlg.showModal();
+    var src = tile.getAttribute('data-src');
+    if(dlgFrame.getAttribute('src') !== src){
+      dlgShot.classList.remove('ready');
+      dlgFrame.src = src;
+    } else {
+      sizeShot(dlgShot);
+    }
+  }
+  document.querySelectorAll('.mod[data-src]').forEach(function(t){
+    t.addEventListener('click', function(){ openMod(t); });
   });
-  window.__scRefreshCap = function(){ _capFns.forEach(function(fn){ fn(); }); };
-  window.__scRefreshCap();
-
-  /* Zabezpieczenie: product-shoty to kluczowe wizualizacje, nigdy nie mogą zostać
-     niewidoczne, nawet gdyby reveal (ScrollTrigger) nie odpalił w jakimś edge-case. */
-  addEventListener('load', function(){
-    setTimeout(function(){
-      document.querySelectorAll('.shot, .sc-stage, .tf-shots').forEach(function(el){
-        if(getComputedStyle(el).opacity === '0'){ el.style.opacity = '1'; el.style.transform = 'none'; }
-      });
-      if(window.ScrollTrigger){ try{ ScrollTrigger.refresh(); }catch(e){} }
-    }, 1200);
-  });
+  // Zamknięcie: kliknięcie w tło poza oknem (backdrop) lub klawisz Escape (natywny dla <dialog>).
+  dlg.addEventListener('click', function(e){ if(e.target === dlg) dlg.close(); });
+  window.__scRefreshCap = function(){ if(dlg.open) fillMeta(); };
 })();
 </script>
 </body>
