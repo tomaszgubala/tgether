@@ -680,8 +680,10 @@ footer{background:rgba(9,12,17,.8)}
         </div>
       </div>
       <div>
-        <form id="demo-form" action="https://formspree.io/f/TWOJ_FORMSPREE_ID" method="POST" onsubmit="return demoSubmit(event)">
+        <form id="demo-form" action="https://formsubmit.co/ajax/tomasz@tgether.pl" method="POST" onsubmit="return demoSubmit(event)">
           <input type="hidden" name="_subject" value="Zgłoszenie demo, tgether.pl">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <div class="fld"><label for="f-name" data-i18n="fl1">Imię i nazwisko</label><input id="f-name" name="imie_nazwisko" type="text" autocomplete="name" required placeholder="Jan Kowalski"></div>
           <div class="fld"><label for="f-mail" data-i18n="fl2">Firmowy e-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required placeholder="jan@firma.pl"></div>
           <div class="fld"><label for="f-size" data-i18n="fl3">Wielkość firmy</label>
@@ -689,6 +691,7 @@ footer{background:rgba(9,12,17,.8)}
           </div>
           <div class="fld"><label for="f-msg" data-i18n="fl4">Co dziś najbardziej zgrzyta? (opcjonalnie)</label><textarea id="f-msg" name="wiadomosc" data-i18n-ph="fph" placeholder="np. premie liczymy ręcznie w trzech Excelach…"></textarea></div>
           <button type="submit" class="btn btn-pri" style="margin-top:6px" data-i18n="fBtn">Umów demo →</button>
+          <p id="form-err" style="display:none;font-size:13px;color:#FF6B6B;margin-top:4px" data-i18n="fErr">Nie udało się wysłać zgłoszenia. Spróbuj ponownie za chwilę albo napisz na <a href="mailto:tomasz@tgether.pl" style="color:var(--accent-hi)">tomasz@tgether.pl</a>.</p>
           <p style="font-size:13px;color:var(--muted);margin-top:4px" data-i18n="rodo">Wysyłając formularz, akceptujesz <a href="/polityka-prywatnosci.html" style="color:var(--accent-hi)">politykę prywatności</a>.</p>
         </form>
         <div class="form-ok" id="form-ok">
@@ -841,6 +844,7 @@ const enDict = {
   fph:"e.g. we calculate bonuses by hand in three spreadsheets…",
   fBtn:"Book a demo →",
   okH:"Thank you!", okP:"We'll get back to you within one business day to set a date.",
+  fErr:"We couldn't send your request. Try again in a moment or write to <a href=\"mailto:tomasz@tgether.pl\" style=\"color:var(--accent-hi)\">tomasz@tgether.pl</a>.",
   rodo:"By submitting this form you accept our <a href=\"/polityka-prywatnosci.html\" style=\"color:var(--accent-hi)\">privacy policy</a>.",
   ftDesc:"A technology partner for small and medium companies. We bring order to daily work, and take responsibility for it.",
   ftC1:"Product", ftP1:"What we offer", ftP2:"Modules", ftP3:"Book a demo",
@@ -891,6 +895,7 @@ function demoSubmit(e){
   const f = document.getElementById('demo-form');
   const btn = f.querySelector('button[type="submit"]');
   btn.disabled = true;
+  document.getElementById('form-err').style.display = 'none';
   fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
     .then(r => {
       if (!r.ok) throw new Error();
@@ -899,8 +904,7 @@ function demoSubmit(e){
     })
     .catch(() => {
       btn.disabled = false;
-      const b = 'Firma: ' + document.getElementById('f-size').value + '\n\n' + document.getElementById('f-msg').value;
-      location.href = 'mailto:tomasz@tgether.pl?subject=' + encodeURIComponent('Demo PortalGO') + '&body=' + encodeURIComponent(b);
+      document.getElementById('form-err').style.display = 'block';
     });
   return false;
 }
@@ -975,7 +979,7 @@ function initBG3D(){
   scene.add(partGroup);
 
   const ss = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
-  const cA = new THREE.Color('#E8B588'), cB = new THREE.Color('#C7855E'), cC = new THREE.Color('#A96540');
+  const cA = new THREE.Color('#D89C6E'), cB = new THREE.Color('#C7855E'), cC = new THREE.Color('#A96540');
   function lerp3(t, tmp){ if (t < .5) tmp.copy(cA).lerp(cB, t*2); else tmp.copy(cB).lerp(cC, (t-.5)*2); return tmp; }
 
   /* ---- maski wstegi logo TGether (∞): pelna + rdzen (oddzielaja WNETRZE od KRAWEDZI-LED) ---- */
@@ -994,7 +998,7 @@ function initBG3D(){
   /* ---- cząstki: chaos → porządek ---- */
   const gc = document.createElement('canvas'); gc.width = gc.height = 64;
   const gx = gc.getContext('2d'), gr = gx.createRadialGradient(32,32,0,32,32,32);
-  gr.addColorStop(0,'rgba(255,247,238,.86)'); gr.addColorStop(.28,'rgba(240,190,140,.5)'); gr.addColorStop(.65,'rgba(199,133,94,.14)'); gr.addColorStop(1,'rgba(0,0,0,0)');
+  gr.addColorStop(0,'rgba(248,232,216,.72)'); gr.addColorStop(.2,'rgba(216,156,110,.4)'); gr.addColorStop(.5,'rgba(169,101,64,.1)'); gr.addColorStop(1,'rgba(0,0,0,0)');
   gx.fillStyle = gr; gx.fillRect(0,0,64,64);
   const glowTex = new THREE.CanvasTexture(gc);
 
@@ -1020,7 +1024,7 @@ function initBG3D(){
   sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
   sGeo.setAttribute('color', new THREE.BufferAttribute(sCol, 3));
   const sMesh = new THREE.Points(sGeo, new THREE.PointsMaterial({
-    size: .22, map: glowTex, vertexColors: true, transparent: true, opacity: .32,
+    size: .16, map: glowTex, vertexColors: true, transparent: true, opacity: .28,
     blending: THREE.AdditiveBlending, depthWrite: false
   }));
   sMesh.renderOrder = 2; partGroup.add(sMesh);
@@ -1067,7 +1071,7 @@ function initBG3D(){
   liGeo.setAttribute('position', new THREE.BufferAttribute(liPos, 3));
   liGeo.setAttribute('color', new THREE.BufferAttribute(liCol, 3));
   const liMesh = new THREE.Points(liGeo, new THREE.PointsMaterial({
-    size: .15, map: glowTex, vertexColors: true, transparent: true, opacity: .3,
+    size: .12, map: glowTex, vertexColors: true, transparent: true, opacity: .27,
     blending: THREE.AdditiveBlending, depthWrite: false
   }));
   liMesh.renderOrder = 3; partGroup.add(liMesh);
@@ -1093,7 +1097,7 @@ function initBG3D(){
     if (!(inFull(px, py) && !inCore(px, py))) continue;
     const wx = (px-60)*sX, wy = -(py-30)*sX, cc = colAt(px);
     eo.push(wx, wy, 0);
-    ec.push(cc.r*.55+.42, cc.g*.55+.46, cc.b*.55+.5);   /* rozjasniony kolor -> efekt LED */
+    ec.push(cc.r*.72+.24, cc.g*.72+.26, cc.b*.72+.28);   /* lekko rozjasniony obrys, bez efektu LED */
   }
   const NLE = eo.length/3;
   const leOrder = new Float32Array(eo), leCol = new Float32Array(ec), leChaos = fillChaos(new Float32Array(NLE*3));
@@ -1102,7 +1106,7 @@ function initBG3D(){
   leGeo.setAttribute('position', new THREE.BufferAttribute(lePos, 3));
   leGeo.setAttribute('color', new THREE.BufferAttribute(leCol, 3));
   const leMesh = new THREE.Points(leGeo, new THREE.PointsMaterial({
-    size: .14, map: glowTex, vertexColors: true, transparent: true, opacity: .32,
+    size: .12, map: glowTex, vertexColors: true, transparent: true, opacity: .3,
     blending: THREE.AdditiveBlending, depthWrite: false
   }));
   leMesh.renderOrder = 4; partGroup.add(leMesh);
@@ -1132,16 +1136,13 @@ function initBG3D(){
   /* ---- sygnały: świetlne punkty płynące po krawędziach kratownicy ---- */
   const edges = [];
   for (let k = 0; k < linePos.length; k += 6) edges.push([linePos[k],linePos[k+1],linePos[k+2],linePos[k+3],linePos[k+4],linePos[k+5]]);
-  const NSIG = still ? 0 : 16;
+  const NSIG = still ? 0 : 7;
   const sigPos = new Float32Array(Math.max(1, NSIG) * 3);
   const sig = [];
-  for (let i = 0; i < NSIG; i++) sig.push({ e: (Math.random()*edges.length)|0, u: Math.random(), sp: .004 + Math.random()*.006 });
+  for (let i = 0; i < NSIG; i++) sig.push({ e: (Math.random()*edges.length)|0, u: Math.random(), sp: .0016 + Math.random()*.0014 });
   const sigGeo = new THREE.BufferGeometry(); sigGeo.setAttribute('position', new THREE.BufferAttribute(sigPos, 3));
-  const sigMat = new THREE.PointsMaterial({ size: .34, map: glowTex, transparent: true, opacity: 0, color: 0xFFE8CF, blending: THREE.AdditiveBlending, depthWrite: false });
+  const sigMat = new THREE.PointsMaterial({ size: .24, map: glowTex, transparent: true, opacity: 0, color: 0xEFC49C, blending: THREE.AdditiveBlending, depthWrite: false });
   const sigMesh = new THREE.Points(sigGeo, sigMat); sigMesh.renderOrder = 6; partGroup.add(sigMesh);
-  /* ---- iskrzenie w spoczynku ---- */
-  const sColBase = Float32Array.from(sCol);
-  const sparks = [];
   let visible = true;
   document.addEventListener('visibilitychange', () => visible = !document.hidden);
 
@@ -1156,7 +1157,7 @@ function initBG3D(){
     if (still){ pS = 1; pL = 1; } else { pS += (tS - pS) * .06; pL += (tL - pL) * .06; }
     for (let i = 0, j = 0; i < NS; i++, j += 3){
       const pe = easeOutExpo(Math.min(1, Math.max(0, (pS - sDelay[i] * SPREAD_S) / (1 - SPREAD_S))));
-      const fade = 1 - pe * .97;
+      const fade = 1 - pe;
       let x = sChaos[j]     + (sOrder[j]     - sChaos[j])     * pe + Math.sin(t * .8 + i * .41) * .09 * fade;
       let y = sChaos[j + 1] + (sOrder[j + 1] - sChaos[j + 1]) * pe + Math.cos(t * .7 + i * .53) * .09 * fade;
       let z = sChaos[j + 2] + (sOrder[j + 2] - sChaos[j + 2]) * pe + Math.sin(t * .8 + i * .41) * .09 * fade;
@@ -1165,7 +1166,7 @@ function initBG3D(){
     sAttr.needsUpdate = true;
     for (let i = 0, j = 0; i < NLI; i++, j += 3){
       const pe = easeOutExpo(Math.min(1, Math.max(0, (pL - liDelay[i] * SPREAD_L) / (1 - SPREAD_L))));
-      const fade = 1 - pe * .97;
+      const fade = 1 - pe;
       let x = liChaos[j]     + (liOrder[j]     - liChaos[j])     * pe + Math.sin(t * .9 + i * .37) * .05 * fade;
       let y = liChaos[j + 1] + (liOrder[j + 1] - liChaos[j + 1]) * pe + Math.cos(t * .8 + i * .61) * .05 * fade;
       let z = liChaos[j + 2] + (liOrder[j + 2] - liChaos[j + 2]) * pe;
@@ -1174,52 +1175,39 @@ function initBG3D(){
     liAttr.needsUpdate = true;
     for (let i = 0, j = 0; i < NLE; i++, j += 3){
       const pe = easeOutExpo(Math.min(1, Math.max(0, (pL - leDelay[i] * SPREAD_L) / (1 - SPREAD_L))));
-      const fade = 1 - pe * .97;
+      const fade = 1 - pe;
       let x = leChaos[j]     + (leOrder[j]     - leChaos[j])     * pe + Math.sin(t * 1.1 + i * .29) * .05 * fade;
       let y = leChaos[j + 1] + (leOrder[j + 1] - leChaos[j + 1]) * pe + Math.cos(t * .95 + i * .53) * .05 * fade;
       let z = leChaos[j + 2] + (leOrder[j + 2] - leChaos[j + 2]) * pe;
       leAttr.array[j] = x; leAttr.array[j + 1] = y; leAttr.array[j + 2] = z;
     }
     leAttr.needsUpdate = true;
-    /* przebieg światła po krawędzi ∞ po złożeniu logo */
-    if (pL > .55){ const sweep = (t * .12) % 1, bw2 = .0075;
+    /* powolna, szeroka poświata wędrująca po krawędzi ∞ po złożeniu logo */
+    if (pL > .55){ const sweep = (t * .04) % 1, bw2 = .022;
       for (let i = 0, j = 0; i < NLE; i++, j += 3){
         let dd = ledXn[i] - sweep; if (dd > .5) dd -= 1; else if (dd < -.5) dd += 1;
-        const b = Math.exp(-(dd * dd) / bw2) * .9 * pL;
+        const b = Math.exp(-(dd * dd) / bw2) * .38 * pL;
         leColArr[j] = Math.min(1, leColBase[j] + b); leColArr[j + 1] = Math.min(1, leColBase[j + 1] + b * .82); leColArr[j + 2] = Math.min(1, leColBase[j + 2] + b * .62);
       }
       leGeo.attributes.color.needsUpdate = true;
     }
-    lmat.opacity = pS * .12;                  /* linie kratownicy tla (struktura) */
-    llMat.opacity = pL * .09;                 /* linie kratownicy wewnatrz logo */
-    leMesh.material.opacity = .32 * (.4 + .6 * pL);   /* obrys LED - delikatny, wzmacnia sie z logo */
+    lmat.opacity = pS * .17;                  /* linie kratownicy tla (struktura) - to one niosa porzadek */
+    llMat.opacity = pL * .13;                 /* linie kratownicy wewnatrz logo */
+    leMesh.material.opacity = .3 * (.4 + .6 * pL);    /* obrys - delikatny, wzmacnia sie z logo */
     /* sygnały płynące po krawędziach kratownicy (po uformowaniu struktury) */
     if (NSIG){
-      sigMat.opacity = ss(.55, .85, pS) * .95;
+      sigMat.opacity = ss(.55, .85, pS) * .5;
       for (let i = 0; i < NSIG; i++){
         const s = sig[i]; s.u += s.sp;
-        if (s.u >= 1){ s.u = 0; s.e = (Math.random()*edges.length)|0; s.sp = .004 + Math.random()*.006; }
+        if (s.u >= 1){ s.u = 0; s.e = (Math.random()*edges.length)|0; s.sp = .0016 + Math.random()*.0014; }
         const e = edges[s.e], u = s.u, iu = 1 - u, j = i * 3;
         sigPos[j] = e[0]*iu + e[3]*u; sigPos[j+1] = e[1]*iu + e[4]*u; sigPos[j+2] = e[2]*iu + e[5]*u;
       }
       sigGeo.attributes.position.needsUpdate = true;
     }
-    /* iskrzenie w spoczynku: pojedyncze punkty struktury rozbłyskują */
-    if (!still && pS > .9){
-      if (Math.random() < .08 && sparks.length < 10) sparks.push({ i: (Math.random()*NS)|0, l: 1 });
-      let dirty = false;
-      for (let k = sparks.length - 1; k >= 0; k--){
-        const q = sparks[k]; q.l -= .03; const j = q.i * 3, b = Math.max(0, q.l) * .7;
-        sCol[j] = Math.min(1, sColBase[j] + b); sCol[j+1] = Math.min(1, sColBase[j+1] + b*.9); sCol[j+2] = Math.min(1, sColBase[j+2] + b*.8); dirty = true;
-        if (q.l <= 0){ sCol[j] = sColBase[j]; sCol[j+1] = sColBase[j+1]; sCol[j+2] = sColBase[j+2]; sparks.splice(k, 1); }
-      }
-      if (dirty) sGeo.attributes.color.needsUpdate = true;
-    }
-    const yRot = Math.sin(t * .12) * .36 + mx * .14 + sp * .14;   /* kolysanie zamiast pelnego obrotu */
+    const yRot = Math.sin(t * .05) * .22 + mx * .12 + sp * .14;   /* powolny, dostojny dryf zamiast kolysania */
     partGroup.rotation.y = Math.max(-.5236, Math.min(.5236, yRot)); /* zawsze front: max +/-30 stopni */
-    partGroup.rotation.x = Math.sin(t * .16) * .06 + my * .1 + sp * .12;
-    partGroup.position.y = Math.sin(t * .3) * .12;
-    partGroup.scale.setScalar((innerWidth > 960 ? 1 : .7) * (1 + Math.sin(t * .45) * .012));
+    partGroup.rotation.x = Math.sin(t * .07) * .035 + my * .08 + sp * .12;
     scene.fog.density = still ? .026 : (.058 - .034 * ss(0, .5, sp));   /* kinowa ostrość: z mgły w ostrość na scroll */
     camera.position.z = 17 - sp * 3.0;
     renderer.render(scene, camera);
